@@ -1,0 +1,41 @@
+@layer tokens {
+  :root {
+    --white: #ffffff;
+    --text-color: #002435;
+    --primary-color: #17a5e4;
+
+    --text-light-blue: #0044cc;
+    --text-secondary: #99bbff;
+
+    --background-dark-sky: #8fcbff;
+    --background-light-sky: #f0f8ff;
+    --background-sky: #c2e2ff;
+
+    --primary-shape-default: #0243ec;
+    --primary-text-white: #ffffff;
+    --primary-text-active: #00143d;
+
+    --accent-blue: #33a0ff;
+    --accent-green: #36bf5a;
+    --accent-green-hover: #88dd9f;
+    --accent-orange: #ff8d28;
+    --accent-yellow: #ffcc00;
+    --accent-red: #ff383c;
+    --accent-brown: #7a5200;
+    --accents-pink: #ff2d55;
+    --accents-indigo: #6155f5;
+    --accents-purple: #cb30e0;
+
+    --main-black: #242021;
+    --main-grey: #a99ea1;
+    --main-light-grey: #f1f1f1;
+    --main-white: #ffffff;
+
+    --accent-blue-preview: #0000ff;
+    --accent-orange-preview: #de5125;
+
+    --subcomponent-fill-bg-context-bright: #f4f7f9b2;
+    --component-fill: #f5fafde5;
+    --component-stroke: #55a4ff;
+  }
+}

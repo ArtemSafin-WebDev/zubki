@@ -1,0 +1,84 @@
+@layer tokens {
+  :root {
+    --font-family-inter: "Inter", sans-serif;
+    --font-family-oranienbaum: "Oranienbaum", serif;
+
+    --desktop-h1-font-family: var(--font-family-oranienbaum);
+    --desktop-h1-font-size: 5.6rem;
+    --desktop-h1-font-weight: 400;
+    --desktop-h1-line-height: 0.9;
+    --desktop-h1-letter-spacing: 0;
+
+    --desktop-h2-font-family: var(--font-family-oranienbaum);
+    --desktop-h2-font-size: 3.2rem;
+    --desktop-h2-font-weight: 400;
+    --desktop-h2-line-height: 1;
+    --desktop-h2-letter-spacing: 0;
+
+    --desktop-h3-font-family: var(--font-family-oranienbaum);
+    --desktop-h3-font-size: 2.4rem;
+    --desktop-h3-font-weight: 400;
+    --desktop-h3-line-height: 1.1;
+    --desktop-h3-letter-spacing: 0;
+
+    --desktop-h4-font-family: var(--font-family-oranienbaum);
+    --desktop-h4-font-size: 1.8rem;
+    --desktop-h4-font-weight: 400;
+    --desktop-h4-line-height: 1.1;
+    --desktop-h4-letter-spacing: 0;
+
+    --desktop-body-font-family: var(--font-family-inter);
+    --desktop-body-font-size: 1.4rem;
+    --desktop-body-font-weight: 500;
+    --desktop-body-line-height: 1.2;
+    --desktop-body-letter-spacing: 0;
+
+    --desktop-body-text-page-font-family: var(--font-family-inter);
+    --desktop-body-text-page-font-size: 1.4rem;
+    --desktop-body-text-page-font-weight: 500;
+    --desktop-body-text-page-line-height: 1.4;
+    --desktop-body-text-page-letter-spacing: 0;
+
+    --desktop-body-regular-font-family: var(--font-family-inter);
+    --desktop-body-regular-font-size: 1.4rem;
+    --desktop-body-regular-font-weight: 400;
+    --desktop-body-regular-line-height: 1.25;
+    --desktop-body-regular-letter-spacing: 0;
+
+    --desktop-caption-font-family: var(--font-family-inter);
+    --desktop-caption-font-size: 1.1rem;
+    --desktop-caption-font-weight: 500;
+    --desktop-caption-line-height: 1.2;
+    --desktop-caption-letter-spacing: -0.02rem;
+
+    --desktop-caption-regular-font-family: var(--font-family-inter);
+    --desktop-caption-regular-font-size: 1.2rem;
+    --desktop-caption-regular-font-weight: 400;
+    --desktop-caption-regular-line-height: 1.25;
+    --desktop-caption-regular-letter-spacing: 0;
+
+    --desktop-annotation-font-family: var(--font-family-inter);
+    --desktop-annotation-font-size: 0.8rem;
+    --desktop-annotation-font-weight: 500;
+    --desktop-annotation-line-height: 1.1;
+    --desktop-annotation-letter-spacing: 0;
+
+    --mobile-h2-font-family: var(--font-family-oranienbaum);
+    --mobile-h2-font-size: 2.4rem;
+    --mobile-h2-font-weight: 400;
+    --mobile-h2-line-height: 1;
+    --mobile-h2-letter-spacing: 0;
+
+    --mobile-h3-font-family: var(--font-family-oranienbaum);
+    --mobile-h3-font-size: 2rem;
+    --mobile-h3-font-weight: 400;
+    --mobile-h3-line-height: 1.1;
+    --mobile-h3-letter-spacing: 0;
+
+    --mobile-h4-font-family: var(--font-family-oranienbaum);
+    --mobile-h4-font-size: 1.6rem;
+    --mobile-h4-font-weight: 400;
+    --mobile-h4-line-height: 1.1;
+    --mobile-h4-letter-spacing: 0;
+  }
+}

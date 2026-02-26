@@ -1,0 +1,32 @@
+@layer base {
+  html {
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overscroll-behavior: none;
+    font-family: var(--pragmatica);
+    color: var(--text-color);
+  }
+
+  :where(a, button) {
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  ::selection {
+    color: white;
+    background-color: var(--primary-color);
+    -webkit-text-fill-color: white;
+  }
+}

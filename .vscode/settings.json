@@ -1,0 +1,11 @@
+{
+  "px-to-rem.px-per-rem": 10,
+  "path-intellisense.mappings": {
+    "/images": "${workspaceFolder}/public/images",
+    "/fonts": "${workspaceFolder}/public/fonts",
+    "../images": "${workspaceFolder}/public/images",
+    "../fonts": "${workspaceFolder}/public/fonts"
+  },
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.showHiddenFiles": false
+}
