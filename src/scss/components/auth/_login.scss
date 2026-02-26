@@ -1,0 +1,9 @@
+@layer components {
+  .login {
+    border-radius: 3.2rem;
+    border: 1.5px solid rgba(235, 245, 255, 0);
+    background: var(--white);
+    box-shadow: var(--white-cards-shadow);
+    flex-grow: 1;
+  }
+}

@@ -7,14 +7,16 @@
   }
 
   body {
-    font-size: 1.6rem;
-    line-height: 1.2;
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overscroll-behavior: none;
-    font-family: var(--pragmatica);
-    color: var(--text-color);
+    color: var(--text-light-blue);
   }
 
   :where(a, button) {
@@ -26,7 +28,7 @@
 
   ::selection {
     color: white;
-    background-color: var(--primary-color);
+    background-color: var(--accent-blue);
     -webkit-text-fill-color: white;
   }
 }

@@ -1,0 +1,57 @@
+@layer base {
+  .h1 {
+    font-family: var(--desktop-h1-font-family);
+    font-size: var(--desktop-h1-font-size);
+    font-weight: var(--desktop-h1-font-weight);
+    line-height: var(--desktop-h1-line-height);
+    letter-spacing: var(--desktop-h1-letter-spacing);
+  }
+
+  .h2 {
+    font-family: var(--desktop-h2-font-family);
+    font-size: var(--desktop-h2-font-size);
+    font-weight: var(--desktop-h2-font-weight);
+    line-height: var(--desktop-h2-line-height);
+    letter-spacing: var(--desktop-h2-letter-spacing);
+
+    @media (max-width: 576px) {
+      font-family: var(--mobile-h2-font-family);
+      font-size: var(--mobile-h2-font-size);
+      font-weight: var(--mobile-h2-font-weight);
+      line-height: var(--mobile-h2-line-height);
+      letter-spacing: var(--mobile-h2-letter-spacing);
+    }
+  }
+
+  .h3 {
+    font-family: var(--desktop-h3-font-family);
+    font-size: var(--desktop-h3-font-size);
+    font-weight: var(--desktop-h3-font-weight);
+    line-height: var(--desktop-h3-line-height);
+    letter-spacing: var(--desktop-h3-letter-spacing);
+
+    @media (max-width: 576px) {
+      font-family: var(--mobile-h3-font-family);
+      font-size: var(--mobile-h3-font-size);
+      font-weight: var(--mobile-h3-font-weight);
+      line-height: var(--mobile-h3-line-height);
+      letter-spacing: var(--mobile-h3-letter-spacing);
+    }
+  }
+
+  .h4 {
+    font-family: var(--desktop-h4-font-family);
+    font-size: var(--desktop-h4-font-size);
+    font-weight: var(--desktop-h4-font-weight);
+    line-height: var(--desktop-h4-line-height);
+    letter-spacing: var(--desktop-h4-letter-spacing);
+
+    @media (max-width: 576px) {
+      font-family: var(--mobile-h4-font-family);
+      font-size: var(--mobile-h4-font-size);
+      font-weight: var(--mobile-h4-font-weight);
+      line-height: var(--mobile-h4-line-height);
+      letter-spacing: var(--mobile-h4-letter-spacing);
+    }
+  }
+}
