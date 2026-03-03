@@ -1,10 +1,28 @@
 @layer components {
   .welcome {
     border-radius: 3.2rem;
-    background: rgba(255, 255, 255, 0.48);
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
+    flex-grow: 1;
+    padding: 3.2rem;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.48);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(to right bottom, transparent, white);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
   }
 
   .welcome__top-row {
@@ -27,7 +45,8 @@
   }
 
   .welcome__text {
-    max-width: 32rem;
+    max-width: 36rem;
+    text-wrap: balance;
 
     p {
       margin-top: 0.8rem;
@@ -80,5 +99,9 @@
 
   .welcome__instruction-list-item {
     width: 100%;
+  }
+
+  .welcome__instruction {
+    width: 34.6rem;
   }
 }

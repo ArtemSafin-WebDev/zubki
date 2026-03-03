@@ -1,0 +1,49 @@
+@layer components {
+  .faq {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.6rem;
+    background: rgba(255, 255, 255, 0.48);
+  }
+
+  .faq__title {
+    display: block;
+  }
+
+  .faq__text {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .faq__link {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: var(--font-family-inter);
+    padding: 1.2rem;
+    padding-left: 1.6rem;
+    border-radius: 30rem;
+    background-color: var(--white);
+    color: var(--text-light-blue);
+    text-align: left;
+
+    svg {
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+    }
+  }
+}

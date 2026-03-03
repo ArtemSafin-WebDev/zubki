@@ -63,11 +63,13 @@
 
   .instruction__title {
     margin: 0;
-    color: var(--white);
-    font-family: var(--desktop-h4-font-family);
-    font-size: var(--desktop-h4-font-size);
-    font-weight: var(--desktop-h4-font-weight);
-    line-height: var(--desktop-h4-line-height);
-    letter-spacing: var(--desktop-h4-letter-spacing);
+    text-wrap: balance;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    font-family: var(--font-family-oranienbaum);
+    -webkit-text-stroke-width: 0.02rem;
+    -webkit-text-stroke-color: var(--White, #fff);
   }
 }

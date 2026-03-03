@@ -4,10 +4,10 @@
             <img src="/images/shared/logo.svg" alt="" class="welcome__logo-image">
             <div class="welcome__text">
                 <p>
-                    Онлайн платформа для родителей и детей по воспитанию полезных привычек
+                    Онлайн платформа для родителей и&nbsp;детей по&nbsp;воспитанию полезных привычек
                 </p>
                 <p>
-                    ФГБОУ ВО Казанский ГМУ Минздрава России
+                    ФГБОУ ВО&nbsp;Казанский ГМУ Минздрава России
                 </p>
             </div>
         </div>
@@ -33,14 +33,15 @@
         </ul>
     </div>
     <div class="welcome__bottom-row">
-        <ul class="welcome__instruction-list">
-            <li class="welcome__instruction-list-item">
-                {{> components/cards/instruction
-                imageSrc="/images/instruction/preview.webp"
-                imageAlt="Превью инструкции об образовательной платформе"
-                title="Инструкция об образовательной платформе"
-                }}
-            </li>
-        </ul>
+        {{> components/cards/instruction
+        imageSrc="/images/instruction/preview.webp"
+        imageAlt="Превью инструкции об образовательной платформе"
+        class="welcome__instruction"
+        title="Инструкция об образовательной платформе"
+        }}
+
+        {{> components/shared/info
+        class="welcome__info"
+        }}
     </div>
 </div>
