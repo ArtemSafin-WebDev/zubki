@@ -1,3 +1,15 @@
+@property --info-btn-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0044cc;
+}
+
+@property --info-btn-icon-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
 @layer components {
   .info {
     position: relative;
@@ -5,20 +17,42 @@
   }
 
   .info__btn {
+    --info-btn-bg: var(--text-light-blue);
+    --info-btn-icon-color: var(--white);
+
     width: 4rem;
     height: 4rem;
     display: grid;
     place-items: center;
     border-radius: 50%;
     border: 1px solid transparent;
-    background: var(--text-light-blue);
+    background: var(--info-btn-bg);
     background:
-      linear-gradient(var(--text-light-blue), var(--text-light-blue))
-        padding-box,
+      linear-gradient(var(--info-btn-bg), var(--info-btn-bg)) padding-box,
       linear-gradient(96deg, rgba(112, 160, 255, 0) 0.09%, #70a0ff 99.99%)
         border-box;
+
+    transition:
+      --info-btn-bg 0.2s ease,
+      --info-btn-icon-color 0.2s ease;
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+      --info-btn-bg: var(--text-light-blue-hover);
+    }
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {
+      --info-btn-bg: var(--text-light-blue-pressed);
+    }
+
+    &:is(:disabled, [aria-disabled="true"], .is-disabled) {
+      --info-btn-bg: var(--text-light-blue);
+      --info-btn-icon-color: var(--text-secondary);
+      pointer-events: none;
+      cursor: default;
+    }
+
     svg {
-      fill: white;
+      fill: var(--info-btn-icon-color);
       width: 2.4rem;
       height: 2.4rem;
     }
