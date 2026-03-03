@@ -1,5 +1,34 @@
+@property --arrow-btn-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #36bf5a;
+}
+
+@property --arrow-btn-text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --arrow-btn-icon-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --arrow-btn-icon-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0044cc;
+}
+
 @layer components {
   .arrow-btn {
+    --arrow-btn-bg: var(--accent-green);
+    --arrow-btn-text-color: var(--white);
+    --arrow-btn-icon-bg: var(--white);
+    --arrow-btn-icon-color: var(--text-light-blue);
+
     display: flex;
     align-items: center;
     gap: 1.2rem;
@@ -10,15 +39,36 @@
     font-weight: 500;
     line-height: 120%;
     font-family: var(--font-family-inter);
-    color: var(--white);
+    color: var(--arrow-btn-text-color);
     padding-left: 2rem;
     border: 1px solid transparent;
-    background: var(--accent-green);
+    background: var(--arrow-btn-bg);
     justify-content: space-between;
     background:
-      linear-gradient(var(--accent-green), var(--accent-green)) padding-box,
+      linear-gradient(var(--arrow-btn-bg), var(--arrow-btn-bg)) padding-box,
       linear-gradient(96deg, rgba(128, 219, 152, 0) 0.09%, #80db98 99.99%)
         border-box;
+    transition:
+      --arrow-btn-bg 0.2s ease,
+      --arrow-btn-text-color 0.2s ease,
+      --arrow-btn-icon-bg 0.2s ease,
+      --arrow-btn-icon-color 0.2s ease;
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+      --arrow-btn-bg: var(--accent-green-hover);
+    }
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {
+      --arrow-btn-bg: var(--accent-green-pressed);
+    }
+
+    &:is(:disabled, [aria-disabled="true"], .is-disabled) {
+      --arrow-btn-text-color: var(--accent-green-hover);
+      --arrow-btn-icon-bg: var(--accent-green-hover);
+      --arrow-btn-icon-color: var(--accent-green);
+      pointer-events: none;
+      cursor: default;
+    }
 
     &--centered {
       display: grid;
@@ -43,14 +93,14 @@
     display: inline-grid;
     place-items: center;
     border-radius: 50%;
-    background-color: var(--white);
+    background-color: var(--arrow-btn-icon-bg);
     width: 3.2rem;
     height: 3.2rem;
 
     svg {
       width: 1.2rem;
       height: 1.2rem;
-      fill: var(--text-light-blue);
+      fill: var(--arrow-btn-icon-color);
     }
   }
 }
