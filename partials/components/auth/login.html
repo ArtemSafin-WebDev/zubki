@@ -5,7 +5,15 @@
         </h1>
         <div class="login__form-fields">
             <div class="login__form-field">
-
+                {{> components/shared/text-input
+                class="login__text-input"
+                type="text"
+                name="username"
+                label="Введите логин"
+                iconId="profile"
+                autocomplete="username"
+                required=true
+                }}
             </div>
         </div>
         <div class="login__form-buttons">
