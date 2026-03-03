@@ -15,6 +15,17 @@
                 required=true
                 }}
             </div>
+            <div class="login__form-field">
+                {{> components/shared/text-input
+                class="login__text-input"
+                type="text"
+                name="password"
+                label="Введите пароль"
+                iconId="password"
+                autocomplete="password"
+                required=true
+                }}
+            </div>
         </div>
         <div class="login__form-buttons">
             <button class="arrow-btn arrow-btn--centered login__form-submit" type="submit">
