@@ -1,0 +1,21 @@
+@layer components {
+  .wavy-btn {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    transition:
+      color 0.2s,
+      text-decoration-color 0.2s;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--accent-blue);
+      }
+    }
+
+    &:active {
+      color: var(--text-secondary);
+    }
+  }
+}

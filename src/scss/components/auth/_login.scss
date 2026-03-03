@@ -10,6 +10,7 @@
     grid-template-areas: "." "form" "remember";
     position: relative;
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
+    padding: 4rem;
 
     &::before {
       content: "";
@@ -38,6 +39,7 @@
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
+    gap: 2.4rem;
   }
 
   .login__title {
@@ -60,5 +62,21 @@
 
   .login__form-submit {
     width: 100%;
+  }
+
+  .login__form-policy {
+    font-family: var(--desktop-caption-font-family);
+    font-size: var(--desktop-caption-font-size);
+    font-weight: var(--desktop-caption-font-weight);
+    line-height: var(--desktop-caption-line-height);
+    letter-spacing: var(--desktop-caption-letter-spacing);
+    text-align: center;
+  }
+
+  .login__remember-link {
+    align-self: flex-end;
+    justify-self: center;
+    text-align: center;
+    grid-area: remember;
   }
 }
