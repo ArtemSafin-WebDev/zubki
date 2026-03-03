@@ -7,5 +7,12 @@
     "../fonts": "${workspaceFolder}/public/fonts"
   },
   "path-intellisense.extensionOnImport": true,
-  "path-intellisense.showHiddenFiles": false
+  "path-intellisense.showHiddenFiles": false,
+  "files.associations": {
+    "*.html": "html"
+  },
+  "html.format.indentHandlebars": true,
+  "emmet.includeLanguages": {
+    "handlebars": "html"
+  }
 }

@@ -1,11 +1,11 @@
 <label class="text-input{{#if class}} {{ class }}{{/if}}">
     <span class="text-input__control">
         {{#if iconId}}
-        <span class="text-input__icon" aria-hidden="true">
-            <svg width="12" height="12">
-                <use xlink:href="#{{ iconId }}"></use>
-            </svg>
-        </span>
+            <span class="text-input__icon" aria-hidden="true">
+                <svg width="12" height="12">
+                    <use xlink:href="#{{ iconId }}"></use>
+                </svg>
+            </span>
         {{/if}}
         <input class="text-input__field{{#if inputClass}} {{ inputClass }}{{/if}}"
             type="{{#if type}}{{ type }}{{else}}text{{/if}}" name="{{#if name}}{{ name }}{{else}}text-input{{/if}}"
@@ -16,8 +16,8 @@
         </span>
     </span>
     {{#if errorText}}
-    <span class="validation-error">
-        {{ errorText }}
-    </span>
+        <span class="validation-error">
+            {{ errorText }}
+        </span>
     {{/if}}
 </label>
