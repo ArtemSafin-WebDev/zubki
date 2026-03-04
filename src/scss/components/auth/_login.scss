@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .login {
     border-radius: 3.2rem;
@@ -11,6 +13,14 @@
     position: relative;
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
     padding: 4rem;
+    gap: 1.6rem;
+
+    @include breakpoints.mobile {
+      padding: 1.6rem;
+      border-radius: 2.4rem;
+      display: flex;
+      flex-direction: column;
+    }
 
     &::before {
       content: "";
@@ -40,6 +50,13 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+
+    @include breakpoints.mobile {
+      padding: 2rem;
+      border-radius: 1.2rem;
+      max-width: none;
+      gap: 2rem;
+    }
   }
 
   .login__title {
@@ -51,13 +68,19 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    margin-top: 2.4rem;
+
+    @include breakpoints.mobile {
+      gap: 1.2rem;
+    }
   }
 
   .login__form-buttons {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+
+    @include breakpoints.mobile {
+    }
   }
 
   .login__form-submit {
@@ -78,5 +101,9 @@
     justify-self: center;
     text-align: center;
     grid-area: remember;
+
+    @include breakpoints.mobile {
+      align-self: center;
+    }
   }
 }

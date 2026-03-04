@@ -2,14 +2,13 @@
 
 @layer components {
   .welcome {
+    position: relative;
     border-radius: 3.2rem;
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
     flex-grow: 1;
     padding: 3.2rem;
-    backdrop-filter: blur(8px);
-    background-color: rgba(255, 255, 255, 0.48);
 
     @include breakpoints.mobile {
       padding: 2rem;
@@ -17,10 +16,22 @@
       border-radius: 2.4rem;
     }
 
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.48);
+      pointer-events: none;
+    }
+
     &::before {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 2;
       padding: 1px;
       border-radius: inherit;
       background: linear-gradient(to right bottom, transparent, white);
@@ -30,6 +41,11 @@
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
     }
   }
 
@@ -138,6 +154,8 @@
 
   .welcome__instruction {
     max-width: 34.6rem;
+    position: relative;
+    z-index: 1;
     @include breakpoints.mobile {
       max-width: none;
     }
