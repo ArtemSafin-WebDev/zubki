@@ -1,0 +1,15 @@
+@use "../tokens/breakpoints";
+
+@layer layout {
+  .home {
+    padding: var(--content-padding);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-sky);
+    background-image: url("/images/home/grass.webp");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+}

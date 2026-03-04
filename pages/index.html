@@ -6,11 +6,12 @@
 </head>
 
 <body>
-  {{> layout/header }}
-  <main class="page-main">
 
+  <main class="page-main">
+    <div class="home">
+      {{> layout/header }}
+    </div>
   </main>
-  {{> layout/footer }}
   {{> components/misc/cookie-banner }}
 
   <script type="module" src="/src/js/main.ts"></script>
