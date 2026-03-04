@@ -42,11 +42,10 @@
     --btn-icon-color: var(--text-light-blue);
     --btn-outline-start: rgba(128, 219, 152, 0);
     --btn-outline-end: #80db98;
-    min-height: 4rem;
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    padding: 0.3rem;
+    user-select: none;
     border-radius: 30rem;
     font-size: 1.5rem;
     font-style: normal;
@@ -54,7 +53,12 @@
     line-height: 140%;
     font-family: var(--font-family-inter);
     color: var(--btn-text-color);
-    padding-left: 2rem;
+    padding: 0.85rem 2.4rem;
+
+    &:has(.btn__icon) {
+      padding: 0.3rem;
+      padding-left: 2rem;
+    }
     border: 1px solid transparent;
     background: var(--btn-bg);
     justify-content: space-between;
@@ -117,7 +121,11 @@
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       text-align: center;
-      padding-left: 0.3rem;
+
+      &:has(.btn__icon) {
+        padding-left: 0.3rem;
+      }
+
       .btn__icon {
         grid-column: 3 / 4;
         justify-self: flex-end;
