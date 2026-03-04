@@ -1,0 +1,25 @@
+<article class="fact-card js-fact-card">
+    <div class="fact-card__top">
+        <span class="fact-card__tag">Интересные факты</span>
+        {{> components/shared/slider-arrows
+        class="fact-card__arrows"
+        prevLabel="Предыдущий факт"
+        nextLabel="Следующий факт"
+        }}
+    </div>
+
+    <div class="fact-card__slider swiper">
+        <div class="swiper-wrapper">
+            {{#each slides}}
+            <div class="fact-card__slide swiper-slide">
+                <div class="fact-card__content">
+                    <h3 class="fact-card__title">{{ this.title }}</h3>
+                    <p class="fact-card__description">{{ this.description }}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="fact-card__pagination swiper-pagination" aria-hidden="true"></div>
+</article>

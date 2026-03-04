@@ -1,0 +1,36 @@
+@layer components {
+  .slider-arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .slider-arrows__btn {
+    --slider-arrows-btn-bg: var(--white);
+    --slider-arrows-btn-icon: var(--text-light-blue);
+
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: var(--slider-arrows-btn-bg);
+    display: grid;
+    place-items: center;
+  }
+
+  .slider-arrows__btn-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: var(--slider-arrows-btn-icon);
+  }
+
+  .slider-arrows__btn:is(
+      :disabled,
+      [aria-disabled="true"],
+      .is-disabled,
+      .swiper-button-disabled
+    ) {
+    --slider-arrows-btn-icon: var(--text-secondary);
+    pointer-events: none;
+    cursor: default;
+  }
+}

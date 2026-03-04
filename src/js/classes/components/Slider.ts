@@ -4,9 +4,6 @@ import { SwiperOptions } from "swiper/types";
 import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
 import Component from "../Component";
 
-import "swiper/css";
-import "swiper/css/effect-fade";
-
 type SliderAutoHeightOptions =
   | { autoHeight: true; onHeightChange?: () => void }
   | { autoHeight?: false; onHeightChange?: never };
