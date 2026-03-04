@@ -12,14 +12,15 @@
   }
 
   .faq__text {
-    margin-top: 0.8rem;
     color: var(--text-secondary);
+    margin-top: 0.4rem;
   }
 
   .faq__list {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    margin-top: 1rem;
   }
 
   .faq__link {
