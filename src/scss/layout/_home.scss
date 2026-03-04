@@ -11,10 +11,17 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center bottom;
+
+    @include breakpoints.mobile {
+      background-image: url("/images/home/grass-mobile.webp");
+    }
   }
 
   .home__dashboard {
     margin-top: 2.4rem;
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+    }
 
     > .swiper {
       overflow: visible;
@@ -32,6 +39,11 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.24fr) minmax(0, 1fr);
       gap: 12rem;
+
+      @include breakpoints.mobile {
+        display: flex;
+        gap: 0;
+      }
     }
   }
 }
