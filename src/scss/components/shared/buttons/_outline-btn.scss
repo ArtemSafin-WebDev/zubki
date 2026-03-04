@@ -38,5 +38,13 @@
       pointer-events: none;
       cursor: default;
     }
+
+    &--small {
+      min-height: 3.2rem;
+      padding: 0.55rem 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
