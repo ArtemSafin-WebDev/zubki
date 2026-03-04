@@ -1,4 +1,4 @@
-@use "../tokens/breakpoints";
+@use "tokens/breakpoints";
 
 @layer layout {
   .home {
@@ -25,6 +25,9 @@
 
     > .swiper {
       overflow: visible;
+      @include breakpoints.mobile {
+        overflow: hidden;
+      }
     }
 
     > .swiper > .swiper-wrapper > .swiper-slide {

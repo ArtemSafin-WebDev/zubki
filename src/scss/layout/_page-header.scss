@@ -1,9 +1,15 @@
+@use "tokens/breakpoints";
+
 @layer layout {
   .page-header {
     padding: 1.6rem 2.4rem;
     border-radius: 1.6rem;
     background: var(--white);
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
+
+    @include breakpoints.mobile {
+      padding: 1.2rem 2rem;
+    }
   }
 
   .page-header__row {
@@ -12,10 +18,20 @@
     grid-template-areas: "left logo right";
     align-items: center;
     gap: 3.2rem;
+
+    @include breakpoints.mobile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   .page-header__menu {
     display: contents;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .page-header__left {
@@ -66,6 +82,10 @@
     position: relative;
     width: 13.75rem;
     align-self: stretch;
+
+    @include breakpoints.mobile {
+      width: 7.6596rem;
+    }
   }
 
   .page-header__logo-image {
@@ -74,6 +94,11 @@
     position: absolute;
     bottom: -0.6rem;
     left: 0;
+
+    @include breakpoints.mobile {
+      bottom: auto;
+      position: static;
+    }
   }
 
   .page-header__right {
@@ -100,5 +125,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .page-header__menu-toggle {
+    display: none;
+    @include breakpoints.mobile {
+      display: block;
+      padding-inline: 1.6rem;
+    }
   }
 }
