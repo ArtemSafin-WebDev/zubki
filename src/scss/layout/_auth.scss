@@ -14,10 +14,26 @@
     flex-grow: 1;
 
     @include breakpoints.mobile {
-      background-image: url("/images/auth/bg-mobile.webp");
       flex-direction: column;
       display: flex;
       gap: 2rem;
+      position: relative;
+      isolation: isolate;
+      background-image: none;
+      min-height: 100dvh;
+
+      &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: var(--accent-blue);
+        background-image: url("/images/auth/bg-mobile.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
+        pointer-events: none;
+      }
     }
   }
 
