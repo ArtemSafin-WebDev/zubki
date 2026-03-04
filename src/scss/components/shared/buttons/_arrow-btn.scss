@@ -22,22 +22,36 @@
   initial-value: #0044cc;
 }
 
+@property --arrow-btn-outline-start {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(128, 219, 152, 0);
+}
+
+@property --arrow-btn-outline-end {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #80db98;
+}
+
 @layer components {
   .arrow-btn {
     --arrow-btn-bg: var(--accent-green);
     --arrow-btn-text-color: var(--white);
     --arrow-btn-icon-bg: var(--white);
     --arrow-btn-icon-color: var(--text-light-blue);
+    --arrow-btn-outline-start: rgba(128, 219, 152, 0);
+    --arrow-btn-outline-end: #80db98;
 
     display: flex;
     align-items: center;
     gap: 1.2rem;
     padding: 0.3rem;
     border-radius: 30rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 120%;
+    line-height: 140%;
     font-family: var(--font-family-inter);
     color: var(--arrow-btn-text-color);
     padding-left: 2rem;
@@ -46,13 +60,19 @@
     justify-content: space-between;
     background:
       linear-gradient(var(--arrow-btn-bg), var(--arrow-btn-bg)) padding-box,
-      linear-gradient(96deg, rgba(128, 219, 152, 0) 0.09%, #80db98 99.99%)
+      linear-gradient(
+          96deg,
+          var(--arrow-btn-outline-start) 0.09%,
+          var(--arrow-btn-outline-end) 99.99%
+        )
         border-box;
     transition:
       --arrow-btn-bg 0.2s ease,
       --arrow-btn-text-color 0.2s ease,
       --arrow-btn-icon-bg 0.2s ease,
-      --arrow-btn-icon-color 0.2s ease;
+      --arrow-btn-icon-color 0.2s ease,
+      --arrow-btn-outline-start 0.2s ease,
+      --arrow-btn-outline-end 0.2s ease;
 
     &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
       --arrow-btn-bg: var(--accent-green-hover);
@@ -68,6 +88,28 @@
       --arrow-btn-icon-color: var(--accent-green);
       pointer-events: none;
       cursor: default;
+    }
+
+    &--blue {
+      --arrow-btn-bg: var(--text-light-blue);
+      --arrow-btn-icon-color: var(--text-light-blue);
+      --arrow-btn-outline-start: rgba(112, 160, 255, 0);
+      --arrow-btn-outline-end: #70a0ff;
+
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+        --arrow-btn-bg: var(--text-light-blue-hover);
+      }
+
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {
+        --arrow-btn-bg: var(--text-light-blue-pressed);
+      }
+
+      &:is(:disabled, [aria-disabled="true"], .is-disabled) {
+        --arrow-btn-text-color: var(--text-secondary);
+        --arrow-btn-icon-bg: var(--text-secondary);
+        --arrow-btn-icon-color: var(--text-light-blue);
+        gap: 0.4rem;
+      }
     }
 
     &--centered {
