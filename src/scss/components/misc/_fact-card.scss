@@ -9,6 +9,21 @@
     border-radius: 1.6rem;
     background-color: var(--accent-yellow);
     color: var(--text-light-blue);
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.5px;
+      border-radius: inherit;
+      background: linear-gradient(to right, transparent, #ffeb99);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
   }
 
   .fact-card__top {
