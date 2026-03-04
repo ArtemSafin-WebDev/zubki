@@ -46,5 +46,11 @@
       height: 1.2rem;
       fill: currentColor;
     }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
   }
 }
