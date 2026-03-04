@@ -1,3 +1,5 @@
+@use "../tokens/breakpoints";
+
 @layer layout {
   .auth {
     display: grid;
@@ -11,8 +13,11 @@
     background-repeat: no-repeat;
     flex-grow: 1;
 
-    @media (width <= 576px) {
+    @include breakpoints.mobile {
       background-image: url("/images/auth/bg-mobile.webp");
+      flex-direction: column;
+      display: flex;
+      gap: 2rem;
     }
   }
 

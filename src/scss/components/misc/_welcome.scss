@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .welcome {
     border-radius: 3.2rem;
@@ -8,6 +10,12 @@
     padding: 3.2rem;
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.48);
+
+    @include breakpoints.mobile {
+      padding: 2rem;
+      gap: 2rem;
+      border-radius: 2.4rem;
+    }
 
     &::before {
       content: "";
@@ -30,23 +38,46 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 3.2rem;
+
+    @include breakpoints.mobile {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas: "logo organizations" "text text";
+      align-items: center;
+      gap: 2rem;
+    }
   }
 
   .welcome__top-left {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+
+    @include breakpoints.mobile {
+      display: contents;
+    }
   }
 
   .welcome__logo-image {
     width: 36.5rem;
     height: auto;
     max-width: 100%;
+
+    @include breakpoints.mobile {
+      width: 9.2rem;
+      grid-area: logo;
+    }
   }
 
   .welcome__text {
     max-width: 36rem;
     text-wrap: balance;
+
+    @include breakpoints.mobile {
+      max-width: none;
+      grid-area: text;
+      text-wrap: revert;
+    }
 
     p {
       margin-top: 0.8rem;
@@ -61,11 +92,19 @@
     align-items: center;
     gap: 0.8rem;
     flex-wrap: wrap;
+
+    @include breakpoints.mobile {
+      grid-area: organizations;
+    }
   }
 
   .welcome__organizations-list-item {
     flex-shrink: 0;
     width: 5.6rem;
+
+    @include breakpoints.mobile {
+      width: 4.8rem;
+    }
   }
 
   .welcome__organization-card {
@@ -90,18 +129,26 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 3.2rem;
-  }
 
-  .welcome__instruction-list {
-    width: 100%;
-    max-width: 34.6rem;
-  }
-
-  .welcome__instruction-list-item {
-    width: 100%;
+    @include breakpoints.mobile {
+      margin: 0;
+      display: contents;
+    }
   }
 
   .welcome__instruction {
-    width: 34.6rem;
+    max-width: 34.6rem;
+    @include breakpoints.mobile {
+      max-width: none;
+    }
+  }
+
+  .welcome__info {
+    @include breakpoints.mobile {
+      position: fixed;
+      z-index: 100;
+      right: 0.8rem;
+      bottom: 0.8rem;
+    }
   }
 }

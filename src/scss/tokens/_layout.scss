@@ -1,5 +1,11 @@
+@use "breakpoints";
+
 @layer tokens {
   :root {
     --content-padding: 3.2rem;
+
+    @include breakpoints.mobile {
+      --content-padding: 2rem;
+    }
   }
 }

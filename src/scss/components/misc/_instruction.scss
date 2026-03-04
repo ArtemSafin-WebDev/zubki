@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .instruction {
     display: flex;
@@ -22,6 +24,10 @@
     flex-shrink: 0;
     border-radius: 0.8rem;
     overflow: hidden;
+    align-self: flex-start;
+    @include breakpoints.mobile {
+      width: 12.7rem;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -52,6 +58,11 @@
     z-index: 2;
     background-color: var(--white);
     transform: translate(-50%, -50%);
+
+    @include breakpoints.mobile {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 
   .instruction__play-icon {
