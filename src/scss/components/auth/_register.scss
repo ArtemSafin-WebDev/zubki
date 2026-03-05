@@ -52,6 +52,7 @@
   .register__scroll::-webkit-scrollbar-track {
     background: var(--background-light-sky);
     border-radius: 10rem;
+    margin-block: 4rem;
   }
 
   .register__scroll::-webkit-scrollbar-thumb {
