@@ -11,8 +11,8 @@ class AJAXForm extends Component {
   private abortController: AbortController | null = null;
   private submitBtn: HTMLButtonElement | null;
   private isSubmitting = false;
-  private successModal: HTMLElement | null = null;
-  private errorModal: HTMLElement | null = null;
+  private successModal: HTMLDialogElement | null = null;
+  private errorModal: HTMLDialogElement | null = null;
 
   constructor(
     form: HTMLFormElement,
@@ -31,9 +31,13 @@ class AJAXForm extends Component {
       form.getAttribute("data-error-modal") ??
       null;
 
-    if (successSelector)
-      this.successModal = document.querySelector(successSelector);
-    if (errorSelector) this.errorModal = document.querySelector(errorSelector);
+    if (successSelector) {
+      this.successModal =
+        document.querySelector<HTMLDialogElement>(successSelector);
+    }
+    if (errorSelector) {
+      this.errorModal = document.querySelector<HTMLDialogElement>(errorSelector);
+    }
 
     this.submitBtn = form.querySelector<HTMLButtonElement>(
       'button[type="submit"]'
@@ -51,34 +55,37 @@ class AJAXForm extends Component {
     this.abortController?.abort();
     this.abortController = new AbortController();
 
-    const data = new FormData(this.element as HTMLFormElement);
+    const data = new FormData(this.form);
     this.element.classList.remove("form-sent");
     this.isSubmitting = true;
     if (this.submitBtn) this.submitBtn.disabled = true;
 
     try {
-      const res = await fetch((this.element as HTMLFormElement).action, {
+      const res = await fetch(this.form.action, {
         method: "POST",
         body: data,
         signal: this.abortController.signal,
       });
       if (!res.ok) throw new Error(`Response is not ok: ${res.status}`);
-      if (this.successModal) {
-        this.successModal.classList.add("active");
-        document.body.classList.add("modal-open");
-      }
+      this.openModal(this.successModal);
       this.element.classList.add("form-sent");
-      (this.element as HTMLFormElement).reset();
+      this.form.reset();
     } catch (error) {
-      if (this.errorModal) {
-        this.errorModal.classList.add("active");
-        document.body.classList.add("modal-open");
-      }
+      this.openModal(this.errorModal);
       console.error(error);
     } finally {
       this.isSubmitting = false;
       if (this.submitBtn) this.submitBtn.disabled = false;
     }
+  }
+
+  private get form(): HTMLFormElement {
+    return this.element as HTMLFormElement;
+  }
+
+  private openModal(modal: HTMLDialogElement | null) {
+    if (!modal || modal.open) return;
+    modal.showModal();
   }
 
   destroy() {

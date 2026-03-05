@@ -3,6 +3,7 @@ import cookieBanner from "./cookieBanner";
 import dashboard from "./dashboard";
 import factCards from "./factCards";
 import headerMenu from "./headerMenu";
+import modals from "./modals";
 
 export default function ui() {
   accordions();
@@ -10,4 +11,5 @@ export default function ui() {
   dashboard();
   factCards();
   headerMenu();
+  modals();
 }
