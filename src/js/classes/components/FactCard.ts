@@ -21,7 +21,6 @@ class FactCard extends Component {
       modules: [Navigation, EffectFade, Pagination],
       autoHeight: true,
       effect: "fade",
-      nested: this.element.closest(".swiper") ? true : false,
       fadeEffect: {
         crossFade: true,
       },

@@ -26,13 +26,13 @@
       margin-top: 2rem;
     }
 
-    > .swiper {
+    > .home-dashboard-slider {
       overflow: visible;
       flex-grow: 1;
       width: 100%;
     }
 
-    > .swiper > .swiper-wrapper > .swiper-slide {
+    > .home-dashboard-slider > .home-dashboard-slider__track > .home-dashboard-slider__slide {
       display: flex;
       flex-direction: column;
       height: auto;
@@ -40,7 +40,7 @@
       gap: 1.6rem;
     }
 
-    > .swiper > .swiper-wrapper {
+    > .home-dashboard-slider > .home-dashboard-slider__track {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.24fr) minmax(0, 1fr);
       gap: 12rem;

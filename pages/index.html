@@ -12,15 +12,15 @@
       {{> layout/header }}
       {{> components/misc/secondary-panel }}
       <div class="home__dashboard">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+        <div class="home-dashboard-slider">
+          <div class="home-dashboard-slider__track">
+            <div class="home-dashboard-slider__slide">
               {{> components/cards/fact-card slides=factsSlides }}
             </div>
-            <div class="swiper-slide">
+            <div class="home-dashboard-slider__slide">
               {{> components/misc/categories }}
             </div>
-            <div class="swiper-slide">
+            <div class="home-dashboard-slider__slide">
               {{> components/misc/faq }}
               {{> components/cards/instruction
               imageSrc="/images/instruction/preview.webp"
