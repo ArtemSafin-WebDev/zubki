@@ -12,7 +12,6 @@ class HomeDashboard extends Component {
   private slides: HTMLElement[];
   private matchMedia: ReturnType<typeof gsap.matchMedia>;
   private abortController: AbortController | null = null;
-  private resizeObserver: ResizeObserver | null = null;
 
   private currentIndex = 0;
   private slideWidth = 0;
@@ -102,22 +101,11 @@ class HomeDashboard extends Component {
       passive: true,
     });
     window.addEventListener("resize", this.handleResize, { signal });
-
-    this.resizeObserver = new ResizeObserver(() => {
-      this.updateContainerHeight();
-    });
-    this.slides.forEach((slide) => {
-      this.resizeObserver?.observe(slide);
-    });
-    this.updateContainerHeight();
   }
 
   private destroyMobileSlider() {
     this.abortController?.abort();
     this.abortController = null;
-
-    this.resizeObserver?.disconnect();
-    this.resizeObserver = null;
 
     this.isDragging = false;
     this.shouldHandleTouch = false;
@@ -125,7 +113,6 @@ class HomeDashboard extends Component {
 
     this.sliderRoot.style.overflow = "";
     this.sliderRoot.style.touchAction = "";
-    this.sliderRoot.style.height = "";
 
     this.sliderWrapper.style.display = "";
     this.sliderWrapper.style.gap = "";
@@ -239,7 +226,6 @@ class HomeDashboard extends Component {
     const translate = this.getTranslateForIndex(nextIndex);
 
     this.setWrapperTranslate(translate, animate);
-    this.updateContainerHeight();
   }
 
   private setWrapperTranslate(translate: number, animate: boolean) {
@@ -247,13 +233,6 @@ class HomeDashboard extends Component {
       ? "transform 260ms ease"
       : "none";
     this.sliderWrapper.style.transform = `translate3d(${translate}px, 0, 0)`;
-  }
-
-  private updateContainerHeight() {
-    const activeSlide = this.slides[this.currentIndex];
-    if (!activeSlide) return;
-
-    this.sliderRoot.style.height = `${activeSlide.offsetHeight}px`;
   }
 
   private getTranslateForIndex(index: number) {
