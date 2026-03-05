@@ -69,6 +69,10 @@
   }
 
   .modal__close {
+    --modal-close-bg: var(--white);
+    --modal-close-border-color: var(--background-dark-sky);
+    --modal-close-icon-color: var(--text-light-blue);
+
     position: absolute;
     top: 0;
     left: 100%;
@@ -80,15 +84,28 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: opacity 0.2s;
-    border: 1px solid var(--background-dark-sky);
+    border: 1px solid var(--modal-close-border-color);
     border-radius: 50%;
-    background-color: var(--white);
+    background-color: var(--modal-close-bg);
     display: grid;
     place-items: center;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+      --modal-close-bg: var(--background-light-sky);
+      --modal-close-border-color: var(--background-dark-sky);
+    }
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {
+      --modal-close-bg: var(--background-light-sky);
+      --modal-close-border-color: var(--text-light-blue);
+    }
 
     svg {
-      fill: var(--text-light-blue);
+      fill: var(--modal-close-icon-color);
       width: 1.2rem;
       height: 1.2rem;
     }
