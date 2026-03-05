@@ -79,8 +79,10 @@
       align-items: center;
     }
 
-    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
-      --btn-bg: var(--accent-green-hover);
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+        --btn-bg: var(--accent-green-hover);
+      }
     }
 
     &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {

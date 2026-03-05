@@ -21,9 +21,11 @@
       border-color 0.2s ease,
       color 0.2s ease;
 
-    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
-      --outline-btn-bg: var(--background-light-sky);
-      --outline-btn-border-color: var(--background-dark-sky);
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+        --outline-btn-bg: var(--background-light-sky);
+        --outline-btn-border-color: var(--background-dark-sky);
+      }
     }
 
     &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {

@@ -105,9 +105,11 @@
       border-color 0.2s ease,
       color 0.2s ease;
 
-    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
-      --modal-close-bg: var(--background-light-sky);
-      --modal-close-border-color: var(--background-dark-sky);
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):hover {
+        --modal-close-bg: var(--background-light-sky);
+        --modal-close-border-color: var(--background-dark-sky);
+      }
     }
 
     &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):active {

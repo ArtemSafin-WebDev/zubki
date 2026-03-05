@@ -42,4 +42,31 @@
     grid-area: right;
   }
 
+  @include breakpoints.mobile {
+    .auth--register {
+      gap: 0;
+    }
+
+    .auth--register .auth__left {
+      display: contents;
+    }
+
+    .auth--register .auth__left .welcome {
+      display: contents;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .auth--register .auth__left .welcome::before,
+    .auth--register .auth__left .welcome::after,
+    .auth--register .auth__left .welcome__top-row,
+    .auth--register .auth__left .welcome__instruction {
+      display: none;
+    }
+
+    .auth--register .auth__left .welcome__bottom-row {
+      display: contents;
+    }
+  }
+
 }

@@ -169,15 +169,7 @@
     width: 100%;
   }
 
-  .register__info {
-    display: none;
-  }
-
   @include breakpoints.mobile {
-    .auth--register .auth__left {
-      display: none;
-    }
-
     .register {
       border-radius: 2.4rem;
       max-height: none;
@@ -238,14 +230,6 @@
       font-weight: var(--desktop-h3-font-weight);
       line-height: var(--desktop-h3-line-height);
       letter-spacing: var(--desktop-h3-letter-spacing);
-    }
-
-    .register__info {
-      display: block;
-      position: fixed;
-      right: 0.8rem;
-      bottom: 0.8rem;
-      z-index: 100;
     }
   }
 }
