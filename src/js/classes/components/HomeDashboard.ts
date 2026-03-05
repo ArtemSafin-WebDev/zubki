@@ -70,7 +70,7 @@ class HomeDashboard extends Component {
     this.abortController = new AbortController();
     const signal = this.abortController.signal;
 
-    this.sliderRoot.style.overflow = "hidden";
+    this.sliderRoot.style.overflow = "visible";
     this.sliderRoot.style.touchAction = "pan-y";
 
     this.sliderWrapper.style.display = "flex";
