@@ -20,20 +20,12 @@
       position: relative;
       isolation: isolate;
       background-image: none;
-      min-height: 100dvh;
-
-      &::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-color: var(--accent-blue);
-        background-image: url("/images/auth/bg-mobile.webp");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: -1;
-        pointer-events: none;
-      }
+      min-height: 100svh;
+      background-image: url("/images/auth/bg-mobile.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
     }
   }
 

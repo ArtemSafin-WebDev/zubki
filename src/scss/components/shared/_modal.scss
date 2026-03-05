@@ -75,6 +75,7 @@
     @include breakpoints.mobile {
       max-width: none;
       margin: 0;
+      margin-top: auto;
     }
   }
 

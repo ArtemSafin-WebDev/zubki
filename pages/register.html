@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <main class="page-main">
+    <div class="auth">
+      <div class="auth__left">
+        {{> components/misc/welcome }}
+      </div>
+      <div class="auth__right">
+        {{> components/auth/register }}
+      </div>
+    </div>
+  </main>
+
+  {{> components/misc/cookie-banner }}
+
+  <script type="module" src="/src/js/main.ts"></script>
+</body>
+
+</html>

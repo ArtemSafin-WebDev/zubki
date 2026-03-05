@@ -13,6 +13,7 @@ class Dashboard extends Component {
   private slides: HTMLElement[];
   private matchMedia: ReturnType<typeof gsap.matchMedia>;
   private abortController: AbortController | null = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   private currentIndex = 0;
   private slideWidth = 0;
@@ -84,6 +85,7 @@ class Dashboard extends Component {
     this.slides.forEach((slide) => {
       slide.style.flex = "0 0 100%";
       slide.style.width = "100%";
+      slide.style.minWidth = "0";
     });
 
     this.updateMetrics();
@@ -107,11 +109,18 @@ class Dashboard extends Component {
       passive: true,
     });
     window.addEventListener("resize", this.handleResize, { signal });
+    window.addEventListener("orientationchange", this.handleResize, { signal });
+    window.visualViewport?.addEventListener("resize", this.handleResize, {
+      signal,
+    });
+    this.initResizeObserver();
   }
 
   private destroyMobileSlider() {
     this.abortController?.abort();
     this.abortController = null;
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = null;
 
     this.isDragging = false;
     this.shouldHandleTouch = false;
@@ -134,6 +143,7 @@ class Dashboard extends Component {
     this.slides.forEach((slide) => {
       slide.style.flex = "";
       slide.style.width = "";
+      slide.style.minWidth = "";
     });
   }
 
@@ -232,11 +242,26 @@ class Dashboard extends Component {
   };
 
   private updateMetrics() {
-    this.slideWidth = this.sliderRoot.clientWidth;
+    const measuredWidth = this.sliderRoot.getBoundingClientRect().width;
+    this.slideWidth = measuredWidth || this.sliderRoot.clientWidth;
+
+    const computedStyles = window.getComputedStyle(this.sliderWrapper);
     const computedGap = Number.parseFloat(
-      window.getComputedStyle(this.sliderWrapper).columnGap
+      computedStyles.gap || computedStyles.columnGap
     );
-    this.slideGap = Number.isFinite(computedGap) ? computedGap : 0;
+    this.slideGap = Number.isFinite(computedGap)
+      ? computedGap
+      : MOBILE_SLIDE_GAP_PX;
+  }
+
+  private initResizeObserver() {
+    if (!("ResizeObserver" in window)) return;
+
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = new ResizeObserver(() => {
+      this.handleResize();
+    });
+    this.resizeObserver.observe(this.sliderRoot);
   }
 
   private goToSlide(index: number, animate: boolean) {

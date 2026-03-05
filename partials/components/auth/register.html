@@ -1,0 +1,142 @@
+<div class="register">
+    <a href="/login.html" class="outline-btn outline-btn--small register__back-link">
+        Назад
+    </a>
+    <div class="register__scroll">
+        <div class="register__scroll-content">
+            <div class="register__intro">
+                <h1 class="h2 register__title">
+                    ПОЛУЧИТЬ ДОСТУП <br>
+                    К ОБРАЗОВАТЕЛЬНОЙ <br>
+                    ПЛАТФОРМЕ
+                </h1>
+                <p class="register__description">
+                    Мы разработали уникальную образовательную платформу для получения правильных привычек в сфере
+                    зубной гигиены и здоровья
+                </p>
+            </div>
+            <form action="/" method="POST" class="register__form">
+                <section class="register__group">
+                    <h2 class="h3 register__group-title">
+                        О родителе
+                    </h2>
+                    <div class="register__group-fields">
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="parentFirstName"
+                        label="Имя"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="parentLastName"
+                        label="Фамилия"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="tel"
+                        name="parentPhone"
+                        label="Номер телефона"
+                        autocomplete="tel"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="email"
+                        name="parentEmail"
+                        label="Электронная почта"
+                        autocomplete="email"
+                        required=true
+                        }}
+                    </div>
+                </section>
+                <section class="register__group">
+                    <h2 class="h3 register__group-title">
+                        О ребёнке
+                    </h2>
+                    <div class="register__group-fields">
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childFirstName"
+                        label="Имя"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childLastName"
+                        label="Фамилия"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childAge"
+                        label="Возраст"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childGender"
+                        label="Пол"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childTeethCondition"
+                        label="Состояние зубок"
+                        required=true
+                        }}
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="childClinic"
+                        label="Клиника ребенка"
+                        required=true
+                        }}
+                    </div>
+                </section>
+                <section class="register__group">
+                    <div class="register__invite-head">
+                        <h2 class="h3 register__group-title">
+                            Приглашение <br>
+                            от стоматологии
+                        </h2>
+                        <p class="register__invite-text">
+                            Мы разработали уникальную образовательную платформу для получения правильных привычек в
+                            сфере зубной гигиены и здоровья
+                        </p>
+                    </div>
+                    <div class="register__invite-controls">
+                        {{> components/shared/text-input
+                        class="register__text-input"
+                        type="text"
+                        name="inviteCode"
+                        label="Код пригласительного билета"
+                        required=true
+                        }}
+                        <button type="button" class="register__code-status">
+                            Код применён
+                        </button>
+                    </div>
+                </section>
+                <button class="btn btn--centered register__submit" type="submit">
+                    <span class="btn__text">
+                        Продолжить
+                    </span>
+                    <span class="btn__icon">
+                        <svg width="12" height="12" aria-hidden="true">
+                            <use xlink:href="#arrow-right"></use>
+                        </svg>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

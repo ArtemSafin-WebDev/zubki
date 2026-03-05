@@ -1,0 +1,164 @@
+@layer components {
+  .register {
+    border-radius: 3.2rem;
+    background: var(--white);
+    box-shadow: var(--white-cards-shadow);
+    position: relative;
+    flex-grow: 1;
+    padding: 4rem;
+    overflow: hidden;
+    min-height: 0;
+    height: calc(100vh - (var(--content-padding) * 2));
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(to right bottom, transparent, #ebf5ff);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+  }
+
+  .register__back-link {
+    position: absolute;
+    top: 3.85rem;
+    left: 3.85rem;
+    z-index: 2;
+    border-width: 0.15rem;
+    min-height: 4rem;
+    padding-inline: 1.6rem;
+    padding-block: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .register__scroll {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 1.2rem;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--background-dark-sky) var(--background-light-sky);
+  }
+
+  .register__scroll::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  .register__scroll::-webkit-scrollbar-track {
+    background: var(--background-light-sky);
+    border-radius: 10rem;
+  }
+
+  .register__scroll::-webkit-scrollbar-thumb {
+    background: var(--background-dark-sky);
+    border-radius: 10rem;
+  }
+
+  .register__scroll-content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+    padding-right: 0.4rem;
+  }
+
+  .register__intro {
+    width: 100%;
+    max-width: 32.8rem;
+    border-radius: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .register__title {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .register__description {
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .register__form {
+    width: 100%;
+    max-width: 32.8rem;
+    border-radius: 1.6rem;
+    background: var(--background-light-sky);
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  .register__group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .register__group-title {
+    text-align: center;
+  }
+
+  .register__group-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .register__invite-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .register__invite-text {
+    font-family: var(--desktop-caption-font-family);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02rem;
+    color: var(--text-secondary);
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .register__invite-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .register__code-status {
+    align-self: flex-start;
+    border-radius: 10rem;
+    padding-inline: 1.2rem;
+    height: 3.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background-color: var(--text-light-blue);
+  }
+
+  .register__submit {
+    width: 100%;
+  }
+}
