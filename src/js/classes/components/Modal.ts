@@ -4,6 +4,16 @@ class Modal extends Component {
   private observer: MutationObserver;
   private abortController: AbortController;
 
+  public static getActive(): Modal | undefined {
+    const openedDialogs = Array.from(
+      document.querySelectorAll<HTMLDialogElement>("dialog[open]")
+    );
+    const activeDialog = openedDialogs.at(-1);
+    if (!activeDialog) return undefined;
+
+    return Modal.getInstanceFor(activeDialog);
+  }
+
   constructor(element: HTMLDialogElement) {
     super(element);
 
