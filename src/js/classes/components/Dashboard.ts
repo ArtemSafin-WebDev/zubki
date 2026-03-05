@@ -6,7 +6,7 @@ const MOBILE_BREAKPOINT_QUERY = `(max-width: ${MOBILE_BREAKPOINT}px)`;
 const DRAG_START_THRESHOLD_PX = 6;
 const MOBILE_SLIDE_GAP_PX = 20;
 
-class HomeDashboard extends Component {
+class Dashboard extends Component {
   private sliderRoot: HTMLElement;
   private sliderWrapper: HTMLElement;
   private slides: HTMLElement[];
@@ -28,24 +28,24 @@ class HomeDashboard extends Component {
     super(element);
 
     const root = this.element.querySelector<HTMLElement>(
-      ".home-dashboard-slider"
+      ".dashboard-slider"
     );
     const wrapper = root?.querySelector<HTMLElement>(
-      ".home-dashboard-slider__track"
+      ".dashboard-slider__track"
     );
 
     if (!root || !wrapper) {
-      throw new Error("Home dashboard slider elements not found");
+      throw new Error("Dashboard slider elements not found");
     }
 
     this.sliderRoot = root;
     this.sliderWrapper = wrapper;
     this.slides = Array.from(this.sliderWrapper.children).filter((child) =>
-      child.classList.contains("home-dashboard-slider__slide")
+      child.classList.contains("dashboard-slider__slide")
     ) as HTMLElement[];
 
     if (!this.slides.length) {
-      throw new Error("Home dashboard slider has no slides");
+      throw new Error("Dashboard slider has no slides");
     }
 
     this.matchMedia = gsap.matchMedia();
@@ -256,4 +256,4 @@ class HomeDashboard extends Component {
   }
 }
 
-export default HomeDashboard;
+export default Dashboard;

@@ -26,13 +26,13 @@
       margin-top: 2rem;
     }
 
-    > .home-dashboard-slider {
+    > .dashboard-slider {
       overflow: visible;
       flex-grow: 1;
       width: 100%;
     }
 
-    > .home-dashboard-slider > .home-dashboard-slider__track > .home-dashboard-slider__slide {
+    > .dashboard-slider > .dashboard-slider__track > .dashboard-slider__slide {
       display: flex;
       flex-direction: column;
       height: auto;
@@ -40,7 +40,7 @@
       gap: 1.6rem;
     }
 
-    > .home-dashboard-slider > .home-dashboard-slider__track {
+    > .dashboard-slider > .dashboard-slider__track {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.24fr) minmax(0, 1fr);
       gap: 12rem;
