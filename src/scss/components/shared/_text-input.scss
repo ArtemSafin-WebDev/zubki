@@ -57,6 +57,23 @@
     }
   }
 
+  .text-input__field--textarea {
+    resize: none;
+    field-sizing: content;
+    min-block-size: 4lh;
+  }
+
+  .text-input__control:has(.text-input__field--textarea) {
+    height: auto;
+    align-items: flex-start;
+    padding-block: 1.2rem;
+  }
+
+  .text-input__control:has(.text-input__field--textarea) .text-input__label {
+    top: 1.2rem;
+    transform: none;
+  }
+
   .text-input__label {
     position: absolute;
     top: 50%;

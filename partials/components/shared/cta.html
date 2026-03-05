@@ -10,9 +10,12 @@
             name="subject"
             label="Что у вас случилось?"
             }}
-            <label class="cta__textarea">
-                <textarea class="cta__textarea-field" name="message" placeholder="Опишите вашу проблему"></textarea>
-            </label>
+            {{> components/shared/text-input
+            class="cta__text-input"
+            isTextarea=true
+            name="message"
+            label="Опишите вашу проблему"
+            }}
         </div>
         <button class="btn btn--centered cta__submit" type="submit" disabled>
             <span class="btn__text">
