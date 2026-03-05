@@ -9,6 +9,7 @@ const MOBILE_SLIDE_GAP_PX = 20;
 class Dashboard extends Component {
   private sliderRoot: HTMLElement;
   private sliderWrapper: HTMLElement;
+  private pagination: HTMLElement | null;
   private slides: HTMLElement[];
   private matchMedia: ReturnType<typeof gsap.matchMedia>;
   private abortController: AbortController | null = null;
@@ -23,6 +24,7 @@ class Dashboard extends Component {
   private isDragging = false;
   private isHorizontalGesture: boolean | null = null;
   private shouldHandleTouch = false;
+  private paginationBullets: HTMLButtonElement[] = [];
 
   constructor(element: HTMLElement) {
     super(element);
@@ -40,6 +42,9 @@ class Dashboard extends Component {
 
     this.sliderRoot = root;
     this.sliderWrapper = wrapper;
+    this.pagination = this.element.querySelector<HTMLElement>(
+      ".dashboard-pagination"
+    );
     this.slides = Array.from(this.sliderWrapper.children).filter((child) =>
       child.classList.contains("dashboard-slider__slide")
     ) as HTMLElement[];
@@ -82,6 +87,7 @@ class Dashboard extends Component {
     });
 
     this.updateMetrics();
+    this.initPagination(signal);
     this.goToSlide(this.currentIndex, false);
 
     this.sliderRoot.addEventListener("touchstart", this.handleTouchStart, {
@@ -110,6 +116,11 @@ class Dashboard extends Component {
     this.isDragging = false;
     this.shouldHandleTouch = false;
     this.isHorizontalGesture = null;
+    this.paginationBullets = [];
+
+    if (this.pagination) {
+      this.pagination.innerHTML = "";
+    }
 
     this.sliderRoot.style.overflow = "";
     this.sliderRoot.style.touchAction = "";
@@ -131,6 +142,14 @@ class Dashboard extends Component {
 
     const touch = event.touches[0];
     const target = event.target as Element | null;
+    const startedOnPagination = target?.closest(".dashboard-pagination");
+
+    if (startedOnPagination) {
+      this.shouldHandleTouch = false;
+      this.isDragging = false;
+      return;
+    }
+
     const nestedSwiper = target?.closest(".swiper");
 
     if (nestedSwiper && nestedSwiper !== this.sliderRoot) {
@@ -226,6 +245,41 @@ class Dashboard extends Component {
     const translate = this.getTranslateForIndex(nextIndex);
 
     this.setWrapperTranslate(translate, animate);
+    this.updatePagination();
+  }
+
+  private initPagination(signal: AbortSignal) {
+    if (!this.pagination) return;
+
+    this.pagination.innerHTML = "";
+    this.paginationBullets = this.slides.map((_, index) => {
+      const bullet = document.createElement("button");
+
+      bullet.type = "button";
+      bullet.className = "dashboard-pagination__bullet";
+      bullet.setAttribute("aria-label", `Перейти к слайду ${index + 1}`);
+      bullet.addEventListener(
+        "click",
+        () => {
+          this.goToSlide(index, true);
+        },
+        { signal }
+      );
+
+      this.pagination?.append(bullet);
+      return bullet;
+    });
+
+    this.updatePagination();
+  }
+
+  private updatePagination() {
+    this.paginationBullets.forEach((bullet, index) => {
+      bullet.classList.toggle(
+        "dashboard-pagination__bullet--active",
+        index === this.currentIndex
+      );
+    });
   }
 
   private setWrapperTranslate(translate: number, animate: boolean) {
