@@ -1,0 +1,15 @@
+@use "../tokens/breakpoints";
+
+@layer utilities {
+  .desktop-text {
+    @include breakpoints.mobile {
+      display: none !important;
+    }
+  }
+
+  .mobile-text {
+    @media (width > #{breakpoints.$mobile-max}) {
+      display: none !important;
+    }
+  }
+}

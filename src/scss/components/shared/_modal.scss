@@ -1,0 +1,129 @@
+@use "tokens/breakpoints";
+
+@layer components {
+  .modal {
+    border: none;
+    padding: 0;
+    margin: auto;
+    max-width: min(
+      var(--modal-width, 32.8rem),
+      calc(100vw - var(--content-padding, 0))
+    );
+    max-height: 100%;
+    width: 100%;
+    background-color: transparent;
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      overlay 0.3s ease allow-discrete,
+      display 0.3s ease allow-discrete;
+
+    &--wide {
+      --modal-width: 67.2rem;
+    }
+
+    &::backdrop {
+      background-color: rgba(#00143d, 0.64);
+      opacity: 0;
+      transition:
+        opacity 0.3s ease,
+        backdrop-filter 0.3s ease,
+        overlay 0.3s ease allow-discrete,
+        display 0.3s ease allow-discrete;
+    }
+
+    &[open] {
+      opacity: 1;
+      transform: translateY(0);
+
+      &::backdrop {
+        opacity: 1;
+      }
+    }
+
+    @starting-style {
+      &[open] {
+        opacity: 0;
+        transform: translateY(2rem);
+
+        &::backdrop {
+          opacity: 0;
+        }
+      }
+    }
+
+    @include breakpoints.mobile {
+      max-width: 100%;
+      margin: 0;
+      height: 100%;
+      transform: none;
+      &[open] {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .modal__container {
+    position: relative;
+    width: 100%;
+  }
+
+  .modal__close {
+    position: absolute;
+    top: 4rem;
+    left: 100%;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1.6rem;
+    z-index: 10;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: 1px solid var(--background-dark-sky);
+    border-radius: 50%;
+    background-color: var(--white);
+    display: grid;
+    place-items: center;
+
+    svg {
+      fill: var(--text-light-blue);
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  .modal__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    border-radius: var(--modal-radius, 1.6rem);
+    background: var(--white);
+
+    &--radius-large {
+      --modal-radius: 3.2rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(to right bottom, transparent, #ebf5ff);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+  }
+}
