@@ -22,6 +22,11 @@
       overlay 0.3s ease allow-discrete,
       display 0.3s ease allow-discrete;
 
+    @include breakpoints.mobile {
+      padding: 0;
+      justify-content: flex-end;
+    }
+
     &--wide {
       --modal-width: 67.2rem;
     }
@@ -66,6 +71,11 @@
     max-width: 32.8rem;
     width: 100%;
     margin: auto;
+
+    @include breakpoints.mobile {
+      max-width: none;
+      margin: 0;
+    }
   }
 
   .modal__close {
@@ -109,6 +119,15 @@
       width: 1.2rem;
       height: 1.2rem;
     }
+
+    @include breakpoints.mobile {
+      top: auto;
+      bottom: 100%;
+      left: auto;
+      right: var(--content-padding);
+      margin: 0;
+      margin-bottom: 1.2rem;
+    }
   }
 
   .modal__content {
@@ -116,11 +135,12 @@
     flex-direction: column;
     flex-grow: 1;
     position: relative;
-    border-radius: var(--modal-radius, 1.6rem);
+    border-radius: 1.6rem;
     background: var(--white);
 
-    &--radius-large {
-      --modal-radius: 3.2rem;
+    @include breakpoints.mobile {
+      border-radius: 1.6rem 1.6rem 0 0;
+      flex-grow: 0;
     }
 
     &::before {
