@@ -5,15 +5,11 @@
     border: none;
     padding: 0;
     margin: auto;
-    max-width: min(
-      var(--modal-width, 32.8rem),
-      calc(100vw - var(--content-padding, 0))
-    );
-    max-height: 100%;
+    overflow-y: auto;
     width: 100%;
     background-color: transparent;
     overscroll-behavior-y: contain;
-    overflow-y: auto;
+
     opacity: 0;
     transform: translateY(2rem);
     transition:
@@ -55,27 +51,20 @@
         }
       }
     }
-
-    @include breakpoints.mobile {
-      max-width: 100%;
-      margin: 0;
-      height: 100%;
-      transform: none;
-      &[open] {
-        display: flex;
-        flex-direction: column;
-      }
-    }
   }
 
   .modal__container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 32.8rem;
     width: 100%;
+    margin: 0 auto;
   }
 
   .modal__close {
     position: absolute;
-    top: 4rem;
+    top: 0;
     left: 100%;
     width: 4rem;
     height: 4rem;

@@ -1,0 +1,32 @@
+<div class="cta">
+    <h2 class="h3 cta__title">
+        У вас есть вопрос? <br>Напишите нам и&nbsp;мы поможем
+    </h2>
+    <form action="/" method="POST" class="cta__form" novalidate>
+        <div class="cta__fields">
+            {{> components/shared/text-input
+            class="cta__text-input"
+            type="text"
+            name="subject"
+            label="Что у вас случилось?"
+            }}
+            <label class="cta__textarea">
+                <textarea class="cta__textarea-field" name="message" placeholder="Опишите вашу проблему"></textarea>
+            </label>
+        </div>
+        <button class="btn btn--centered cta__submit" type="submit" disabled>
+            <span class="btn__text">
+                Отправить
+            </span>
+            <span class="btn__icon">
+                <svg width="14" height="14" aria-hidden="true">
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </span>
+        </button>
+    </form>
+    <p class="cta__policy">
+        Нажимая &laquo;Войти в&nbsp;аккаунт&raquo;, вы&nbsp;соглашаетесь <br>с&nbsp;политикой обработки персональных
+        данных
+    </p>
+</div>
