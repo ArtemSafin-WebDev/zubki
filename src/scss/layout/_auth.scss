@@ -21,7 +21,8 @@
       isolation: isolate;
       background-image: none;
       min-height: 100svh;
-      background-image: url("/images/auth/bg-mobile.webp");
+      // background-image: url("/images/auth/bg-mobile.webp");
+      background-image: url("/images/auth/bg.webp");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -40,4 +41,5 @@
     flex-direction: column;
     grid-area: right;
   }
+
 }

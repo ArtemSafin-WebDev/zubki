@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .register {
     border-radius: 3.2rem;
@@ -31,7 +33,13 @@
     top: 3.85rem;
     left: 3.85rem;
     z-index: 2;
+    border-width: 0.15rem;
+    min-height: 4rem;
     padding-inline: 1.6rem;
+    padding-block: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .register__scroll {
@@ -148,11 +156,96 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
     color: var(--white);
     background-color: var(--text-light-blue);
   }
 
   .register__submit {
     width: 100%;
+  }
+
+  .register__info {
+    display: none;
+  }
+
+  @include breakpoints.mobile {
+    .auth--register .auth__left {
+      display: none;
+    }
+
+    .register {
+      border-radius: 2.4rem;
+      max-height: none;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .register__back-link {
+      position: static;
+      align-self: center;
+    }
+
+    .register__scroll {
+      position: static;
+      inset: auto;
+      overflow: visible;
+      padding: 0;
+      margin-top: 1.6rem;
+    }
+
+    .register__scroll::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .register__scroll-content {
+      align-items: stretch;
+      gap: 1.6rem;
+      padding-right: 0;
+    }
+
+    .register__intro {
+      max-width: none;
+    }
+
+    .register__title {
+      font-family: var(--desktop-h2-font-family);
+      font-size: var(--desktop-h2-font-size);
+      font-weight: var(--desktop-h2-font-weight);
+      line-height: var(--desktop-h2-line-height);
+      letter-spacing: var(--desktop-h2-letter-spacing);
+    }
+
+    .register__form {
+      max-width: none;
+      padding: 1.6rem;
+      gap: 1.6rem;
+    }
+
+    .register__group {
+      gap: 1.2rem;
+    }
+
+    .register__group-title {
+      font-family: var(--desktop-h3-font-family);
+      font-size: var(--desktop-h3-font-size);
+      font-weight: var(--desktop-h3-font-weight);
+      line-height: var(--desktop-h3-line-height);
+      letter-spacing: var(--desktop-h3-letter-spacing);
+    }
+
+    .register__info {
+      display: block;
+      position: fixed;
+      right: 0.8rem;
+      bottom: 0.8rem;
+      z-index: 100;
+    }
   }
 }
