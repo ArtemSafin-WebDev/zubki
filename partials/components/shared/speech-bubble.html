@@ -1,0 +1,9 @@
+<div class="speech-bubble{{#if class}} {{ class }}{{/if}}">
+    {{#if text}}
+        <p class="speech-bubble__text{{#if textClass}} {{ textClass }}{{/if}}">
+            {{{ text }}}
+        </p>
+    {{else}}
+        {{> @partial-block }}
+    {{/if}}
+</div>
