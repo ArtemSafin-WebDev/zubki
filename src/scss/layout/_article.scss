@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer layout {
   .article-page {
     flex-grow: 1;
@@ -10,6 +12,10 @@
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 89.8rem 76.8rem;
+
+    @include breakpoints.mobile {
+      background-image: none;
+    }
   }
 
   .article-page__body {
@@ -18,11 +24,21 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 3.2rem;
     align-items: flex-start;
+
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+    }
   }
 
   .article-page__back {
     grid-column: 1 / 4;
     justify-self: flex-start;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .article-page__card {
@@ -32,5 +48,11 @@
     border-radius: 3.2rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
+
+    @include breakpoints.mobile {
+      grid-column: 1 / -1;
+      padding: 2rem 3.2rem 2rem 2rem;
+      border-radius: 1.6rem;
+    }
   }
 }
