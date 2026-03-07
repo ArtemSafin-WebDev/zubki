@@ -43,31 +43,68 @@
     gap: 1.6rem;
   }
 
-  .profile-dashboard__stats-dots {
+  .profile-dashboard__stats-head > .tag {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .profile-dashboard__stats-arrows {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
   }
 
-  .profile-dashboard__stats-dot {
+  .profile-dashboard__stats-arrow {
+    --profile-stats-arrow-border: var(--background-dark-sky);
+    --profile-stats-arrow-icon: var(--text-light-blue);
+
     width: 3.2rem;
     height: 3.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    border: 0.1rem solid var(--background-dark-sky);
+    border: 0.1rem solid var(--profile-stats-arrow-border);
     background-color: var(--white);
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: var(--profile-stats-arrow-icon);
+    }
   }
 
-  .profile-dashboard__stats-dot--muted {
-    border-color: var(--text-secondary);
+  .profile-dashboard__stats-arrow.swiper-button-disabled {
+    --profile-stats-arrow-border: var(--text-secondary);
+    --profile-stats-arrow-icon: var(--text-secondary);
+    pointer-events: none;
+    cursor: default;
   }
 
-  .profile-dashboard__stats-body {
+  .profile-dashboard__stats-body.swiper {
+    width: 100%;
+    overflow: hidden;
     border-radius: 0.8rem;
     background-color: var(--background-light-sky);
+  }
+
+  .profile-dashboard__stats-body > .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .profile-dashboard__stats-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 1.6rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    height: auto;
   }
 
   .profile-dashboard__stats-row {
@@ -85,9 +122,9 @@
   .profile-dashboard__stats-label {
     color: var(--text-secondary);
     font-family: var(--desktop-caption-font-family);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: var(--desktop-caption-font-weight);
-    line-height: var(--desktop-caption-line-height);
+    line-height: 1.2;
     letter-spacing: var(--desktop-caption-letter-spacing);
     font-variant-numeric: lining-nums tabular-nums;
   }

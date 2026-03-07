@@ -1,24 +1,40 @@
 <section class="profile-dashboard" aria-label="Профиль пользователя">
     <div class="profile-dashboard__side profile-dashboard__side--left">
-        <article class="profile-dashboard__stats-card">
+        <article class="profile-dashboard__stats-card js-profile-stats-card">
             <div class="profile-dashboard__stats-head">
                 <span class="tag">Статистика</span>
-                <div class="profile-dashboard__stats-dots" aria-hidden="true">
-                    <span class="profile-dashboard__stats-dot profile-dashboard__stats-dot--muted"></span>
-                    <span class="profile-dashboard__stats-dot"></span>
+                <div class="profile-dashboard__stats-arrows">
+                    <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--prev" type="button"
+                        aria-label="Предыдущая статистика">
+                        <svg width="12" height="12" aria-hidden="true">
+                            <use xlink:href="#arrow-left"></use>
+                        </svg>
+                    </button>
+                    <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--next" type="button"
+                        aria-label="Следующая статистика">
+                        <svg width="12" height="12" aria-hidden="true">
+                            <use xlink:href="#arrow-right"></use>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <div class="profile-dashboard__stats-body">
-                {{#each profileStatsRows}}
-                    <div class="profile-dashboard__stats-row">
-                        {{#each this}}
-                            <div class="profile-dashboard__stats-item">
-                                <p class="profile-dashboard__stats-label">{{ label }}</p>
-                                <p class="profile-dashboard__stats-value">{{ value }}</p>
-                            </div>
-                        {{/each}}
-                    </div>
-                {{/each}}
+            <div class="profile-dashboard__stats-body swiper">
+                <div class="swiper-wrapper">
+                    {{#each profileStatsSlides}}
+                        <div class="profile-dashboard__stats-slide swiper-slide">
+                            {{#each this.rows}}
+                                <div class="profile-dashboard__stats-row">
+                                    {{#each this}}
+                                        <div class="profile-dashboard__stats-item">
+                                            <p class="profile-dashboard__stats-label">{{ label }}</p>
+                                            <p class="profile-dashboard__stats-value">{{ value }}</p>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
             </div>
         </article>
         {{> components/misc/toothguy class="profile-dashboard__toothguy" hideBubble=true }}

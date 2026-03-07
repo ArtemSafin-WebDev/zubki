@@ -4,6 +4,7 @@ import dashboard from "./dashboard";
 import factCards from "./factCards";
 import headerMenu from "./headerMenu";
 import modals from "./modals";
+import profileStatsCards from "./profileStatsCards";
 
 export default function ui() {
   accordions();
@@ -12,4 +13,5 @@ export default function ui() {
   factCards();
   headerMenu();
   modals();
+  profileStatsCards();
 }

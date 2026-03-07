@@ -6,15 +6,31 @@ export default {
     profileCalendarLinkText: "Перейти",
     profileCalendarDaysLeft: "4 дня",
     profileCalendarDay: "28",
-    profileStatsRows: [
-      [
-        { label: "Прогресс (8-11 лет)", value: "85%" },
-        { label: "Изучено статей", value: "8" },
-      ],
-      [
-        { label: "Просмотрено видео", value: "4" },
-        { label: "Сыграно игр", value: "2" },
-      ],
+    profileStatsSlides: [
+      {
+        rows: [
+          [
+            { label: "Прогресс (8-11 лет)", value: "85%" },
+            { label: "Изучено статей", value: "8" },
+          ],
+          [
+            { label: "Просмотрено видео", value: "4" },
+            { label: "Сыграно игр", value: "2" },
+          ],
+        ],
+      },
+      {
+        rows: [
+          [
+            { label: "Прогресс (8-11 лет)", value: "92%" },
+            { label: "Изучено статей", value: "11" },
+          ],
+          [
+            { label: "Просмотрено видео", value: "7" },
+            { label: "Сыграно игр", value: "5" },
+          ],
+        ],
+      },
     ],
     profileParentRows: [
       [
