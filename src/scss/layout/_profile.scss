@@ -9,38 +9,4 @@
     padding: var(--content-padding);
     background-color: var(--accent-green-hover);
   }
-
-  .profile-page::before,
-  .profile-page::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .profile-page::before {
-    left: -39rem;
-    bottom: -61rem;
-    width: 121rem;
-    height: 90rem;
-    background-color: var(--accent-green);
-  }
-
-  .profile-page::after {
-    right: -40rem;
-    bottom: -59rem;
-    width: 103rem;
-    height: 74rem;
-    background-color: #8bdca4;
-  }
-
-  .profile-page > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .profile-page > .profile-secondary {
-    margin-bottom: 2.4rem;
-  }
 }

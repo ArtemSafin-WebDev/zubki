@@ -195,16 +195,7 @@
 
   .secondary-panel__back-btn {
     justify-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding-inline: 1.6rem;
 
-    svg {
-      width: 1.2rem;
-      height: 1.2rem;
-      flex-shrink: 0;
-      fill: currentColor;
-    }
+    padding-inline: 1.6rem;
   }
 }
