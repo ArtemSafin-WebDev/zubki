@@ -1,0 +1,242 @@
+@layer components {
+  .profile-dashboard {
+    display: grid;
+    grid-template-columns: 35.2rem 43.7rem 35.2rem;
+    justify-content: space-between;
+    align-items: start;
+    min-height: 69.8rem;
+    width: 100%;
+  }
+
+  .profile-dashboard__side {
+    width: 35.2rem;
+    min-height: 69.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-dashboard__side--left {
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .profile-dashboard__side--right {
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .profile-dashboard__stats-card {
+    width: 100%;
+    border-radius: 1.6rem;
+    border: 0.15rem solid transparent;
+    background-color: var(--white);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .profile-dashboard__stats-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+  }
+
+  .profile-dashboard__stats-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .profile-dashboard__stats-dot {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--background-dark-sky);
+    background-color: var(--white);
+  }
+
+  .profile-dashboard__stats-dot--muted {
+    border-color: var(--text-secondary);
+  }
+
+  .profile-dashboard__stats-body {
+    border-radius: 0.8rem;
+    background-color: var(--background-light-sky);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__stats-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .profile-dashboard__stats-label {
+    color: var(--text-secondary);
+    font-family: var(--desktop-caption-font-family);
+    font-size: 1.2rem;
+    font-weight: var(--desktop-caption-font-weight);
+    line-height: var(--desktop-caption-line-height);
+    letter-spacing: var(--desktop-caption-letter-spacing);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .profile-dashboard__stats-value {
+    color: var(--text-light-blue);
+    font-family: var(--desktop-h2-font-family);
+    font-size: var(--desktop-h2-font-size);
+    font-weight: var(--desktop-h2-font-weight);
+    line-height: var(--desktop-h2-line-height);
+    letter-spacing: var(--desktop-h2-letter-spacing);
+    -webkit-text-stroke-width: 0.02rem;
+    -webkit-text-stroke-color: currentColor;
+    white-space: nowrap;
+  }
+
+  .profile-dashboard__toothguy {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+
+  .profile-dashboard__main-card {
+    width: 43.7rem;
+    border-radius: 1.6rem;
+    border: 0.15rem solid transparent;
+    background-color: var(--white);
+    box-shadow: var(--white-cards-shadow);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .profile-dashboard__section {
+    border-radius: 1.6rem;
+    background-color: var(--background-light-sky);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .profile-dashboard__section-title {
+    color: var(--text-light-blue);
+    text-align: center;
+    font-family: var(--desktop-h3-font-family);
+    font-size: var(--desktop-h3-font-size);
+    font-weight: var(--desktop-h3-font-weight);
+    line-height: var(--desktop-h3-line-height);
+    letter-spacing: var(--desktop-h3-letter-spacing);
+    -webkit-text-stroke-width: 0.02rem;
+    -webkit-text-stroke-color: currentColor;
+    white-space: nowrap;
+  }
+
+  .profile-dashboard__section-title--wide {
+    width: 100%;
+  }
+
+  .profile-dashboard__fields-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__fields-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__fields-row--single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-dashboard__input {
+    width: 100%;
+  }
+
+  .profile-dashboard__change-password {
+    align-self: flex-start;
+  }
+
+  .profile-dashboard__edit-btn {
+    width: 100%;
+  }
+
+  .profile-dashboard__subscription-card {
+    width: 100%;
+    border-radius: 1.6rem;
+    background-color: var(--white);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__subscription-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+  }
+
+  .profile-dashboard__subscription-title {
+    color: var(--text-light-blue);
+    font-family: var(--desktop-h2-font-family);
+    font-size: var(--desktop-h2-font-size);
+    font-weight: var(--desktop-h2-font-weight);
+    line-height: var(--desktop-h2-line-height);
+    letter-spacing: var(--desktop-h2-letter-spacing);
+    -webkit-text-stroke-width: 0.02rem;
+    -webkit-text-stroke-color: currentColor;
+    white-space: nowrap;
+  }
+
+  .profile-dashboard__subscription-check {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-green);
+    color: var(--white);
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      fill: currentColor;
+    }
+  }
+
+  .profile-dashboard__subscription-date {
+    color: var(--text-light-blue);
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .profile-dashboard__subscription-paid {
+    width: 100%;
+  }
+
+  .profile-dashboard__logout-btn {
+    margin-left: auto;
+  }
+}

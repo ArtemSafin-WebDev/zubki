@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+  <main class="page-main">
+    <div class="profile-page">
+      {{> layout/header }}
+      {{> components/misc/profile-secondary }}
+      {{> components/misc/profile-dashboard }}
+    </div>
+  </main>
+
+  {{> components/misc/cookie-banner }}
+
+  <script type="module" src="/src/js/main.ts"></script>
+</body>
+
+</html>

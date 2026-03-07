@@ -1,13 +1,15 @@
-<section class="toothguy" aria-hidden="true">
+<section class="toothguy{{#if class}} {{ class }}{{/if}}" aria-hidden="true">
     <div class="toothguy__character">
         <img class="toothguy__image" src="/images/toothguy/tooth.webp" alt="" loading="lazy" width="182" height="228">
     </div>
 
-    {{#> components/shared/speech-bubble class="toothguy__bubble"}}
-        <p class="speech-bubble__text toothguy__text">
-            Ты точно чистишь
-            <br>
-            зубки каждый день?
-        </p>
-    {{/components/shared/speech-bubble}}
+    {{#unless hideBubble}}
+        {{#> components/shared/speech-bubble class="toothguy__bubble"}}
+            <p class="speech-bubble__text toothguy__text">
+                Ты точно чистишь
+                <br>
+                зубки каждый день?
+            </p>
+        {{/components/shared/speech-bubble}}
+    {{/unless}}
 </section>

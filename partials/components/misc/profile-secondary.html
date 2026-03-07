@@ -1,0 +1,29 @@
+<section class="profile-secondary" aria-label="Панель навигации профиля">
+    <div class="profile-secondary__row">
+        <a href="/index.html" class="outline-btn profile-secondary__back-btn">
+            <svg width="12" height="12" aria-hidden="true">
+                <use xlink:href="#arrow-left"></use>
+            </svg>
+            <span>Назад</span>
+        </a>
+        <h1 class="profile-secondary__title">
+            {{ profileSectionTitle }}
+        </h1>
+        <div class="profile-secondary__right">
+            <a class="profile-secondary__calendar-link" href="#">
+                <span class="profile-secondary__calendar-title">{{ profileCalendarTitle }}</span>
+                <span class="profile-secondary__calendar-caption">
+                    {{ profileCalendarLinkText }}
+                    <svg width="10" height="10" aria-hidden="true">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </span>
+            </a>
+            <a class="profile-secondary__deadline" href="#"
+                aria-label="До события осталось {{ profileCalendarDaysLeft }}, день {{ profileCalendarDay }}">
+                <span class="profile-secondary__deadline-left">{{ profileCalendarDaysLeft }}</span>
+                <span class="profile-secondary__deadline-right">{{ profileCalendarDay }}</span>
+            </a>
+        </div>
+    </div>
+</section>
