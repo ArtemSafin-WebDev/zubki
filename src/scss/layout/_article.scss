@@ -6,6 +6,7 @@
     padding: var(--content-padding);
     background-color: var(--background-sky);
     background-image: url("/images/article-content/bg-cloud.webp");
+    background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 89.8rem 76.8rem;
