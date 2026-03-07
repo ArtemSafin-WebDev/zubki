@@ -7,6 +7,10 @@
     gap: 1.6rem;
     padding: 1.6rem 0;
     border-bottom: 1.5px solid var(--background-dark-sky);
+
+    &--green-border {
+      border-color: var(--accent-green-pressed);
+    }
     @include breakpoints.mobile {
       padding: 1.2rem 0;
     }
@@ -174,5 +178,33 @@
   .secondary-panel__deadline-right {
     padding: 0.4rem 0.8rem;
     background-color: var(--accent-yellow);
+  }
+
+  .secondary-panel__title {
+    justify-self: center;
+    font-family: var(--desktop-h2-font-family);
+    font-size: var(--desktop-h2-font-size);
+    font-weight: var(--desktop-h2-font-weight);
+    line-height: var(--desktop-h2-line-height);
+    letter-spacing: var(--desktop-h2-letter-spacing);
+    -webkit-text-stroke-width: 0.02rem;
+    -webkit-text-stroke-color: currentColor;
+    color: var(--text-light-blue);
+    white-space: nowrap;
+  }
+
+  .secondary-panel__back-btn {
+    justify-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-inline: 1.6rem;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
   }
 }
