@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer layout {
   .profile-page {
     position: relative;
@@ -8,5 +10,12 @@
     overflow: clip;
     padding: var(--content-padding);
     background-color: var(--accent-green-hover);
+    background-image: url("/images/shapes/profile.svg");
+    background-size: 100% auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    @include breakpoints.mobile {
+      background-image: url("/images/shapes/profile-mobile.svg");
+    }
   }
 }
