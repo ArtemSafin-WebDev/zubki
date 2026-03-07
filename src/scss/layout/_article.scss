@@ -1,0 +1,29 @@
+@layer layout {
+  .article-page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--content-padding);
+    background-color: var(--background-sky);
+    background-image: url("/images/article-content/bg-cloud.webp");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 89.8rem 76.8rem;
+  }
+
+  .article-page__body {
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .article-page__card {
+    width: 67.2rem;
+    padding: 4rem;
+    border: 1.5px solid rgba(235, 245, 255, 0);
+    border-radius: 3.2rem;
+    background-color: var(--white);
+    box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
+  }
+}
