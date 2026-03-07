@@ -1,8 +1,4 @@
 @layer components {
-  .article-content {
-    width: 59.2rem;
-  }
-
   .article-content__meta {
     display: flex;
     align-items: center;
@@ -210,7 +206,7 @@
     grid-row: 1 / 2;
     width: 1.6rem;
     height: 1.6rem;
-    padding-top: 0.1rem;
+
     border-radius: 5rem;
     background-color: var(--accent-yellow);
     color: var(--text-light-blue);
@@ -219,6 +215,10 @@
     font-weight: 400;
     line-height: 1.1;
     text-align: center;
+    display: grid;
+    place-items: center;
+    padding-top: 0.1rem;
+    margin-top: 0.2rem;
   }
 
   .article-snippet__lead {
@@ -263,7 +263,7 @@
   .article-snippet__details ul > li::before {
     content: "";
     position: absolute;
-    top: 0.7rem;
+    top: 0.8rem;
     left: 0;
     width: 0.6rem;
     height: 0.6rem;

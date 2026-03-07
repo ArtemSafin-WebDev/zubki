@@ -14,13 +14,19 @@
 
   .article-page__body {
     margin-top: 2.4rem;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 3.2rem;
     align-items: flex-start;
   }
 
+  .article-page__back {
+    grid-column: 1 / 4;
+    justify-self: flex-start;
+  }
+
   .article-page__card {
-    width: 67.2rem;
+    grid-column: 4 / 10;
     padding: 4rem;
     border: 1.5px solid rgba(235, 245, 255, 0);
     border-radius: 3.2rem;
