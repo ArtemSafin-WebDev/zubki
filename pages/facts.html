@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <main class="page-main">
+    <div class="facts-page">
+      {{> layout/header }}
+      {{> components/misc/secondary-panel }}
+      {{> components/misc/facts-grid }}
+    </div>
+  </main>
+
+  {{> components/misc/cookie-banner }}
+
+  <script type="module" src="/src/js/main.ts"></script>
+</body>
+
+</html>

@@ -1,4 +1,5 @@
-<article class="fact-card js-fact-card">
+<article class="fact-card js-fact-card{{#if class}} {{ class }}{{/if}}" {{#if initialSlide}}
+    data-initial-slide="{{ initialSlide }}" {{/if}}>
     <div class="fact-card__top">
         <span class="fact-card__tag">Интересные факты</span>
         {{> components/shared/slider-arrows

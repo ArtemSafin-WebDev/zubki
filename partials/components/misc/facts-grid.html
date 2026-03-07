@@ -1,0 +1,13 @@
+<section class="facts-grid" aria-label="Карточки фактов о здоровье зубов">
+    <ul class="facts-grid__list">
+        {{#each factsCards}}
+        <li class="facts-grid__item">
+            {{> components/cards/fact-card
+            class="facts-grid__card"
+            slides=this.slides
+            initialSlide=this.initialSlide
+            }}
+        </li>
+        {{/each}}
+    </ul>
+</section>

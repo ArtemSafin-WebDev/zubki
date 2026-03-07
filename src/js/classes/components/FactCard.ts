@@ -10,6 +10,12 @@ class FactCard extends Component {
     super(element);
 
     this.abortController = new AbortController();
+    const initialSlideAttr = this.element.dataset.initialSlide;
+    const initialSlide = Number(initialSlideAttr);
+    const hasInitialSlide =
+      initialSlideAttr !== undefined &&
+      Number.isFinite(initialSlide) &&
+      initialSlide >= 0;
     const container =
       this.element.querySelector<HTMLElement>(".fact-card__slider");
     const pagination = this.element.querySelector<HTMLElement>(
@@ -24,6 +30,7 @@ class FactCard extends Component {
       fadeEffect: {
         crossFade: true,
       },
+      initialSlide: hasInitialSlide ? initialSlide : 0,
       pagination: {
         el: pagination,
         clickable: true,

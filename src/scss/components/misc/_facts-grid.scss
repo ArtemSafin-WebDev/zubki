@@ -1,0 +1,18 @@
+@layer components {
+  .facts-grid {
+    margin-top: 2.4rem;
+    padding-bottom: 3.2rem;
+  }
+
+  .facts-grid__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(0, 35.2rem));
+    gap: 4rem;
+    align-items: start;
+    list-style: none;
+  }
+
+  .facts-grid__item {
+    min-width: 0;
+  }
+}

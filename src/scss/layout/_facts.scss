@@ -1,0 +1,13 @@
+@layer layout {
+  .facts-page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--content-padding);
+    background-color: var(--background-sky);
+    background-image: url("/images/blurs/facts-blur.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90rem auto;
+  }
+}
