@@ -79,7 +79,7 @@ export default {
   },
   "/quiz-leaderboard.html": {
     title: "Таблица лидеров",
-    quizPageTitle: "Название раздела",
+    quizPageTitle: "Квиз про зубки",
     quizBackHref: "/quiz-start.html",
     quizBackText: "Назад",
     quizLeaderboardInnerBackHref: "/quiz-start.html",

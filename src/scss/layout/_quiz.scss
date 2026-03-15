@@ -23,4 +23,12 @@
       background-position: center bottom;
     }
   }
+
+  .quiz-page--leaderboard {
+    @include breakpoints.mobile {
+      min-height: 100svh;
+      height: 100svh;
+      overflow: hidden;
+    }
+  }
 }
