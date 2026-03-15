@@ -16,11 +16,18 @@
     background-position:
       center bottom,
       center;
-  }
 
-  @include breakpoints.mobile {
-    background-image: url("/images/home/grass-mobile.webp");
-    background-size: cover;
-    background-position: center;
+    @include breakpoints.mobile {
+      padding: 2rem;
+      gap: 2rem;
+      background-image: url("/images/home/grass-mobile.webp");
+      background-size: 100% auto;
+      background-position: center bottom;
+
+      .secondary-panel__row {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+      }
+    }
   }
 }

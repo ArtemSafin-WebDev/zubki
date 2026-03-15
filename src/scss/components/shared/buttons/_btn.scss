@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @property --btn-bg {
   syntax: "<color>";
   inherits: true;
@@ -135,6 +137,27 @@
         .btn__text {
           grid-column: 2 / 3;
           justify-self: center;
+        }
+      }
+    }
+    &--mobile-centered {
+      @include breakpoints.mobile {
+        text-align: center;
+
+        &:has(.btn__icon) {
+          padding-left: 0.3rem;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          .btn__icon {
+            grid-column: 3 / 4;
+            justify-self: flex-end;
+          }
+
+          .btn__text {
+            grid-column: 2 / 3;
+            justify-self: center;
+          }
         }
       }
     }

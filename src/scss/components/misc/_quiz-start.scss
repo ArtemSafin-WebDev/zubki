@@ -1,9 +1,17 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .quiz-start {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     padding-top: 1.8rem;
     padding-bottom: 2.4rem;
+
+    @include breakpoints.mobile {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   .quiz-start__grid {
@@ -12,25 +20,32 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 3.2rem;
     align-items: end;
-    width: 100%;
+
+    @include breakpoints.mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
   .quiz-start__toothguy-wrap {
     grid-column: 1 / 4;
     align-self: stretch;
     display: flex;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .quiz-start__main {
     grid-column: 4 / 10;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .quiz-start__frame {
-    width: 100%;
-    min-height: 53.6rem;
     padding: 4rem;
     border-radius: 3.2rem;
     background: var(--white);
@@ -38,11 +53,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-grow: 1;
+
+    @include breakpoints.mobile {
+      padding: 2rem;
+      border-radius: 1.6rem;
+    }
   }
 
   .quiz-start__card {
     position: relative;
-    width: 100%;
     max-width: 45.6rem;
     padding: 2.4rem 5rem;
     border-radius: 1.6rem;
@@ -53,6 +73,15 @@
     align-items: center;
     gap: 2.4rem;
     flex-grow: 1;
+
+    @include breakpoints.mobile {
+      background: var(--background-light-sky);
+      max-width: none;
+      padding: 2rem;
+      gap: 3.2rem;
+      background: url("/images/quiz-start/card-bg-mobile.svg") center / cover
+        no-repeat;
+    }
   }
 
   .quiz-start__icon {
@@ -61,10 +90,14 @@
     align-self: center;
     z-index: 1;
     object-fit: contain;
+
+    @include breakpoints.mobile {
+      width: 7rem;
+      height: 7rem;
+    }
   }
 
   .quiz-start__title {
-    width: 100%;
     font-family: var(--desktop-h1-font-family);
     font-size: var(--desktop-h1-font-size);
     font-weight: var(--desktop-h1-font-weight);
@@ -73,6 +106,11 @@
     color: var(--text-light-blue);
     text-align: center;
     text-wrap: balance;
+
+    @include breakpoints.mobile {
+      font-size: var(--mobile-h1-font-size);
+      line-height: var(--mobile-h1-line-height);
+    }
   }
 
   .quiz-start__description {
@@ -84,6 +122,11 @@
     letter-spacing: var(--desktop-body-text-page-letter-spacing);
     color: var(--text-light-blue);
     text-align: center;
+
+    @include breakpoints.mobile {
+      font-size: var(--desktop-body-font-size);
+      max-width: none;
+    }
   }
 
   .quiz-start__actions {
@@ -91,10 +134,20 @@
     display: flex;
     align-items: center;
     gap: 1.2rem;
+
+    @include breakpoints.mobile {
+      flex-direction: column;
+      align-items: stretch;
+      align-self: stretch;
+    }
   }
 
   .quiz-start__aside {
     grid-column: 10 / 13;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .quiz-start__text-content {
@@ -103,5 +156,10 @@
     align-items: center;
     gap: 1.6rem;
     margin-bottom: 2rem;
+
+    @include breakpoints.mobile {
+      gap: 0.8rem;
+      margin-bottom: 0;
+    }
   }
 }
