@@ -1,0 +1,58 @@
+<section class="quiz-question" aria-labelledby="quiz-question-text">
+    <div class="quiz-question__grid">
+        <div class="quiz-question__toothguy-wrap">
+            {{> components/misc/toothguy hideBubble=true }}
+        </div>
+
+        <div class="quiz-question__main">
+            <div class="quiz-question__frame">
+                <div class="quiz-question__card">
+                    <div class="quiz-question__meta">
+                        <div class="quiz-question__meta-item">
+                            <span class="quiz-question__meta-label">Вопрос</span>
+                            <div class="quiz-question__counter">
+                                <span class="quiz-question__counter-current">{{ quizCurrentQuestion }}</span>
+                                <span class="quiz-question__counter-total">{{ quizTotalQuestions }}</span>
+                            </div>
+                        </div>
+                        <div class="quiz-question__meta-item">
+                            <span class="quiz-question__meta-label">Времени осталось</span>
+                            <div class="quiz-question__timer">{{ quizTimer }}</div>
+                        </div>
+                    </div>
+
+                    <p class="quiz-question__text" id="quiz-question-text">{{ quizQuestionText }}</p>
+
+                    <div class="quiz-question__options">
+                        {{#each quizOptions}}
+                            <label class="quiz-option">
+                                <input class="quiz-option__input" type="radio" name="quiz-answer" value="{{ value }}">
+                                <span class="quiz-option__radio"></span>
+                                <span class="quiz-option__label">{{ label }}</span>
+                            </label>
+                        {{/each}}
+                    </div>
+
+                    <div class="quiz-question__actions">
+                        <a href="{{ quizPrevHref }}" class="outline-btn is-disabled">
+                            <svg width="12" height="12" aria-hidden="true">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                            <span>Назад</span>
+                        </a>
+                        <a href="{{ quizNextHref }}" class="btn btn--blue">
+                            <span class="btn__text">Далее</span>
+                            <span class="btn__icon">
+                                <svg width="14" height="14" aria-hidden="true">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-question__aside" aria-hidden="true"></div>
+    </div>
+</section>
