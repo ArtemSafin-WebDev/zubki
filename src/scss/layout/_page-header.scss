@@ -305,8 +305,28 @@
   .page-header__menu-toggle {
     display: none;
     @include breakpoints.mobile {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
       padding-inline: 1.6rem;
+
+      &::after {
+        content: "";
+        width: 0.8rem;
+        height: 0.4rem;
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        background-color: currentColor;
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+
+  .page-header.menu-open .page-header__menu-toggle {
+    @include breakpoints.mobile {
+      &::after {
+        transform: rotate(180deg);
+      }
     }
   }
 }

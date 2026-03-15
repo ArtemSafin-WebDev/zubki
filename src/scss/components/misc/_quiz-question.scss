@@ -8,6 +8,7 @@
     margin-top: 2.4rem;
 
     @include breakpoints.mobile {
+      flex-grow: 0;
       margin-top: 2rem;
     }
   }
@@ -284,6 +285,10 @@
     flex-direction: column;
     gap: 0;
     overflow: visible;
+
+    @include breakpoints.mobile {
+      flex-grow: 0;
+    }
   }
 
   .quiz-question__options-track {
@@ -402,6 +407,10 @@
     &:not(.swiper-button-disabled):active {
       border-color: var(--text-light-blue);
       background-color: var(--background-light-sky);
+    }
+
+    @include breakpoints.mobile {
+      display: none;
     }
   }
 

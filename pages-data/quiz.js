@@ -41,7 +41,7 @@ export default {
     quizCurrentQuestion: "2",
     quizTotalQuestions: "12",
     quizTimer: "1:35",
-    quizQuestionText: "Выберите с чего правильно начинать <br> чистить зубки.",
+    quizQuestionText: "Выберите с чего правильно начинать чистить зубки.",
     quizPrevHref: "/quiz-start.html",
     quizNextHref: "#",
     quizOptions: [
