@@ -320,6 +320,36 @@
     min-block-size: 5lh;
   }
 
+  .challenge-complete {
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+    background-color: var(--white);
+    box-shadow: var(--white-cards-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .challenge-complete__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .challenge-complete__text {
+    margin: 0;
+    color: var(--text-light-blue);
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
+  }
+
+  .challenge-complete__btn {
+    align-self: flex-start;
+  }
+
   .calendar-modal__submit {
     width: 100%;
     display: flex;
