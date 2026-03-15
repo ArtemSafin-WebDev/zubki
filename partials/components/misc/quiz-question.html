@@ -26,28 +26,37 @@
                     <div
                         class="quiz-question__options{{#if quizOptionsAsCards}} quiz-question__options--cards js-quiz-options-slider{{/if}}">
                         {{#if quizOptionsAsCards}}
-                            <div class="quiz-question__options-slider swiper">
-                                <div class="swiper-wrapper">
-                                    {{#each quizOptions}}
-                                        <div class="quiz-question__options-slide swiper-slide">
-                                            <label class="quiz-option-card">
-                                                <input class="quiz-option-card__input" type="radio" name="quiz-answer"
-                                                    value="{{ value }}">
-                                                <span class="quiz-option-card__image-wrap">
-                                                    <img class="quiz-option-card__image" src="{{ image }}" alt="" loading="lazy"
-                                                        width="176" height="99">
-                                                </span>
-                                                <span class="quiz-option-card__label">{{ label }}</span>
-                                            </label>
-                                        </div>
-                                    {{/each}}
+                            <div class="quiz-question__options-track">
+                                <div class="quiz-question__options-slider swiper">
+                                    <div class="swiper-wrapper">
+                                        {{#each quizOptions}}
+                                            <div class="quiz-question__options-slide swiper-slide">
+                                                <label class="quiz-option-card">
+                                                    <input class="quiz-option-card__input" type="radio" name="quiz-answer"
+                                                        value="{{ value }}">
+                                                    <span class="quiz-option-card__image-wrap">
+                                                        <img class="quiz-option-card__image" src="{{ image }}" alt="" loading="lazy"
+                                                            width="176" height="99">
+                                                    </span>
+                                                    <span class="quiz-option-card__label">{{ label }}</span>
+                                                </label>
+                                            </div>
+                                        {{/each}}
+                                    </div>
                                 </div>
+                                <button class="quiz-question__options-nav quiz-question__options-nav--prev" type="button"
+                                    aria-label="Предыдущий вариант ответа">
+                                    <svg width="12" height="12" aria-hidden="true">
+                                        <use xlink:href="#arrow-left"></use>
+                                    </svg>
+                                </button>
+                                <button class="quiz-question__options-nav quiz-question__options-nav--next" type="button"
+                                    aria-label="Следующий вариант ответа">
+                                    <svg width="12" height="12" aria-hidden="true">
+                                        <use xlink:href="#arrow-right"></use>
+                                    </svg>
+                                </button>
                             </div>
-                            <button class="quiz-question__options-next" type="button" aria-label="Следующий вариант ответа">
-                                <svg width="12" height="12" aria-hidden="true">
-                                    <use xlink:href="#arrow-right"></use>
-                                </svg>
-                            </button>
                             <div class="quiz-question__options-pagination swiper-pagination" aria-hidden="true"></div>
                         {{else}}
                             {{#each quizOptions}}

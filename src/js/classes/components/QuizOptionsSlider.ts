@@ -15,10 +15,13 @@ class QuizOptionsSlider extends Component {
       ".quiz-question__options-pagination",
     );
     const nextButton = this.element.querySelector<HTMLButtonElement>(
-      ".quiz-question__options-next",
+      ".quiz-question__options-nav--next",
+    );
+    const prevButton = this.element.querySelector<HTMLButtonElement>(
+      ".quiz-question__options-nav--prev",
     );
 
-    if (!container || !pagination || !nextButton) {
+    if (!container || !pagination || !nextButton || !prevButton) {
       throw new Error("Quiz options slider elements not found");
     }
 
@@ -31,6 +34,7 @@ class QuizOptionsSlider extends Component {
       watchOverflow: true,
       allowTouchMove: true,
       navigation: {
+        prevEl: prevButton,
         nextEl: nextButton,
       },
       pagination: {
