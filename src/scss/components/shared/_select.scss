@@ -39,6 +39,9 @@
     line-height: var(--desktop-body-line-height);
     letter-spacing: var(--desktop-body-letter-spacing);
     color: var(--text-light-blue);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .select__button-icon {
@@ -84,8 +87,10 @@
     position: absolute;
     top: calc(100% + 0.8rem);
     left: 0;
-    right: 0;
     z-index: 20;
+    width: max-content;
+    min-width: 100%;
+    max-width: 40rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
