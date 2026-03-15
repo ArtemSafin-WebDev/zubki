@@ -27,8 +27,12 @@
     gap: 2.4rem;
     @include breakpoints.mobile {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+
+      &:has(.secondary-panel__title) {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+      }
     }
   }
 
@@ -195,11 +199,29 @@
     -webkit-text-stroke-color: currentColor;
     color: var(--text-light-blue);
     white-space: nowrap;
+
+    @include breakpoints.mobile {
+      font-family: var(--mobile-h2-font-family);
+      font-size: var(--mobile-h2-font-size);
+      font-weight: var(--mobile-h2-font-weight);
+      line-height: var(--mobile-h2-line-height);
+      letter-spacing: var(--mobile-h2-letter-spacing);
+    }
   }
 
   .secondary-panel__back-btn {
     justify-self: flex-start;
-
     padding-inline: 1.6rem;
+
+    @include breakpoints.mobile {
+      width: 4rem;
+      height: 4rem;
+      padding: 0;
+      border: none;
+
+      span {
+        display: none;
+      }
+    }
   }
 }
