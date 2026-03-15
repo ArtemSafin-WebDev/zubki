@@ -43,10 +43,17 @@
   }
 
   .quiz-leaderboard__card {
+    // --quiz-leaderboard-list-height: clamp(
+    //   29.4rem,
+    //   calc(100svh - 47.4rem),
+    //   65rem
+    // );
+    flex-grow: 1;
     width: 100%;
     max-width: 45.6rem;
     flex-grow: 1;
     min-height: 0;
+    // max-height: calc(var(--quiz-leaderboard-list-height) + 11.2rem);
     border-radius: 1.6rem;
     background: var(--background-light-sky);
     overflow: hidden;
@@ -54,6 +61,7 @@
     flex-direction: column;
     gap: 2.4rem;
     padding-block: 2.4rem;
+    padding-bottom: 0;
   }
 
   .quiz-leaderboard__head {
@@ -89,13 +97,12 @@
   }
 
   .quiz-leaderboard__list-wrap {
-    flex: 0 0 41.6rem;
+    flex: 1 1 auto;
     min-height: 0;
-    max-height: 41.6rem;
     width: 100%;
-    padding-left: 2.4rem;
-    padding-right: 0.8rem;
+
     display: flex;
+    position: relative;
   }
 
   .quiz-leaderboard__scroll {
@@ -103,7 +110,13 @@
     min-height: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-right: 0.8rem;
+    padding-right: 1rem;
+    position: absolute;
+    left: 2.4rem;
+    right: calc(2.4rem - 1.6rem);
+    top: 0;
+
+    height: 100%;
   }
 
   .quiz-leaderboard__scroll::-webkit-scrollbar {
@@ -113,7 +126,8 @@
   .quiz-leaderboard__scroll::-webkit-scrollbar-track {
     background: var(--background-sky);
     border-radius: 10rem;
-    margin-block: 0.4rem;
+    margin-block-end: 2.4rem;
+    // margin-block: 0.4rem;
   }
 
   .quiz-leaderboard__scroll::-webkit-scrollbar-thumb {
@@ -128,6 +142,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    padding-bottom: 2.4rem;
   }
 
   .quiz-leaderboard__entry {
