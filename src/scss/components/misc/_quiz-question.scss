@@ -66,6 +66,7 @@
     flex-direction: column;
     gap: 2.4rem;
     flex-grow: 1;
+    overflow: hidden;
 
     @include breakpoints.mobile {
       padding: 2rem;
@@ -267,6 +268,163 @@
     line-height: var(--desktop-body-line-height);
     color: var(--text-light-blue);
     font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .quiz-question--cards .quiz-question__text {
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
+  }
+
+  .quiz-question__options--cards {
+    min-height: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .quiz-question__options-slider.swiper {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .quiz-question__options-slider > .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .quiz-question__options-slide {
+    width: 20rem;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .quiz-option-card {
+    width: 100%;
+    min-height: 14.5rem;
+    border-radius: 0.8rem;
+    border: 0.15rem solid var(--background-dark-sky);
+    background: var(--white);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:has(.quiz-option-card__input:checked) {
+      border-color: var(--text-light-blue);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-blue);
+      }
+    }
+  }
+
+  .quiz-option-card__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .quiz-option-card__image-wrap {
+    width: 100%;
+    aspect-ratio: 176 / 99;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    display: block;
+  }
+
+  .quiz-option-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .quiz-option-card__label {
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
+    color: var(--text-light-blue);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .quiz-question__options-next {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--background-dark-sky);
+    background: var(--white);
+    color: var(--text-light-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 7.2rem;
+    transform: translate(50%, -50%);
+    z-index: 2;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(.swiper-button-disabled):hover {
+        background-color: var(--background-light-sky);
+      }
+    }
+
+    &:not(.swiper-button-disabled):active {
+      border-color: var(--text-light-blue);
+      background-color: var(--background-light-sky);
+    }
+  }
+
+  .quiz-question__options-next.swiper-button-disabled {
+    color: var(--text-secondary);
+    border-color: var(--text-secondary);
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .quiz-question__options-pagination.swiper-pagination {
+    position: static;
+    width: 100%;
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 1.6rem;
+  }
+
+  .quiz-question__options-pagination .swiper-pagination-bullet {
+    margin: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    opacity: 1;
+    background: #99bbff;
+  }
+
+  .quiz-question__options-pagination .swiper-pagination-bullet-active {
+    background: var(--text-light-blue);
   }
 
   .quiz-question__actions {

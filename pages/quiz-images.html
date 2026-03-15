@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+  <main class="page-main">
+    <div class="quiz-page">
+      {{> layout/header }}
+      {{> components/misc/quiz-secondary }}
+      {{> components/misc/quiz-question }}
+    </div>
+  </main>
+
+  {{> components/misc/cookie-banner }}
+
+  <script type="module" src="/src/js/main.ts"></script>
+</body>
+
+</html>

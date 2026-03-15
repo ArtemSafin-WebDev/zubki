@@ -23,12 +23,43 @@ export default {
     quizQuestionText:
       "Какая концентрация фторидов (ppm) в зубной пасте считается оптимальной для подростков старше 12 лет?",
     quizPrevHref: "/quiz-start.html",
+    quizPrevDisabled: true,
     quizNextHref: "#",
     quizOptions: [
       { value: "500", label: "500 ppm" },
       { value: "1000", label: "1000 ppm" },
       { value: "1450-1500", label: "1450–1500 ppm" },
       { value: "2500", label: "2500 ppm" },
+    ],
+  },
+  "/quiz-images.html": {
+    title: "Квиз про зубки",
+    quizPageTitle: "Квиз про зубки",
+    quizBackHref: "/quiz-start.html",
+    quizBackText: "Назад",
+    quizOptionsAsCards: true,
+    quizCurrentQuestion: "2",
+    quizTotalQuestions: "12",
+    quizTimer: "1:35",
+    quizQuestionText: "Выберите с чего правильно начинать <br> чистить зубки.",
+    quizPrevHref: "/quiz-start.html",
+    quizNextHref: "#",
+    quizOptions: [
+      {
+        value: "option-1",
+        label: "Вариант ответа №1",
+        image: "/images/quiz-option-cards/1.webp",
+      },
+      {
+        value: "option-2",
+        label: "Вариант ответа №2",
+        image: "/images/quiz-option-cards/2.webp",
+      },
+      {
+        value: "option-3",
+        label: "Вариант ответа №2",
+        image: "/images/quiz-option-cards/1.webp",
+      },
     ],
   },
 };

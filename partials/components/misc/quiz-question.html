@@ -1,4 +1,4 @@
-<section class="quiz-question" aria-labelledby="quiz-question-text">
+<section class="quiz-question{{#if quizOptionsAsCards}} quiz-question--cards{{/if}}" aria-labelledby="quiz-question-text">
     <div class="quiz-question__grid">
         <div class="quiz-question__toothguy-wrap">
             {{> components/misc/toothguy hideBubble=true }}
@@ -21,20 +21,48 @@
                         </div>
                     </div>
 
-                    <p class="quiz-question__text" id="quiz-question-text">{{ quizQuestionText }}</p>
+                    <p class="quiz-question__text" id="quiz-question-text">{{{ quizQuestionText }}}</p>
 
-                    <div class="quiz-question__options">
-                        {{#each quizOptions}}
-                            <label class="quiz-option">
-                                <input class="quiz-option__input" type="radio" name="quiz-answer" value="{{ value }}">
-                                <span class="quiz-option__radio"></span>
-                                <span class="quiz-option__label">{{ label }}</span>
-                            </label>
-                        {{/each}}
+                    <div
+                        class="quiz-question__options{{#if quizOptionsAsCards}} quiz-question__options--cards js-quiz-options-slider{{/if}}">
+                        {{#if quizOptionsAsCards}}
+                            <div class="quiz-question__options-slider swiper">
+                                <div class="swiper-wrapper">
+                                    {{#each quizOptions}}
+                                        <div class="quiz-question__options-slide swiper-slide">
+                                            <label class="quiz-option-card">
+                                                <input class="quiz-option-card__input" type="radio" name="quiz-answer"
+                                                    value="{{ value }}">
+                                                <span class="quiz-option-card__image-wrap">
+                                                    <img class="quiz-option-card__image" src="{{ image }}" alt="" loading="lazy"
+                                                        width="176" height="99">
+                                                </span>
+                                                <span class="quiz-option-card__label">{{ label }}</span>
+                                            </label>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <button class="quiz-question__options-next" type="button" aria-label="Следующий вариант ответа">
+                                <svg width="12" height="12" aria-hidden="true">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </button>
+                            <div class="quiz-question__options-pagination swiper-pagination" aria-hidden="true"></div>
+                        {{else}}
+                            {{#each quizOptions}}
+                                <label class="quiz-option">
+                                    <input class="quiz-option__input" type="radio" name="quiz-answer" value="{{ value }}">
+                                    <span class="quiz-option__radio"></span>
+                                    <span class="quiz-option__label">{{ label }}</span>
+                                </label>
+                            {{/each}}
+                        {{/if}}
                     </div>
 
                     <div class="quiz-question__actions">
-                        <a href="{{ quizPrevHref }}" class="outline-btn is-disabled">
+                        <a href="{{ quizPrevHref }}" class="outline-btn{{#if quizPrevDisabled}} is-disabled{{/if}}"
+                            {{#if quizPrevDisabled}}aria-disabled="true"{{/if}}>
                             <svg width="12" height="12" aria-hidden="true">
                                 <use xlink:href="#arrow-left"></use>
                             </svg>
