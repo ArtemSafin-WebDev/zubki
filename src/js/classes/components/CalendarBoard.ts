@@ -1,6 +1,7 @@
 import Component from "../Component";
 
 class CalendarBoard extends Component {
+  private static readonly activeDayClass = "calendar-day--popover-active";
   private readonly popover: HTMLElement | null;
   private readonly titleElement: HTMLElement | null;
   private readonly actionElement: HTMLElement | null;
@@ -11,7 +12,9 @@ class CalendarBoard extends Component {
   constructor(element: HTMLElement) {
     super(element);
 
-    this.popover = this.element.querySelector<HTMLElement>(".js-calendar-popover");
+    this.popover = this.element.querySelector<HTMLElement>(
+      ".js-calendar-popover"
+    );
     this.titleElement = this.element.querySelector<HTMLElement>(
       ".js-calendar-popover-title"
     );
@@ -52,7 +55,7 @@ class CalendarBoard extends Component {
   private handlePointerEnter = (event: PointerEvent) => {
     const day = event.currentTarget as HTMLElement;
     this.fillPopover(day);
-    this.showPopover();
+    this.showPopover(day);
     this.positionPopover(event.clientX, event.clientY);
   };
 
@@ -69,7 +72,7 @@ class CalendarBoard extends Component {
     const rect = day.getBoundingClientRect();
 
     this.fillPopover(day);
-    this.showPopover();
+    this.showPopover(day);
     this.positionPopover(rect.right, rect.top);
   };
 
@@ -85,17 +88,30 @@ class CalendarBoard extends Component {
     this.noteElement.textContent = day.dataset.popoverNote ?? "";
   }
 
-  private showPopover = () => {
+  private showPopover = (day: HTMLElement) => {
     if (!this.popover) return;
 
+    this.setActiveDay(day);
     this.popover.hidden = false;
   };
 
   private hidePopover = () => {
     if (!this.popover) return;
 
+    this.clearActiveDay();
     this.popover.hidden = true;
   };
+
+  private setActiveDay(day: HTMLElement) {
+    this.clearActiveDay();
+    day.classList.add(CalendarBoard.activeDayClass);
+  }
+
+  private clearActiveDay() {
+    this.markedDays.forEach((day) => {
+      day.classList.remove(CalendarBoard.activeDayClass);
+    });
+  }
 
   private positionPopover(clientX: number, clientY: number) {
     if (!this.popover || this.popover.hidden) return;
@@ -115,8 +131,14 @@ class CalendarBoard extends Component {
       top = clientY - rect.height - offset;
     }
 
-    left = Math.max(gutter, Math.min(left, window.innerWidth - rect.width - gutter));
-    top = Math.max(gutter, Math.min(top, window.innerHeight - rect.height - gutter));
+    left = Math.max(
+      gutter,
+      Math.min(left, window.innerWidth - rect.width - gutter)
+    );
+    top = Math.max(
+      gutter,
+      Math.min(top, window.innerHeight - rect.height - gutter)
+    );
 
     this.popover.style.left = `${left}px`;
     this.popover.style.top = `${top}px`;

@@ -11,6 +11,10 @@
     &--green-border {
       border-color: var(--accent-green-pressed);
     }
+
+    &--calendar {
+      border-color: var(--accent-orange);
+    }
     @include breakpoints.mobile {
       padding: 1.2rem 0;
     }
