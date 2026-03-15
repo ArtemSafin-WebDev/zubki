@@ -21,6 +21,13 @@
         <span class="text-input__label">
             {{ label }}
         </span>
+        {{#if toggleId}}
+            <button class="text-input__toggle" type="button" aria-label="Показать/скрыть пароль" data-password-toggle>
+                <svg width="12" height="12" aria-hidden="true">
+                    <use xlink:href="#{{ toggleId }}"></use>
+                </svg>
+            </button>
+        {{/if}}
     </span>
     {{#if errorText}}
         <span class="validation-error">
