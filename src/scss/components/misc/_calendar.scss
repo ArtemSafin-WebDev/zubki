@@ -8,12 +8,10 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 3.2rem;
-    align-items: start;
   }
 
   .calendar-board__character-column {
     grid-column: 1 / span 3;
-    min-height: 53.6rem;
     display: flex;
     align-items: flex-end;
     overflow: visible;
@@ -26,12 +24,6 @@
 
   .calendar-board__aside {
     grid-column: 10 / span 3;
-    min-height: 53.6rem;
-  }
-
-  .calendar-board__toothguy {
-    margin-top: 0;
-    margin-bottom: 0.4rem;
   }
 
   .calendar-board__bubble {
@@ -345,8 +337,9 @@
     min-block-size: 5lh;
   }
 
-  .calendar-modal__note .text-input__field:not(:placeholder-shown)
-      + .text-input__label,
+  .calendar-modal__note
+    .text-input__field:not(:placeholder-shown)
+    + .text-input__label,
   .calendar-modal__note .text-input__field:focus + .text-input__label {
     top: 0;
     left: 0.8rem;

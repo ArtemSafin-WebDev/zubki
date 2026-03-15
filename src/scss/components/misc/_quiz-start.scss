@@ -1,0 +1,107 @@
+@layer components {
+  .quiz-start {
+    flex-grow: 1;
+    display: flex;
+    padding-top: 1.8rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .quiz-start__grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 3.2rem;
+    align-items: end;
+    width: 100%;
+  }
+
+  .quiz-start__toothguy-wrap {
+    grid-column: 1 / 4;
+    align-self: stretch;
+    display: flex;
+  }
+
+  .quiz-start__main {
+    grid-column: 4 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quiz-start__frame {
+    width: 100%;
+    min-height: 53.6rem;
+    padding: 4rem;
+    border-radius: 3.2rem;
+    background: var(--white);
+    box-shadow: 0 0.4rem 1.6rem rgba(143, 203, 255, 0.4);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .quiz-start__card {
+    position: relative;
+    width: 100%;
+    max-width: 45.6rem;
+    padding: 2.4rem 5rem;
+    border-radius: 1.6rem;
+    background: url("/images/quiz-start/card-bg.svg") center / cover no-repeat;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    flex-grow: 1;
+  }
+
+  .quiz-start__icon {
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+    z-index: 1;
+    object-fit: contain;
+  }
+
+  .quiz-start__title {
+    width: 100%;
+    font-family: var(--desktop-h1-font-family);
+    font-size: var(--desktop-h1-font-size);
+    font-weight: var(--desktop-h1-font-weight);
+    line-height: var(--desktop-h1-line-height);
+    letter-spacing: var(--desktop-h1-letter-spacing);
+    color: var(--text-light-blue);
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .quiz-start__description {
+    max-width: 28.2rem;
+    font-family: var(--desktop-body-text-page-font-family);
+    font-size: var(--desktop-body-text-page-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-text-page-letter-spacing);
+    color: var(--text-light-blue);
+    text-align: center;
+  }
+
+  .quiz-start__actions {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .quiz-start__aside {
+    grid-column: 10 / 13;
+  }
+
+  .quiz-start__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}

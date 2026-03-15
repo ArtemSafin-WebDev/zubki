@@ -1,0 +1,57 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - list [ref=e8]:
+            - listitem [ref=e9]
+            - listitem [ref=e11]
+            - listitem [ref=e13]:
+              - generic [ref=e15]:
+                - text: Казанский
+                - text: Государственный
+                - text: Медицинский Университет
+          - generic [ref=e16]:
+            - link "Инструкция" [ref=e17] [cursor=pointer]:
+              - /url: "#"
+            - link "Обратная связь" [ref=e18] [cursor=pointer]:
+              - /url: "#callback-modal"
+              - generic [ref=e19]: Обратная связь
+              - img [ref=e21]
+            - link [ref=e23] [cursor=pointer]:
+              - /url: "#"
+        - link [ref=e24] [cursor=pointer]:
+          - /url: "#"
+      - region "Панель навигации квиза" [ref=e25]:
+        - generic [ref=e26]:
+          - link "Назад" [ref=e27] [cursor=pointer]:
+            - /url: /index.html
+            - img [ref=e28]
+            - generic [ref=e30]: Назад
+          - heading "Квиз про зубки" [level=1] [ref=e31]
+      - region "12 простых вопросов" [ref=e32]:
+        - generic [ref=e39]:
+          - img
+          - img
+          - img [ref=e40]
+          - heading "12 простых вопросов" [level=2] [ref=e41]
+          - paragraph [ref=e42]:
+            - text: Ответьте на вопросы на темы
+            - text: изученных статей из прошлых уроков
+            - text: и закрепите свои знания
+          - generic [ref=e43]:
+            - link "Таблица лидеров" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e45]
+              - generic [ref=e47]: Таблица лидеров
+            - link "Пройти квиз" [ref=e48] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e49]: Пройти квиз
+              - img [ref=e51]
+  - region "Уведомление о cookies" [ref=e54]:
+    - paragraph [ref=e55]: Мы используем cookies. Продолжая пользоваться сайтом, вы соглашаетесь с этим.
+    - generic [ref=e56]:
+      - button "Хорошо" [ref=e57] [cursor=pointer]
+      - link "Подробнее" [ref=e58] [cursor=pointer]:
+        - /url: "#"
+  - img
