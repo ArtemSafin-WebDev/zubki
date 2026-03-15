@@ -26,18 +26,6 @@
     grid-column: 10 / span 3;
   }
 
-  .calendar-board__bubble {
-    max-width: 10.4rem;
-    top: 6rem;
-    left: 13rem;
-    margin: 0;
-    background-color: var(--white);
-  }
-
-  .calendar-board__bubble-text {
-    color: var(--text-light-blue);
-  }
-
   .calendar-board__card {
     position: relative;
     z-index: 1;
@@ -77,9 +65,8 @@
 
   .calendar-day {
     aspect-ratio: 1;
-    min-height: 8.76rem;
     border-radius: 0.8rem;
-    border: 0.15rem solid var(--background-sky);
+    border: 1px solid var(--background-sky);
     background-color: var(--white);
     position: relative;
     overflow: hidden;
@@ -205,7 +192,7 @@
 
   .calendar-board__legend-items {
     padding-top: 1.6rem;
-    border-top: 0.15rem solid var(--background-dark-sky);
+    border-top: 1px solid var(--background-dark-sky);
     display: flex;
     flex-wrap: wrap;
     gap: 1.6rem;
@@ -329,26 +316,8 @@
     width: 100%;
   }
 
-  .calendar-modal__note .text-input__control {
-    min-height: 10.8rem;
-  }
-
   .calendar-modal__note .text-input__field--textarea {
     min-block-size: 5lh;
-  }
-
-  .calendar-modal__note
-    .text-input__field:not(:placeholder-shown)
-    + .text-input__label,
-  .calendar-modal__note .text-input__field:focus + .text-input__label {
-    top: 0;
-    left: 0.8rem;
-    transform: translateY(-50%);
-    padding-inline: 0.4rem;
-    background: var(--white);
-    font-size: 1.2rem;
-    line-height: 1.2;
-    letter-spacing: -0.02rem;
   }
 
   .calendar-modal__submit {
