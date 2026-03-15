@@ -1,0 +1,48 @@
+<section class="quiz-leaderboard" aria-labelledby="quiz-leaderboard-title">
+    <div class="quiz-leaderboard__grid">
+        <div class="quiz-leaderboard__toothguy-wrap">
+            {{> components/misc/toothguy hideBubble=true }}
+        </div>
+
+        <div class="quiz-leaderboard__main">
+            <div class="quiz-leaderboard__frame">
+                <div class="quiz-leaderboard__card">
+                    <div class="quiz-leaderboard__head">
+                        <a href="{{ quizLeaderboardInnerBackHref }}" class="outline-btn quiz-leaderboard__head-back"
+                            aria-label="Вернуться назад">
+                            <svg width="12" height="12" aria-hidden="true">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                        </a>
+                        <h2 class="quiz-leaderboard__title" id="quiz-leaderboard-title">{{ quizLeaderboardHeading }}</h2>
+                        <span class="quiz-leaderboard__head-back quiz-leaderboard__head-back--placeholder"
+                            aria-hidden="true"></span>
+                    </div>
+
+                    <div class="quiz-leaderboard__list-wrap">
+                        <div class="quiz-leaderboard__scroll">
+                            <ol class="quiz-leaderboard__list">
+                                {{#each quizLeaderboardEntries}}
+                                    <li
+                                        class="quiz-leaderboard__entry{{#if isFirst}} quiz-leaderboard__entry--first{{/if}}{{#if isCurrentUser}} quiz-leaderboard__entry--current{{/if}}">
+                                        <div class="quiz-leaderboard__entry-content">
+                                            <span class="quiz-leaderboard__place">#{{ place }}</span>
+                                            <span class="quiz-leaderboard__name">{{ name }}</span>
+                                        </div>
+                                        {{#if isFirst}}
+                                            <svg class="quiz-leaderboard__icon" width="12" height="12" aria-hidden="true">
+                                                <use xlink:href="#leaderboard"></use>
+                                            </svg>
+                                        {{/if}}
+                                    </li>
+                                {{/each}}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-leaderboard__aside" aria-hidden="true"></div>
+    </div>
+</section>
