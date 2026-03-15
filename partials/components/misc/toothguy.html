@@ -4,12 +4,16 @@
     </div>
 
     {{#unless hideBubble}}
-        {{#> components/shared/speech-bubble class="toothguy__bubble"}}
-            <p class="speech-bubble__text toothguy__text">
-                Ты точно чистишь
-                <br>
-                зубки каждый день?
+        <div class="speech-bubble toothguy__bubble{{#if bubbleClass}} {{ bubbleClass }}{{/if}}">
+            <p class="speech-bubble__text toothguy__text{{#if bubbleTextClass}} {{ bubbleTextClass }}{{/if}}">
+                {{#if bubbleText}}
+                    {{{ bubbleText }}}
+                {{else}}
+                    Ты точно чистишь
+                    <br>
+                    зубки каждый день?
+                {{/if}}
             </p>
-        {{/components/shared/speech-bubble}}
+        </div>
     {{/unless}}
 </section>

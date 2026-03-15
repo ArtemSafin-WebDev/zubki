@@ -1,0 +1,14 @@
+@layer layout {
+  .calendar-page {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    padding: var(--content-padding);
+    background-color: var(--calendar-background);
+    background-image: url("/images/calendar/background.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 150rem auto;
+  }
+}

@@ -1,0 +1,20 @@
+<section class="secondary-panel secondary-panel--calendar" aria-label="Панель календаря">
+    <div class="secondary-panel__row">
+        <a href="{{ calendarBackHref }}" class="outline-btn secondary-panel__back-btn">
+            <svg width="12" height="12" aria-hidden="true">
+                <use xlink:href="#arrow-left"></use>
+            </svg>
+            <span>{{ calendarBackText }}</span>
+        </a>
+        <h1 class="secondary-panel__title">
+            {{ calendarPageTitle }}
+        </h1>
+        <div class="secondary-panel__right">
+            <div class="secondary-panel__deadline"
+                aria-label="До события осталось {{ calendarDaysLeft }}, день {{ calendarDay }}">
+                <span class="secondary-panel__deadline-left">{{ calendarDaysLeft }}</span>
+                <span class="secondary-panel__deadline-right">{{ calendarDay }}</span>
+            </div>
+        </div>
+    </div>
+</section>

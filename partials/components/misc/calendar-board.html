@@ -1,0 +1,58 @@
+<section class="calendar-board js-calendar-board" aria-label="Календарь чистки зубов">
+    <div class="calendar-board__grid">
+        <div class="calendar-board__character-column">
+            {{> components/misc/toothguy
+            class="calendar-board__toothguy"
+            bubbleClass="calendar-board__bubble"
+            bubbleTextClass="calendar-board__bubble-text"
+            bubbleText=calendarToothguyText
+            }}
+        </div>
+
+        <div class="calendar-board__main-column">
+            <article class="calendar-board__card">
+                <h2 class="calendar-board__title">{{ calendarTitle }}</h2>
+
+                <div class="calendar-board__days">
+                    {{#each calendarWeeks}}
+                        <div class="calendar-board__week">
+                            {{#each this}}
+                                {{> components/cards/calendar-day }}
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
+
+                <div class="calendar-board__legend">
+                    <h3 class="calendar-board__legend-title">Легенда</h3>
+                    <div class="calendar-board__legend-items">
+                        {{#each calendarLegend}}
+                            <div class="calendar-board__legend-item">
+                                <span class="calendar-board__legend-icon" aria-hidden="true">
+                                    <img src="{{ iconSrc }}" alt="" loading="lazy" width="17" height="16">
+                                </span>
+                                <span class="calendar-board__legend-label">{{ label }}</span>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="calendar-board__aside" aria-hidden="true"></div>
+    </div>
+
+    <div class="calendar-board__popover js-calendar-popover" hidden>
+        <h3 class="calendar-board__popover-title js-calendar-popover-title"></h3>
+        <div class="calendar-board__popover-content">
+            <div class="calendar-board__popover-group">
+                <p class="calendar-board__popover-label">Что сделал</p>
+                <p class="calendar-board__popover-value js-calendar-popover-action"></p>
+            </div>
+            <div class="calendar-board__popover-group">
+                <p class="calendar-board__popover-label">Описание прогресса</p>
+                <p class="calendar-board__popover-value js-calendar-popover-note"></p>
+            </div>
+        </div>
+    </div>
+</section>

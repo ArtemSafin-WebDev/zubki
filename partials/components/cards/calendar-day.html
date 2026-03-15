@@ -1,0 +1,19 @@
+<button type="button"
+    class="calendar-day calendar-day--{{ state }}{{#if opensModal}} calendar-day--interactive{{/if}}{{#if popoverTitle}} calendar-day--interactive{{/if}}"
+    aria-label="{{ ariaLabel }}" {{#if opensModal}}data-open="#calendar-mark-modal" aria-controls="calendar-mark-modal"
+    {{/if}} {{#if popoverTitle}}data-popover-title="{{ popoverTitle }}" data-popover-action="{{ popoverAction }}"
+    data-popover-note="{{ popoverNote }}" {{/if}} {{#if disabled}}disabled{{/if}}>
+    {{#if iconSrc}}
+        <span class="calendar-day__icon" aria-hidden="true">
+            <img src="{{ iconSrc }}" alt="" loading="lazy" width="68" height="64">
+        </span>
+    {{/if}}
+
+    {{#if showHoverIcon}}
+        <span class="calendar-day__hover-icon" aria-hidden="true">
+            <img src="/images/calendar/star-hover.svg" alt="" loading="lazy" width="68" height="64">
+        </span>
+    {{/if}}
+
+    <span class="calendar-day__number">{{ day }}</span>
+</button>

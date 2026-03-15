@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+  <main class="page-main">
+    <div class="calendar-page">
+      {{> layout/header }}
+      {{> components/misc/calendar-secondary }}
+      {{> components/misc/calendar-board }}
+    </div>
+  </main>
+
+  {{> components/misc/cookie-banner }}
+  {{> components/modals/calendar-mark-modal }}
+
+  <script type="module" src="/src/js/main.ts"></script>
+</body>
+
+</html>

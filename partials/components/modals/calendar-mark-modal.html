@@ -1,0 +1,39 @@
+<dialog class="modal modal--calendar js-modal" id="calendar-mark-modal">
+    <div class="modal__container">
+        <button type="button" class="modal__close" aria-label="Закрыть модальное окно" data-close>
+            <svg width="14" height="14" aria-hidden="true">
+                <use xlink:href="#close"></use>
+            </svg>
+        </button>
+
+        <div class="modal__content calendar-modal">
+            <div class="calendar-modal__body">
+                <h2 class="calendar-modal__title">Новая отметка в календаре</h2>
+
+                <div class="calendar-modal__fields">
+                    {{> components/shared/select
+                    class="calendar-modal__select"
+                    name=calendarModalSelect.name
+                    label=calendarModalSelect.label
+                    placeholder=calendarModalSelect.placeholder
+                    options=calendarModalSelect.options
+                    selected=calendarModalSelect.selected
+                    selectedText=calendarModalSelect.selectedText
+                    }}
+
+                    {{> components/shared/text-input
+                    class="calendar-modal__note"
+                    isTextarea=true
+                    name=calendarModalNote.name
+                    label=calendarModalNote.label
+                    value=calendarModalNote.value
+                    }}
+                </div>
+
+                <button class="btn btn--blue calendar-modal__submit" type="button" data-close>
+                    Добавить в календарь
+                </button>
+            </div>
+        </div>
+    </div>
+</dialog>
