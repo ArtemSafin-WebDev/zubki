@@ -69,7 +69,7 @@ export default {
     quizBackText: "Назад",
     quizCompletionTitle: "Вы молодец!",
     quizCompletionDescription:
-      "Эти знания будут вам полезны в жизни <br>и помогут сохранить ваши зубки здоровыми",
+      "Эти знания будут вам полезны в жизни и помогут сохранить ваши зубки здоровыми",
     quizCompletionStats: [
       { text: "11 правильных ответов" },
       { text: "за 1:44" },
