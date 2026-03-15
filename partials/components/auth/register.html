@@ -87,11 +87,12 @@
                         options=registerGenderSelect.options
                         required=true
                         }}
-                        {{> components/shared/text-input
+                        {{> components/shared/select
                         class="register__text-input"
-                        type="text"
-                        name="childTeethCondition"
-                        label="Состояние зубок"
+                        name=registerTeethConditionSelect.name
+                        label=registerTeethConditionSelect.label
+                        placeholder=registerTeethConditionSelect.placeholder
+                        options=registerTeethConditionSelect.options
                         required=true
                         }}
                         {{> components/shared/text-input

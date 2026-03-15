@@ -99,22 +99,26 @@ export default {
         { value: "female", label: "Девочка" },
       ],
     },
-    profileChildBottomRows: [
-      [
-        {
-          type: "text",
-          name: "childTeethCondition",
-          label: "Состояние зубок",
-          value: "Нормальное",
-        },
-        {
-          type: "text",
-          name: "childClinic",
-          label: "Клиника",
-          value: "Native Clinic",
-        },
+    profileChildTeethCondition: {
+      name: "childTeethCondition",
+      label: "Состояние зубок",
+      placeholder: "Состояние зубок",
+      selected: true,
+      selectedText: "Нормальное",
+      options: [
+        { value: "good", label: "Хорошее" },
+        { value: "normal", label: "Нормальное", checked: true },
+        { value: "satisfactory", label: "Удовлетворительное" },
+        { value: "needs-attention", label: "Требует внимания" },
+        { value: "needs-treatment", label: "Требует лечения" },
       ],
-    ],
+    },
+    profileChildClinic: {
+      type: "text",
+      name: "childClinic",
+      label: "Клиника",
+      value: "Native Clinic",
+    },
     profilePassword: {
       type: "text",
       name: "password",

@@ -99,19 +99,24 @@
                             selectedText=profileChildGender.selectedText
                             }}
                         </div>
-                        {{#each profileChildBottomRows}}
-                            <div class="profile-dashboard__fields-row">
-                                {{#each this}}
-                                    {{> components/shared/text-input
-                                    class="profile-dashboard__input"
-                                    type=this.type
-                                    name=this.name
-                                    label=this.label
-                                    value=this.value
-                                    }}
-                                {{/each}}
-                            </div>
-                        {{/each}}
+                        <div class="profile-dashboard__fields-row">
+                            {{> components/shared/select
+                            class="profile-dashboard__input"
+                            name=profileChildTeethCondition.name
+                            label=profileChildTeethCondition.label
+                            placeholder=profileChildTeethCondition.placeholder
+                            options=profileChildTeethCondition.options
+                            selected=profileChildTeethCondition.selected
+                            selectedText=profileChildTeethCondition.selectedText
+                            }}
+                            {{> components/shared/text-input
+                            class="profile-dashboard__input"
+                            type=profileChildClinic.type
+                            name=profileChildClinic.name
+                            label=profileChildClinic.label
+                            value=profileChildClinic.value
+                            }}
+                        </div>
                     </div>
                 </section>
 
