@@ -11,6 +11,7 @@ type Locale = {
   emailField: string;
   alphanumericField: string;
   phoneField: string;
+  confirmField: string;
 };
 
 type Localization = {
@@ -31,12 +32,14 @@ const defaultLocalization: Localization = {
     emailField: "Введите корректный E-mail",
     alphanumericField: "Разрешены только цифры и буквы",
     phoneField: "Введите правильный номер телефона",
+    confirmField: "Пароли не совпадают",
   },
   en: {
     requiredField: "Field is required",
     emailField: "Enter correct E-mail",
     alphanumericField: "Only digits and numbers allowed",
     phoneField: "Enter correct phone number",
+    confirmField: "Passwords do not match",
   },
 };
 
@@ -71,7 +74,7 @@ class Validator {
 
     this.textFields = Array.from(
       form.querySelectorAll(
-        'input[type="text"], input[type="email"], input[type="tel"]'
+        'input[type="text"], input[type="email"], input[type="tel"], input[type="password"]'
       )
     );
     this.selects = Array.from(form.querySelectorAll("[data-required-select]"));
@@ -254,6 +257,14 @@ class Validator {
       const cleaned = value.replace(/\s/g, "");
       if (!isAlphanumeric(cleaned) || isNumeric(cleaned)) {
         return { element: field, message: msg.alphanumericField };
+      }
+    }
+    if (field.dataset.confirm && value) {
+      const target = this.form.querySelector<HTMLInputElement>(
+        `input[name="${field.dataset.confirm}"]`
+      );
+      if (target && value !== target.value.trim()) {
+        return { element: field, message: msg.confirmField };
       }
     }
 

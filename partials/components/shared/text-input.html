@@ -16,7 +16,8 @@
                 type="{{#if type}}{{ type }}{{else}}text{{/if}}"
                 name="{{#if name}}{{ name }}{{else}}text-input{{/if}}" placeholder=" "
                 {{#if autocomplete}}autocomplete="{{ autocomplete }}" {{/if}} {{#if required}}required{{/if}}
-                {{#if value}}value="{{ value }}" {{/if}}>
+                {{#if value}}value="{{ value }}" {{/if}}
+                {{#if dataConfirm}}data-confirm="{{ dataConfirm }}" {{/if}}>
         {{/if}}
         <span class="text-input__label">
             {{ label }}
