@@ -66,7 +66,7 @@ export default {
         },
       ],
     ],
-    profileChildRows: [
+    profileChildTopRows: [
       [
         {
           type: "text",
@@ -81,20 +81,25 @@ export default {
           value: "Яковлев",
         },
       ],
-      [
-        {
-          type: "text",
-          name: "childAge",
-          label: "Возраст",
-          value: "9 лет",
-        },
-        {
-          type: "text",
-          name: "childGender",
-          label: "Пол",
-          value: "Мальчик",
-        },
+    ],
+    profileChildAge: {
+      type: "text",
+      name: "childAge",
+      label: "Возраст",
+      value: "9 лет",
+    },
+    profileChildGender: {
+      name: "childGender",
+      label: "Пол",
+      placeholder: "Пол",
+      selected: true,
+      selectedText: "Мальчик",
+      options: [
+        { value: "male", label: "Мальчик", checked: true },
+        { value: "female", label: "Девочка" },
       ],
+    },
+    profileChildBottomRows: [
       [
         {
           type: "text",

@@ -79,11 +79,12 @@
                         label="Возраст"
                         required=true
                         }}
-                        {{> components/shared/text-input
+                        {{> components/shared/select
                         class="register__text-input"
-                        type="text"
-                        name="childGender"
-                        label="Пол"
+                        name=registerGenderSelect.name
+                        label=registerGenderSelect.label
+                        placeholder=registerGenderSelect.placeholder
+                        options=registerGenderSelect.options
                         required=true
                         }}
                         {{> components/shared/text-input

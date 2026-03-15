@@ -68,7 +68,7 @@
                 <section class="profile-dashboard__section">
                     <h2 class="profile-dashboard__section-title">О ребенке</h2>
                     <div class="profile-dashboard__fields-grid">
-                        {{#each profileChildRows}}
+                        {{#each profileChildTopRows}}
                             <div class="profile-dashboard__fields-row">
                                 {{#each this}}
                                     {{> components/shared/text-input
@@ -77,7 +77,37 @@
                                     name=this.name
                                     label=this.label
                                     value=this.value
-                                    autocomplete=this.autocomplete
+                                    }}
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                        <div class="profile-dashboard__fields-row">
+                            {{> components/shared/text-input
+                            class="profile-dashboard__input"
+                            type=profileChildAge.type
+                            name=profileChildAge.name
+                            label=profileChildAge.label
+                            value=profileChildAge.value
+                            }}
+                            {{> components/shared/select
+                            class="profile-dashboard__input"
+                            name=profileChildGender.name
+                            label=profileChildGender.label
+                            placeholder=profileChildGender.placeholder
+                            options=profileChildGender.options
+                            selected=profileChildGender.selected
+                            selectedText=profileChildGender.selectedText
+                            }}
+                        </div>
+                        {{#each profileChildBottomRows}}
+                            <div class="profile-dashboard__fields-row">
+                                {{#each this}}
+                                    {{> components/shared/text-input
+                                    class="profile-dashboard__input"
+                                    type=this.type
+                                    name=this.name
+                                    label=this.label
+                                    value=this.value
                                     }}
                                 {{/each}}
                             </div>
