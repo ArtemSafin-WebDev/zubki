@@ -62,4 +62,19 @@ export default {
       },
     ],
   },
+  "/quiz-completion.html": {
+    title: "Квиз про зубки",
+    quizPageTitle: "Квиз про зубки",
+    quizBackHref: "/quiz-images.html",
+    quizBackText: "Назад",
+    quizCompletionTitle: "Вы молодец!",
+    quizCompletionDescription:
+      "Эти знания будут вам полезны в жизни <br>и помогут сохранить ваши зубки здоровыми",
+    quizCompletionStats: [
+      { text: "11 правильных ответов" },
+      { text: "за 1:44" },
+    ],
+    quizLeaderboardHref: "#",
+    quizLeaderboardText: "Таблица лидеров",
+  },
 };

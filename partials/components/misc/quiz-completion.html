@@ -1,0 +1,40 @@
+<section class="quiz-completion" aria-labelledby="quiz-completion-title">
+    <div class="quiz-completion__grid">
+        <div class="quiz-completion__toothguy-wrap">
+            {{> components/misc/toothguy hideBubble=true }}
+        </div>
+
+        <div class="quiz-completion__main">
+            <div class="quiz-completion__frame">
+                <div class="quiz-completion__card">
+                    <div class="quiz-completion__content">
+                        <div class="quiz-completion__trophy-wrap">
+                            <img class="quiz-completion__trophy" src="/images/challenge-modal/trophy.webp" alt=""
+                                loading="lazy" width="89" height="118" aria-hidden="true">
+                        </div>
+
+                        <div class="quiz-completion__text-content">
+                            <h2 class="quiz-completion__title" id="quiz-completion-title">{{ quizCompletionTitle }}</h2>
+                            <p class="quiz-completion__description">{{{ quizCompletionDescription }}}</p>
+                        </div>
+
+                        <ul class="quiz-completion__stats-list" aria-label="Итоги квиза">
+                            {{#each quizCompletionStats}}
+                                <li class="quiz-completion__stats-item">{{ text }}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <a href="{{ quizLeaderboardHref }}" class="outline-btn quiz-completion__leaderboard">
+                        <svg width="13" height="13" aria-hidden="true">
+                            <use xlink:href="#leaderboard"></use>
+                        </svg>
+                        <span>{{ quizLeaderboardText }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-completion__aside" aria-hidden="true"></div>
+    </div>
+</section>
