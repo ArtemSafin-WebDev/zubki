@@ -1,5 +1,6 @@
 import Component from "../Component";
 import FormValidator from "../facades/FormValidator";
+import Modal from "./Modal";
 
 interface AJAXFormOptions {
   successModalSelector?: string | null;
@@ -85,6 +86,16 @@ class AJAXForm extends Component {
 
   private openModal(modal: HTMLDialogElement | null) {
     if (!modal || modal.open) return;
+
+    const activeModal = Modal.getActive();
+    if (activeModal) activeModal.close();
+
+    const modalInstance = Modal.getInstanceFor(modal);
+    if (modalInstance) {
+      modalInstance.open();
+      return;
+    }
+
     modal.showModal();
   }
 
