@@ -1,16 +1,16 @@
-<dialog class="modal modal--callback-success js-modal" id="callback-success-modal">
+<dialog class="modal modal--callback-error js-modal" id="callback-error-modal">
     <div class="modal__container">
         <button type="button" class="modal__close" aria-label="Закрыть модальное окно" data-close>
             <svg width="14" height="14" aria-hidden="true">
                 <use xlink:href="#close"></use>
             </svg>
         </button>
-        <div class="modal__content callback-status-modal">
+        <div class="modal__content callback-status-modal callback-status-modal--error">
             <p class="callback-status-modal__title">
-                Мы приняли вашу заявку<br>и в ближайшее время свяжемся с вами
+                Произошла ошибка, попробуйте отправить заявку снова
             </p>
             <button type="button" class="outline-btn callback-status-modal__action" data-close>
-                Хорошо
+                Отправить снова
             </button>
         </div>
     </div>

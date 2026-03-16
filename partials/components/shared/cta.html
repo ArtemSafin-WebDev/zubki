@@ -3,7 +3,8 @@
         У вас есть вопрос? <br>Напишите нам и&nbsp;мы поможем
     </h2>
     <form action="/" method="POST" class="cta__form js-form" novalidate {{#if successModalSelector}}
-        data-success-modal="{{successModalSelector}}" {{/if}}>
+        data-success-modal="{{successModalSelector}}" {{/if}} {{#if errorModalSelector}}
+        data-error-modal="{{errorModalSelector}}" {{/if}}>
         <div class="cta__fields">
             {{> components/shared/text-input
             class="cta__text-input"

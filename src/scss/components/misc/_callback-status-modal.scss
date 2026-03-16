@@ -1,18 +1,19 @@
 @use "tokens/breakpoints";
 
 @layer components {
-  .callback-success-modal {
+  .callback-status-modal {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
     padding: 2.4rem;
+
     @include breakpoints.mobile {
       gap: 1.6rem;
       padding: 2rem;
     }
   }
 
-  .callback-success-modal__title {
+  .callback-status-modal__title {
     margin: 0;
     color: var(--text-light-blue);
     font-family: var(--desktop-h3-font-family);
@@ -32,7 +33,7 @@
     }
   }
 
-  .callback-success-modal__action {
+  .callback-status-modal__action {
     align-self: stretch;
   }
 }
