@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .modal--faq {
     .modal__container {
@@ -6,6 +8,18 @@
 
     .modal__content {
       border-radius: 3.2rem;
+
+      @include breakpoints.mobile {
+        border-radius: 1.6rem 1.6rem 0 0;
+        height: calc(100vh - 8rem);
+        height: calc(100dvh - 8rem);
+      }
+    }
+
+    .modal__close {
+      @include breakpoints.mobile {
+        margin-bottom: 2rem;
+      }
     }
   }
 
@@ -13,6 +27,10 @@
     position: relative;
     overflow: hidden;
     height: 60.8rem;
+
+    @include breakpoints.mobile {
+      height: 100%;
+    }
   }
 
   .faq-modal__scroll {
@@ -24,6 +42,12 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 4rem 2.4rem;
+
+    @include breakpoints.mobile {
+      right: 0.8rem;
+      left: 0;
+      padding: 2rem;
+    }
   }
 
   .faq-modal__scroll::-webkit-scrollbar {
@@ -34,6 +58,10 @@
     background: var(--background-light-sky);
     border-radius: 10rem;
     margin-block: 4rem;
+
+    @include breakpoints.mobile {
+      margin-block: 2rem;
+    }
   }
 
   .faq-modal__scroll::-webkit-scrollbar-thumb {
@@ -48,10 +76,24 @@
     gap: 3.2rem;
     width: 100%;
     padding-right: 0.4rem;
+
+    @include breakpoints.mobile {
+      gap: 2rem;
+      padding-right: 0;
+    }
   }
 
   .faq-modal__tag {
     align-self: flex-start;
+
+    @include breakpoints.mobile {
+      font-family: var(--desktop-body-font-family);
+      font-size: var(--desktop-body-font-size);
+      font-weight: var(--desktop-body-font-weight);
+      line-height: var(--desktop-body-line-height);
+      letter-spacing: var(--desktop-body-letter-spacing);
+      padding: 0.55rem 1.2rem;
+    }
   }
 
   .faq-modal__article {
