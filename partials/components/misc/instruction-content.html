@@ -1,0 +1,20 @@
+<div class="article-content instruction-content">
+  <h2 class="instruction-content__title">{{ instructionIntroTitle }}</h2>
+
+  {{#each instructionIntroParagraphs}}
+    <p>{{ this }}</p>
+  {{/each}}
+
+  <aside class="article-snippet article-snippet--accent article-snippet--outlined">
+    <p class="article-snippet__badge">{{ instructionCopyrightTitle }}</p>
+    {{#each instructionCopyrightParagraphs}}
+      <p>{{ this }}</p>
+    {{/each}}
+  </aside>
+
+  <aside class="article-snippet article-snippet--accent">
+    <p class="article-snippet__badge">{{ instructionContactsTitle }}</p>
+    <p class="article-snippet__contact-line">Координаты для связи - <a
+        href="mailto:{{ instructionContactEmail }}">{{ instructionContactEmail }}</a></p>
+  </aside>
+</div>

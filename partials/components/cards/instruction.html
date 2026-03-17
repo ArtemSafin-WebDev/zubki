@@ -1,4 +1,4 @@
-<a href="#" class="instruction {{ class }}">
+<a href="{{#if href}}{{ href }}{{else}}#{{/if}}" class="instruction {{ class }}">
     <div class="instruction__preview">
         <img src="{{ imageSrc }}" alt="{{ imageAlt }}" class="instruction__preview-image" width="160" height="90"
             loading="lazy">
