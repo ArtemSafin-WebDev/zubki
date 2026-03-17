@@ -4,10 +4,11 @@
   .profile-page {
     position: relative;
     isolation: isolate;
+    min-height: 100vh;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    overflow: clip;
+    overflow: hidden;
     padding: var(--content-padding);
     background-color: var(--accent-green-hover);
     background-image: url("/images/shapes/profile.svg");
@@ -17,5 +18,15 @@
     @include breakpoints.mobile {
       background-image: url("/images/shapes/profile-mobile.svg");
     }
+  }
+
+  .profile-page > .page-header,
+  .profile-page > .secondary-panel {
+    flex-shrink: 0;
+  }
+
+  .profile-page > .profile-dashboard {
+    flex-grow: 1;
+    min-height: 0;
   }
 }
