@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - list [ref=e8]:
+            - listitem [ref=e9]
+            - listitem [ref=e11]
+            - listitem [ref=e13]:
+              - generic [ref=e15]:
+                - text: Казанский
+                - text: Государственный
+                - text: Медицинский Университет
+          - generic [ref=e16]:
+            - link "Инструкция" [ref=e17] [cursor=pointer]:
+              - /url: /instruction.html
+            - link "Обратная связь" [ref=e18] [cursor=pointer]:
+              - /url: "#callback-modal"
+              - generic [ref=e19]: Обратная связь
+              - img [ref=e21]
+            - link [ref=e23] [cursor=pointer]:
+              - /url: "#"
+        - link [ref=e24] [cursor=pointer]:
+          - /url: "#"
+      - region "Панель навигации профиля" [ref=e25]:
+        - generic [ref=e26]:
+          - link "Назад" [ref=e27] [cursor=pointer]:
+            - /url: /index.html
+            - img [ref=e28]
+            - generic [ref=e30]: Назад
+          - heading "Профиль" [level=1] [ref=e31]
+          - generic [ref=e32]:
+            - link "Календарь Перейти" [ref=e33] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e34]: Календарь
+              - generic [ref=e35]: Перейти
+            - link "До события осталось 4 дня, день 28" [ref=e37] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e38]: 4 дня
+              - generic [ref=e39]: "28"
+      - region "Профиль пользователя" [ref=e40]:
+        - generic [ref=e42]:
+          - article [ref=e45]:
+            - generic [ref=e46]:
+              - generic [ref=e47]: Статистика
+              - generic [ref=e48]:
+                - button "Предыдущая статистика" [disabled]:
+                  - img
+                - button "Следующая статистика" [ref=e49] [cursor=pointer]:
+                  - img [ref=e50]
+            - generic [ref=e53]:
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - generic [ref=e56]:
+                    - paragraph [ref=e57]: Прогресс (8-11 лет)
+                    - paragraph [ref=e58]: 85%
+                  - generic [ref=e59]:
+                    - paragraph [ref=e60]: Изучено статей
+                    - paragraph [ref=e61]: "8"
+                - generic [ref=e62]:
+                  - generic [ref=e63]:
+                    - paragraph [ref=e64]: Просмотрено видео
+                    - paragraph [ref=e65]: "4"
+                  - generic [ref=e66]:
+                    - paragraph [ref=e67]: Сыграно игр
+                    - paragraph [ref=e68]: "2"
+              - generic [ref=e69]:
+                - generic [ref=e70]:
+                  - generic [ref=e71]:
+                    - paragraph [ref=e72]: Прогресс (8-11 лет)
+                    - paragraph [ref=e73]: 92%
+                  - generic [ref=e74]:
+                    - paragraph [ref=e75]: Изучено статей
+                    - paragraph [ref=e76]: "11"
+                - generic [ref=e77]:
+                  - generic [ref=e78]:
+                    - paragraph [ref=e79]: Просмотрено видео
+                    - paragraph [ref=e80]: "7"
+                  - generic [ref=e81]:
+                    - paragraph [ref=e82]: Сыграно игр
+                    - paragraph [ref=e83]: "5"
+          - article [ref=e87]:
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - heading "О родителе" [level=2] [ref=e91]
+                - generic [ref=e92]:
+                  - generic [ref=e93]:
+                    - generic [ref=e95]:
+                      - textbox "Имя" [ref=e96]:
+                        - /placeholder: " "
+                        - text: Михаил
+                      - generic: Имя
+                    - generic [ref=e98]:
+                      - textbox "Фамилия" [ref=e99]:
+                        - /placeholder: " "
+                        - text: Иванов
+                      - generic: Фамилия
+                  - generic [ref=e100]:
+                    - generic [ref=e102]:
+                      - textbox "Электронная почта" [ref=e103]:
+                        - /placeholder: " "
+                        - text: mi.ya@mail.ru
+                      - generic: Электронная почта
+                    - generic [ref=e105]:
+                      - textbox "Номер телефона" [ref=e106]:
+                        - /placeholder: " "
+                        - text: +7 (900) 123-45-67
+                      - generic: Номер телефона
+              - generic [ref=e107]:
+                - heading "О ребенке" [level=2] [ref=e108]
+                - generic [ref=e109]:
+                  - generic [ref=e110]:
+                    - generic [ref=e112]:
+                      - textbox "Имя" [ref=e113]:
+                        - /placeholder: " "
+                        - text: Иван
+                      - generic: Имя
+                    - generic [ref=e115]:
+                      - textbox "Фамилия" [ref=e116]:
+                        - /placeholder: " "
+                        - text: Яковлев
+                      - generic: Фамилия
+                  - generic [ref=e117]:
+                    - generic [ref=e119]:
+                      - textbox "Возраст" [ref=e120]:
+                        - /placeholder: " "
+                        - text: 9 лет
+                      - generic: Возраст
+                    - generic [ref=e122]:
+                      - button "Мальчик" [ref=e123] [cursor=pointer]:
+                        - generic [ref=e124]: Мальчик
+                        - img [ref=e126]
+                      - generic: Пол
+                  - generic [ref=e128]:
+                    - generic [ref=e130]:
+                      - button "Нормальное" [ref=e131] [cursor=pointer]:
+                        - generic [ref=e132]: Нормальное
+                        - img [ref=e134]
+                      - generic: Состояние зубок
+                    - generic [ref=e137]:
+                      - textbox "Клиника" [ref=e138]:
+                        - /placeholder: " "
+                        - text: Native Clinic
+                      - generic: Клиника
+              - generic [ref=e139]:
+                - heading "Пароль" [level=2] [ref=e140]
+                - generic [ref=e144]:
+                  - textbox "Пароль" [ref=e145]:
+                    - /placeholder: " "
+                    - text: "********"
+                  - generic: Пароль
+                - button "Изменить пароль" [ref=e146] [cursor=pointer]
+              - button "Редактировать профиль" [ref=e147] [cursor=pointer]
+          - generic [ref=e149]:
+            - article [ref=e150]:
+              - generic [ref=e151]:
+                - heading "Подписка" [level=2] [ref=e152]
+                - img [ref=e154]
+              - paragraph [ref=e156]: Активирована 28 ноября, 2025
+              - button "Оплачено"
+            - button "Выйти из профиля" [ref=e157] [cursor=pointer]:
+              - text: Выйти из профиля
+              - img [ref=e158]
+  - region "Уведомление о cookies" [ref=e160]:
+    - paragraph [ref=e161]: Мы используем cookies. Продолжая пользоваться сайтом, вы соглашаетесь с этим.
+    - generic [ref=e162]:
+      - button "Хорошо" [ref=e163] [cursor=pointer]
+      - link "Подробнее" [ref=e164] [cursor=pointer]:
+        - /url: "#"
+  - img
