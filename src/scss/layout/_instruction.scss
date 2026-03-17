@@ -1,7 +1,13 @@
+@use "tokens/breakpoints";
+
 @layer layout {
   .instruction-page {
     min-height: 100vh;
     overflow: hidden;
+
+    @include breakpoints.mobile {
+      overflow: visible;
+    }
   }
 
   .instruction-page__content {
@@ -12,6 +18,13 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 3.2rem;
     align-items: stretch;
+
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+      min-height: auto;
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+    }
   }
 
   .instruction-page__aside {
@@ -20,6 +33,10 @@
     flex-direction: column;
     align-items: flex-start;
     min-height: 0;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .instruction-page__card {
@@ -31,6 +48,12 @@
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
     overflow: hidden;
+
+    @include breakpoints.mobile {
+      grid-column: 1 / -1;
+      min-height: auto;
+      border-radius: 1.6rem;
+    }
   }
 
   .instruction-page__scroll {
@@ -42,6 +65,12 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 4rem 2.4rem 4rem 4rem;
+
+    @include breakpoints.mobile {
+      position: static;
+      overflow: visible;
+      padding: 2rem 3.2rem 2rem 2rem;
+    }
   }
 
   .instruction-page__scroll::-webkit-scrollbar {
@@ -63,5 +92,10 @@
     min-height: 100%;
     width: 100%;
     padding-right: 0.4rem;
+
+    @include breakpoints.mobile {
+      min-height: auto;
+      padding-right: 0;
+    }
   }
 }

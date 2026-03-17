@@ -458,19 +458,6 @@
       margin-top: 1.2rem;
     }
   }
-}
-
-@scope (.article-snippet--outlined) {
-  :scope {
-    border: 1.5px solid var(--text-light-blue);
-    background-color: var(--white);
-  }
-}
-
-@scope (.instruction-content) {
-  .instruction-content__title {
-    margin-top: 0;
-  }
 
   .article-snippet__contact-line {
     margin: 0;
@@ -482,5 +469,33 @@
     color: var(--text-light-blue);
     -webkit-text-stroke-width: 0.02rem;
     -webkit-text-stroke-color: currentColor;
+
+    @include breakpoints.mobile {
+      font-family: var(--mobile-h3-font-family);
+      font-size: var(--mobile-h3-font-size);
+      font-weight: var(--mobile-h3-font-weight);
+      line-height: var(--mobile-h3-line-height);
+      letter-spacing: var(--mobile-h3-letter-spacing);
+    }
+  }
+
+  .article-snippet__contact-line a {
+    text-decoration: underline;
+    transition:
+      text-decoration-color 0.2s,
+      color 0.2s;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}
+
+@scope (.article-snippet--outlined) {
+  :scope {
+    border: 1.5px solid var(--text-light-blue);
+    background-color: var(--white);
   }
 }
