@@ -8,6 +8,20 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+      gap: 2rem;
+    }
+  }
+
+  .profile-dashboard__slider {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+    width: 100%;
+    overflow: visible;
   }
 
   .profile-dashboard__track {
@@ -200,12 +214,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 2rem 1.6rem 2rem 2rem;
-
-    @include breakpoints.mobile {
-      position: static;
-      overflow: visible;
-      padding: 2rem;
-    }
+    -webkit-overflow-scrolling: touch;
   }
 
   .profile-dashboard__main-card-scroll::-webkit-scrollbar {
@@ -230,11 +239,6 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
-    @include breakpoints.mobile {
-      min-height: auto;
-      padding-right: 0;
-    }
   }
 
   .profile-dashboard__section {
@@ -352,7 +356,128 @@
     width: 100%;
   }
 
+  .profile-dashboard__pagination {
+    display: none;
+  }
+
+  .profile-dashboard__pagination > .dashboard-pagination__bullet {
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--background-sky);
+    cursor: pointer;
+  }
+
+  .profile-dashboard__pagination > .dashboard-pagination__bullet--active {
+    background-color: var(--text-light-blue);
+  }
+
   .profile-dashboard__logout-btn {
     margin-left: auto;
+  }
+
+  .profile-dashboard__logout-btn--mobile {
+    display: none;
+  }
+
+  @include breakpoints.mobile {
+    .profile-dashboard__track {
+      gap: 0;
+    }
+
+    .profile-dashboard__slide {
+      height: auto;
+    }
+
+    .profile-dashboard__side--left,
+    .profile-dashboard__side--right {
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .profile-dashboard__toothguy {
+      display: none;
+    }
+
+    .profile-dashboard__stats-head {
+      justify-content: flex-start;
+    }
+
+    .profile-dashboard__stats-arrows {
+      display: none;
+    }
+
+    .profile-dashboard__fields-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-dashboard__change-password {
+      width: 100%;
+      align-self: stretch;
+    }
+
+    .profile-dashboard__main-card {
+      height: auto;
+      min-height: 0;
+    }
+
+    .profile-dashboard__main-card-scroll {
+      position: static;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      max-height: clamp(28rem, calc(100dvh - 36rem), 72rem);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 2rem 1.2rem 2rem 2rem;
+    }
+
+    .profile-dashboard__main-card-scroll-content {
+      min-height: auto;
+      padding-right: 0.8rem;
+    }
+
+    .profile-dashboard__pagination {
+      position: relative;
+      align-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.2rem 1.6rem;
+      border-radius: 10rem;
+      background-color: var(--white);
+      box-shadow: 0 0.4rem 1.6rem rgba(143, 203, 255, 0.4);
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        border-radius: inherit;
+        background: linear-gradient(to right, transparent, #ebf5ff);
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+    }
+
+    .profile-dashboard__logout-btn {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .profile-dashboard__logout-btn--desktop {
+      display: none;
+    }
+
+    .profile-dashboard__logout-btn--mobile {
+      display: flex;
+    }
   }
 }

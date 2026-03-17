@@ -17,6 +17,7 @@
     background-repeat: no-repeat;
     @include breakpoints.mobile {
       background-image: url("/images/shapes/profile-mobile.svg");
+      overflow: visible;
     }
   }
 

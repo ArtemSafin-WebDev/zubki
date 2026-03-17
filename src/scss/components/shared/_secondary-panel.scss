@@ -32,6 +32,14 @@
       &--mobile-centered {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
+
+        .secondary-panel__deadline {
+          display: none;
+        }
+
+        .secondary-panel__calendar-link {
+          justify-self: flex-end;
+        }
       }
     }
   }

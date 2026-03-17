@@ -1,177 +1,186 @@
-<section class="profile-dashboard dashboard-slider" aria-label="Профиль пользователя">
-    <div class="profile-dashboard__track dashboard-slider__track">
-        <div class="profile-dashboard__slide dashboard-slider__slide">
-            <div class="profile-dashboard__side profile-dashboard__side--left">
-                <article class="profile-dashboard__stats-card js-profile-stats-card">
-                    <div class="profile-dashboard__stats-head">
-                        <span class="tag">Статистика</span>
-                        <div class="profile-dashboard__stats-arrows">
-                            <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--prev"
-                                type="button" aria-label="Предыдущая статистика">
-                                <svg width="12" height="12" aria-hidden="true">
-                                    <use xlink:href="#arrow-left"></use>
-                                </svg>
-                            </button>
-                            <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--next"
-                                type="button" aria-label="Следующая статистика">
-                                <svg width="12" height="12" aria-hidden="true">
-                                    <use xlink:href="#arrow-right"></use>
-                                </svg>
-                            </button>
+<section class="profile-dashboard" aria-label="Профиль пользователя">
+    <div class="profile-dashboard__slider dashboard-slider">
+        <div class="profile-dashboard__track dashboard-slider__track">
+            <div class="profile-dashboard__slide dashboard-slider__slide">
+                <div class="profile-dashboard__side profile-dashboard__side--left">
+                    <article class="profile-dashboard__stats-card js-profile-stats-card">
+                        <div class="profile-dashboard__stats-head">
+                            <span class="tag">Статистика</span>
+                            <div class="profile-dashboard__stats-arrows">
+                                <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--prev"
+                                    type="button" aria-label="Предыдущая статистика">
+                                    <svg width="12" height="12" aria-hidden="true">
+                                        <use xlink:href="#arrow-left"></use>
+                                    </svg>
+                                </button>
+                                <button class="profile-dashboard__stats-arrow profile-dashboard__stats-arrow--next"
+                                    type="button" aria-label="Следующая статистика">
+                                    <svg width="12" height="12" aria-hidden="true">
+                                        <use xlink:href="#arrow-right"></use>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="profile-dashboard__stats-body swiper">
-                        <div class="swiper-wrapper">
-                            {{#each profileStatsSlides}}
-                                <div class="profile-dashboard__stats-slide swiper-slide">
-                                    {{#each this.rows}}
-                                        <div class="profile-dashboard__stats-row">
+                        <div class="profile-dashboard__stats-body swiper">
+                            <div class="swiper-wrapper">
+                                {{#each profileStatsSlides}}
+                                    <div class="profile-dashboard__stats-slide swiper-slide">
+                                        {{#each this.rows}}
+                                            <div class="profile-dashboard__stats-row">
+                                                {{#each this}}
+                                                    <div class="profile-dashboard__stats-item">
+                                                        <p class="profile-dashboard__stats-label">{{ label }}</p>
+                                                        <p class="profile-dashboard__stats-value">{{ value }}</p>
+                                                    </div>
+                                                {{/each}}
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </article>
+                    {{> components/misc/toothguy class="profile-dashboard__toothguy" hideBubble=true }}
+                </div>
+            </div>
+
+            <div class="profile-dashboard__slide dashboard-slider__slide">
+                <article class="profile-dashboard__main-card">
+                    <div class="profile-dashboard__main-card-scroll">
+                        <div class="profile-dashboard__main-card-scroll-content">
+                            <section class="profile-dashboard__section">
+                                <h2 class="profile-dashboard__section-title">О родителе</h2>
+                                <div class="profile-dashboard__fields-grid">
+                                    {{#each profileParentRows}}
+                                        <div class="profile-dashboard__fields-row">
                                             {{#each this}}
-                                                <div class="profile-dashboard__stats-item">
-                                                    <p class="profile-dashboard__stats-label">{{ label }}</p>
-                                                    <p class="profile-dashboard__stats-value">{{ value }}</p>
-                                                </div>
+                                                {{> components/shared/text-input
+                                                class="profile-dashboard__input"
+                                                type=this.type
+                                                name=this.name
+                                                label=this.label
+                                                value=this.value
+                                                autocomplete=this.autocomplete
+                                                }}
                                             {{/each}}
                                         </div>
                                     {{/each}}
                                 </div>
-                            {{/each}}
+                            </section>
+
+                            <section class="profile-dashboard__section">
+                                <h2 class="profile-dashboard__section-title">О ребенке</h2>
+                                <div class="profile-dashboard__fields-grid">
+                                    {{#each profileChildTopRows}}
+                                        <div class="profile-dashboard__fields-row">
+                                            {{#each this}}
+                                                {{> components/shared/text-input
+                                                class="profile-dashboard__input"
+                                                type=this.type
+                                                name=this.name
+                                                label=this.label
+                                                value=this.value
+                                                }}
+                                            {{/each}}
+                                        </div>
+                                    {{/each}}
+                                    <div class="profile-dashboard__fields-row">
+                                        {{> components/shared/text-input
+                                        class="profile-dashboard__input"
+                                        type=profileChildAge.type
+                                        name=profileChildAge.name
+                                        label=profileChildAge.label
+                                        value=profileChildAge.value
+                                        }}
+                                        {{> components/shared/select
+                                        class="profile-dashboard__input"
+                                        name=profileChildGender.name
+                                        label=profileChildGender.label
+                                        placeholder=profileChildGender.placeholder
+                                        options=profileChildGender.options
+                                        selected=profileChildGender.selected
+                                        selectedText=profileChildGender.selectedText
+                                        }}
+                                    </div>
+                                    <div class="profile-dashboard__fields-row">
+                                        {{> components/shared/select
+                                        class="profile-dashboard__input"
+                                        name=profileChildTeethCondition.name
+                                        label=profileChildTeethCondition.label
+                                        placeholder=profileChildTeethCondition.placeholder
+                                        options=profileChildTeethCondition.options
+                                        selected=profileChildTeethCondition.selected
+                                        selectedText=profileChildTeethCondition.selectedText
+                                        }}
+                                        {{> components/shared/text-input
+                                        class="profile-dashboard__input"
+                                        type=profileChildClinic.type
+                                        name=profileChildClinic.name
+                                        label=profileChildClinic.label
+                                        value=profileChildClinic.value
+                                        }}
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="profile-dashboard__section">
+                                <h2 class="profile-dashboard__section-title profile-dashboard__section-title--wide">Пароль</h2>
+                                <div class="profile-dashboard__fields-grid">
+                                    <div class="profile-dashboard__fields-row profile-dashboard__fields-row--single">
+                                        {{> components/shared/text-input
+                                        class="profile-dashboard__input"
+                                        type=profilePassword.type
+                                        name=profilePassword.name
+                                        label=profilePassword.label
+                                        value=profilePassword.value
+                                        autocomplete="current-password"
+                                        }}
+                                    </div>
+                                </div>
+                                <button class="btn btn--blue btn--small profile-dashboard__change-password" type="button" data-open="#change-password-modal">
+                                    Изменить пароль
+                                </button>
+                            </section>
+
+                            <button class="outline-btn profile-dashboard__edit-btn" type="button">
+                                Редактировать профиль
+                            </button>
                         </div>
                     </div>
                 </article>
-                {{> components/misc/toothguy class="profile-dashboard__toothguy" hideBubble=true }}
             </div>
-        </div>
 
-        <div class="profile-dashboard__slide dashboard-slider__slide">
-            <article class="profile-dashboard__main-card">
-                <div class="profile-dashboard__main-card-scroll">
-                    <div class="profile-dashboard__main-card-scroll-content">
-                        <section class="profile-dashboard__section">
-                            <h2 class="profile-dashboard__section-title">О родителе</h2>
-                            <div class="profile-dashboard__fields-grid">
-                                {{#each profileParentRows}}
-                                    <div class="profile-dashboard__fields-row">
-                                        {{#each this}}
-                                            {{> components/shared/text-input
-                                            class="profile-dashboard__input"
-                                            type=this.type
-                                            name=this.name
-                                            label=this.label
-                                            value=this.value
-                                            autocomplete=this.autocomplete
-                                            }}
-                                        {{/each}}
-                                    </div>
-                                {{/each}}
-                            </div>
-                        </section>
-
-                        <section class="profile-dashboard__section">
-                            <h2 class="profile-dashboard__section-title">О ребенке</h2>
-                            <div class="profile-dashboard__fields-grid">
-                                {{#each profileChildTopRows}}
-                                    <div class="profile-dashboard__fields-row">
-                                        {{#each this}}
-                                            {{> components/shared/text-input
-                                            class="profile-dashboard__input"
-                                            type=this.type
-                                            name=this.name
-                                            label=this.label
-                                            value=this.value
-                                            }}
-                                        {{/each}}
-                                    </div>
-                                {{/each}}
-                                <div class="profile-dashboard__fields-row">
-                                    {{> components/shared/text-input
-                                    class="profile-dashboard__input"
-                                    type=profileChildAge.type
-                                    name=profileChildAge.name
-                                    label=profileChildAge.label
-                                    value=profileChildAge.value
-                                    }}
-                                    {{> components/shared/select
-                                    class="profile-dashboard__input"
-                                    name=profileChildGender.name
-                                    label=profileChildGender.label
-                                    placeholder=profileChildGender.placeholder
-                                    options=profileChildGender.options
-                                    selected=profileChildGender.selected
-                                    selectedText=profileChildGender.selectedText
-                                    }}
-                                </div>
-                                <div class="profile-dashboard__fields-row">
-                                    {{> components/shared/select
-                                    class="profile-dashboard__input"
-                                    name=profileChildTeethCondition.name
-                                    label=profileChildTeethCondition.label
-                                    placeholder=profileChildTeethCondition.placeholder
-                                    options=profileChildTeethCondition.options
-                                    selected=profileChildTeethCondition.selected
-                                    selectedText=profileChildTeethCondition.selectedText
-                                    }}
-                                    {{> components/shared/text-input
-                                    class="profile-dashboard__input"
-                                    type=profileChildClinic.type
-                                    name=profileChildClinic.name
-                                    label=profileChildClinic.label
-                                    value=profileChildClinic.value
-                                    }}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="profile-dashboard__section">
-                            <h2 class="profile-dashboard__section-title profile-dashboard__section-title--wide">Пароль</h2>
-                            <div class="profile-dashboard__fields-grid">
-                                <div class="profile-dashboard__fields-row profile-dashboard__fields-row--single">
-                                    {{> components/shared/text-input
-                                    class="profile-dashboard__input"
-                                    type=profilePassword.type
-                                    name=profilePassword.name
-                                    label=profilePassword.label
-                                    value=profilePassword.value
-                                    autocomplete="current-password"
-                                    }}
-                                </div>
-                            </div>
-                            <button class="btn btn--blue btn--small profile-dashboard__change-password" type="button" data-open="#change-password-modal">
-                                Изменить пароль
-                            </button>
-                        </section>
-
-                        <button class="outline-btn profile-dashboard__edit-btn" type="button">
-                            Редактировать профиль
+            <div class="profile-dashboard__slide dashboard-slider__slide">
+                <div class="profile-dashboard__side profile-dashboard__side--right">
+                    <article class="profile-dashboard__subscription-card">
+                        <div class="profile-dashboard__subscription-head">
+                            <h2 class="profile-dashboard__subscription-title">Подписка</h2>
+                            <span class="profile-dashboard__subscription-check" aria-hidden="true">
+                                <svg width="8" height="8">
+                                    <use xlink:href="#checkmark"></use>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="profile-dashboard__subscription-date">{{ profileSubscriptionDate }}</p>
+                        <button class="outline-btn is-disabled profile-dashboard__subscription-paid" type="button">
+                            Оплачено
                         </button>
-                    </div>
-                </div>
-            </article>
-        </div>
-
-        <div class="profile-dashboard__slide dashboard-slider__slide">
-            <div class="profile-dashboard__side profile-dashboard__side--right">
-                <article class="profile-dashboard__subscription-card">
-                    <div class="profile-dashboard__subscription-head">
-                        <h2 class="profile-dashboard__subscription-title">Подписка</h2>
-                        <span class="profile-dashboard__subscription-check" aria-hidden="true">
-                            <svg width="8" height="8">
-                                <use xlink:href="#checkmark"></use>
-                            </svg>
-                        </span>
-                    </div>
-                    <p class="profile-dashboard__subscription-date">{{ profileSubscriptionDate }}</p>
-                    <button class="outline-btn is-disabled profile-dashboard__subscription-paid" type="button">
-                        Оплачено
+                    </article>
+                    <button class="outline-btn profile-dashboard__logout-btn profile-dashboard__logout-btn--desktop" type="button">
+                        Выйти из профиля
+                        <svg width="14" height="14" aria-hidden="true">
+                            <use xlink:href="#exit"></use>
+                        </svg>
                     </button>
-                </article>
-                <button class="outline-btn profile-dashboard__logout-btn" type="button">
-                    Выйти из профиля
-                    <svg width="14" height="14" aria-hidden="true">
-                        <use xlink:href="#exit"></use>
-                    </svg>
-                </button>
+                </div>
             </div>
         </div>
     </div>
+    <div class="dashboard-pagination profile-dashboard__pagination" aria-label="Пагинация профиля"></div>
+    <button class="outline-btn profile-dashboard__logout-btn profile-dashboard__logout-btn--mobile" type="button">
+        Выйти из профиля
+        <svg width="14" height="14" aria-hidden="true">
+            <use xlink:href="#exit"></use>
+        </svg>
+    </button>
 </section>
