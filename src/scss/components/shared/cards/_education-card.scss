@@ -1,14 +1,17 @@
 @layer components {
   .education-card {
-    min-height: 48rem;
     padding: 2rem;
     border-radius: 1.6rem;
     border: 1.5px solid rgba(235, 245, 255, 0);
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem rgba(143, 203, 255, 0.4);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 2.4rem;
+    text-decoration: none;
+    color: inherit;
+    aspect-ratio: 438 / 480;
   }
 
   .education-card__top {
@@ -17,11 +20,12 @@
     gap: 0.8rem;
     justify-content: center;
     flex-wrap: wrap;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
   }
 
   .education-card__tag {
-    min-height: 2.4rem;
-    padding: 0.2rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 10rem;
     display: inline-flex;
     align-items: center;
@@ -32,26 +36,27 @@
     line-height: var(--desktop-caption-line-height);
     letter-spacing: var(--desktop-caption-letter-spacing);
     white-space: nowrap;
-  }
-
-  .education-card__tag--type {
-    color: var(--white);
-    background-color: var(--accent-orange);
-  }
-
-  .education-card__tag--duration {
     color: var(--text-light-blue);
     border: 1.5px solid var(--background-dark-sky);
     background-color: var(--white);
   }
 
+  .education-card__tag--type {
+    color: var(--white);
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+  }
+
   .education-card__title-wrap {
-    margin-top: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
     text-align: center;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    justify-self: center;
+    align-self: center;
   }
 
   .education-card__title {
@@ -77,38 +82,26 @@
   }
 
   .education-card__media {
-    margin-top: auto;
     position: relative;
     width: 100%;
-    min-height: 24.1rem;
+    aspect-ratio: 398 / 244;
     border-radius: 1.6rem;
     border: 1.5px solid var(--background-dark-sky);
     background-color: var(--background-light-sky);
     overflow: hidden;
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    align-self: flex-end;
   }
 
   .education-card__image {
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    display: block;
-    object-fit: contain;
-    transform: translateX(-50%);
-    transform-origin: center;
-    pointer-events: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     user-select: none;
-  }
-
-  .education-card__image--brush {
-    width: 24rem;
-    max-width: none;
-    bottom: -4.6rem;
-    transform: translateX(-50%) rotate(-55deg);
-  }
-
-  .education-card__image--girl {
-    width: 20.6rem;
-    max-width: 58%;
   }
 
   .education-card__cta {
@@ -116,7 +109,7 @@
     right: 1.6rem;
     bottom: 1.6rem;
     width: 4rem;
-    aspect-ratio: 1 / 1;
+    height: 4rem;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -126,7 +119,7 @@
 
     svg {
       width: 1.2rem;
-      aspect-ratio: 1 / 1;
+      height: 1.2rem;
       fill: currentColor;
     }
   }

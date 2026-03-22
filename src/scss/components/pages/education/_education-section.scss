@@ -1,3 +1,5 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .education-page {
     min-height: 100vh;
@@ -54,7 +56,7 @@
 
   .education-section__slider.swiper {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .education-section__slider > .swiper-wrapper {
@@ -62,20 +64,32 @@
   }
 
   .education-section__slide {
-    width: calc(50% - 3.2rem * 1 / 2);
-    margin-right: 3.2rem;
-    &:last-child {
-      margin-right: 0;
-    }
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .education-section__slide-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.2rem;
+    align-items: stretch;
+  }
+
+  .education-section__slide-item {
+    min-width: 0;
   }
 
   .education-section__nav {
+    --education-section-nav-bg: var(--white);
+    --education-section-nav-border-color: var(--background-dark-sky);
+    --education-section-nav-text-color: var(--text-light-blue);
+
     width: 8rem;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    border: 0.2rem solid var(--background-dark-sky);
-    background-color: var(--white);
-    color: var(--text-light-blue);
+    border: 0.2rem solid var(--education-section-nav-border-color);
+    background-color: var(--education-section-nav-bg);
+    color: var(--education-section-nav-text-color);
     position: absolute;
     top: 50%;
     z-index: 3;
@@ -88,12 +102,29 @@
       opacity 0.2s ease,
       visibility 0.2s ease,
       border-color 0.2s ease,
-      background-color 0.2s ease;
+      background-color 0.2s ease,
+      color 0.2s ease;
 
     svg {
       width: 2.4rem;
       aspect-ratio: 1 / 1;
       fill: currentColor;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):not(
+          .swiper-button-disabled
+        ):hover {
+        --education-section-nav-bg: var(--background-light-sky);
+        --education-section-nav-border-color: var(--background-dark-sky);
+      }
+    }
+
+    &:not(:disabled):not([aria-disabled="true"]):not(.is-disabled):not(
+        .swiper-button-disabled
+      ):active {
+      --education-section-nav-bg: var(--background-light-sky);
+      --education-section-nav-border-color: var(--text-light-blue);
     }
   }
 
@@ -103,7 +134,7 @@
   }
 
   .education-section__nav--next {
-    right: 0;
+    right: 2.4rem;
     transform: translate(50%, -50%);
   }
 
@@ -113,10 +144,16 @@
     pointer-events: none;
   }
 
+  .education-section__pagination-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.2rem;
+  }
+
   .education-section__pagination.swiper-pagination {
     position: static;
     width: fit-content;
-    margin-inline: auto;
+    justify-self: center;
     padding: 1.2rem 1.6rem;
     border-radius: 10rem;
     background-color: var(--white);
@@ -125,7 +162,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-    transform: translateX(calc(-25% - 0.8rem));
+    transform: none;
   }
 
   .education-section__pagination .swiper-pagination-bullet {
@@ -138,5 +175,19 @@
 
   .education-section__pagination .swiper-pagination-bullet-active {
     background: var(--text-light-blue);
+  }
+
+  @include breakpoints.mobile {
+    .education-section__slider > .swiper-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.6rem;
+      transform: none !important;
+    }
+
+    .education-section__nav,
+    .education-section__pagination-wrapper {
+      display: none;
+    }
   }
 }

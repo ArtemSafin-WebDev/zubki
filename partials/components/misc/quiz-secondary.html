@@ -9,5 +9,21 @@
         <h1 class="secondary-panel__title">
             {{ quizPageTitle }}
         </h1>
+        {{#if quizCalendarTitle}}
+            <div class="secondary-panel__right">
+                <a class="secondary-panel__calendar-link" href="{{ quizCalendarHref }}">
+                    <span class="secondary-panel__calendar-title">{{ quizCalendarTitle }}</span>
+                    <span class="secondary-panel__calendar-caption">
+                        {{ quizCalendarLinkText }}
+                        <span class="secondary-panel__calendar-arrow" aria-hidden="true"></span>
+                    </span>
+                </a>
+                <a class="secondary-panel__deadline" href="{{ quizCalendarDeadlineHref }}"
+                    aria-label="До события осталось {{ quizCalendarDaysLeft }}, день {{ quizCalendarDay }}">
+                    <span class="secondary-panel__deadline-left">{{ quizCalendarDaysLeft }}</span>
+                    <span class="secondary-panel__deadline-right">{{ quizCalendarDay }}</span>
+                </a>
+            </div>
+        {{/if}}
     </div>
 </section>
