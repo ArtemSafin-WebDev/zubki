@@ -1,6 +1,7 @@
 @layer utilities {
   body.menu-open,
-  body.modal-open {
+  body.modal-open,
+  body.calendar-popover-open {
     touch-action: none;
     -webkit-overflow-scrolling: none;
     overflow: hidden;

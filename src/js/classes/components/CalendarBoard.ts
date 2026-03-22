@@ -2,18 +2,30 @@ import Component from "../Component";
 
 class CalendarBoard extends Component {
   private static readonly activeDayClass = "calendar-day--popover-active";
+  private static readonly bodyLockClass = "calendar-popover-open";
+  private static readonly mobileQuery = "(width <= 576px)";
+  private static readonly mobileOpenClass = "is-open";
+  private static readonly mobileClosingClass = "is-closing";
+  private static readonly mobileAnimationDurationMs = 300;
   private readonly popover: HTMLElement | null;
+  private readonly closeButton: HTMLButtonElement | null;
   private readonly titleElement: HTMLElement | null;
   private readonly actionElement: HTMLElement | null;
   private readonly noteElement: HTMLElement | null;
   private readonly markedDays: HTMLElement[];
   private readonly abortController: AbortController;
+  private readonly mediaQueryList: MediaQueryList;
+  private activeDay: HTMLElement | null = null;
+  private hideAnimationTimer: number | null = null;
 
   constructor(element: HTMLElement) {
     super(element);
 
     this.popover = this.element.querySelector<HTMLElement>(
       ".js-calendar-popover"
+    );
+    this.closeButton = this.element.querySelector<HTMLButtonElement>(
+      ".js-calendar-popover-close"
     );
     this.titleElement = this.element.querySelector<HTMLElement>(
       ".js-calendar-popover-title"
@@ -28,55 +40,85 @@ class CalendarBoard extends Component {
       this.element.querySelectorAll<HTMLElement>("[data-popover-title]")
     );
     this.abortController = new AbortController();
+    this.mediaQueryList = window.matchMedia(CalendarBoard.mobileQuery);
 
     const signal = this.abortController.signal;
 
     this.markedDays.forEach((day) => {
-      day.addEventListener("pointerenter", this.handlePointerEnter, { signal });
-      day.addEventListener("pointermove", this.handlePointerMove, { signal });
-      day.addEventListener("pointerleave", this.handlePointerLeave, { signal });
-      day.addEventListener("focus", this.handleFocus, { signal });
-      day.addEventListener("blur", this.handleBlur, { signal });
+      day.addEventListener("click", this.handleDayClick, { signal });
     });
 
-    window.addEventListener("scroll", this.hidePopover, {
+    this.popover?.addEventListener("click", this.handlePopoverClick, { signal });
+    this.closeButton?.addEventListener("click", this.handleCloseButtonClick, {
+      signal,
+    });
+    document.addEventListener("keydown", this.handleDocumentKeyDown, { signal });
+
+    window.addEventListener("scroll", this.handleWindowScroll, {
       signal,
       passive: true,
     });
-    window.addEventListener("resize", this.hidePopover, { signal });
+    window.addEventListener("resize", this.handleWindowResize, { signal });
+    this.mediaQueryList.addEventListener("change", this.handleMediaQueryChange);
   }
 
   public destroy() {
     this.abortController.abort();
-    this.hidePopover();
+    this.mediaQueryList.removeEventListener("change", this.handleMediaQueryChange);
+    this.hidePopoverImmediately();
     this.unregister();
   }
 
-  private handlePointerEnter = (event: PointerEvent) => {
+  private get isMobileViewport() {
+    return this.mediaQueryList.matches;
+  }
+
+  private handleDayClick = (event: MouseEvent) => {
     const day = event.currentTarget as HTMLElement;
+    event.preventDefault();
+
+    if (this.activeDay === day && this.popover && !this.popover.hidden) {
+      this.hidePopover();
+      return;
+    }
+
     this.fillPopover(day);
     this.showPopover(day);
-    this.positionPopover(event.clientX, event.clientY);
+
+    if (!this.isMobileViewport) {
+      const rect = day.getBoundingClientRect();
+      this.positionPopover(rect.right, rect.top);
+    }
   };
 
-  private handlePointerMove = (event: PointerEvent) => {
-    this.positionPopover(event.clientX, event.clientY);
+  private handlePopoverClick = (event: MouseEvent) => {
+    if (!this.isMobileViewport || !this.popover || this.popover.hidden) return;
+
+    if (event.target === this.popover) {
+      this.hidePopover();
+    }
   };
 
-  private handlePointerLeave = () => {
+  private handleCloseButtonClick = (event: MouseEvent) => {
+    event.preventDefault();
     this.hidePopover();
   };
 
-  private handleFocus = (event: FocusEvent) => {
-    const day = event.currentTarget as HTMLElement;
-    const rect = day.getBoundingClientRect();
+  private handleDocumentKeyDown = (event: KeyboardEvent) => {
+    if (event.key !== "Escape") return;
 
-    this.fillPopover(day);
-    this.showPopover(day);
-    this.positionPopover(rect.right, rect.top);
+    this.hidePopover();
   };
 
-  private handleBlur = () => {
+  private handleWindowScroll = () => {
+    this.hidePopover();
+  };
+
+  private handleWindowResize = () => {
+    this.hidePopover();
+  };
+
+  private handleMediaQueryChange = () => {
     this.hidePopover();
   };
 
@@ -91,16 +133,68 @@ class CalendarBoard extends Component {
   private showPopover = (day: HTMLElement) => {
     if (!this.popover) return;
 
+    this.clearHideAnimationTimer();
     this.setActiveDay(day);
+    this.activeDay = day;
     this.popover.hidden = false;
+
+    if (this.isMobileViewport) {
+      document.body.classList.add(CalendarBoard.bodyLockClass);
+      this.popover.classList.remove(CalendarBoard.mobileClosingClass);
+      requestAnimationFrame(() => {
+        this.popover?.classList.add(CalendarBoard.mobileOpenClass);
+      });
+      return;
+    }
   };
 
   private hidePopover = () => {
     if (!this.popover) return;
 
+    this.popover.style.removeProperty("left");
+    this.popover.style.removeProperty("top");
     this.clearActiveDay();
-    this.popover.hidden = true;
+    this.activeDay = null;
+
+    if (this.isMobileViewport && !this.popover.hidden) {
+      this.startMobileHideAnimation();
+      return;
+    }
+
+    this.hidePopoverImmediately();
   };
+
+  private startMobileHideAnimation() {
+    if (!this.popover) return;
+
+    this.clearHideAnimationTimer();
+    this.popover.classList.remove(CalendarBoard.mobileOpenClass);
+    this.popover.classList.add(CalendarBoard.mobileClosingClass);
+
+    this.hideAnimationTimer = window.setTimeout(
+      this.hidePopoverImmediately,
+      CalendarBoard.mobileAnimationDurationMs
+    );
+  }
+
+  private hidePopoverImmediately = () => {
+    if (!this.popover) return;
+
+    this.clearHideAnimationTimer();
+    this.popover.classList.remove(
+      CalendarBoard.mobileOpenClass,
+      CalendarBoard.mobileClosingClass
+    );
+    this.popover.hidden = true;
+    document.body.classList.remove(CalendarBoard.bodyLockClass);
+  };
+
+  private clearHideAnimationTimer() {
+    if (this.hideAnimationTimer === null) return;
+
+    window.clearTimeout(this.hideAnimationTimer);
+    this.hideAnimationTimer = null;
+  }
 
   private setActiveDay(day: HTMLElement) {
     this.clearActiveDay();
@@ -114,7 +208,7 @@ class CalendarBoard extends Component {
   }
 
   private positionPopover(clientX: number, clientY: number) {
-    if (!this.popover || this.popover.hidden) return;
+    if (!this.popover || this.popover.hidden || this.isMobileViewport) return;
 
     const offset = 20;
     const gutter = 12;

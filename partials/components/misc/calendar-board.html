@@ -43,15 +43,23 @@
     </div>
 
     <div class="calendar-board__popover js-calendar-popover" hidden>
-        <h3 class="calendar-board__popover-title js-calendar-popover-title"></h3>
-        <div class="calendar-board__popover-content">
-            <div class="calendar-board__popover-group">
-                <p class="calendar-board__popover-label">Что сделал</p>
-                <p class="calendar-board__popover-value js-calendar-popover-action"></p>
-            </div>
-            <div class="calendar-board__popover-group">
-                <p class="calendar-board__popover-label">Описание прогресса</p>
-                <p class="calendar-board__popover-value js-calendar-popover-note"></p>
+        <div class="calendar-board__popover-sheet js-calendar-popover-sheet">
+            <button type="button" class="calendar-board__popover-close js-calendar-popover-close" aria-label="Закрыть поповер">
+                <svg width="14" height="14" aria-hidden="true">
+                    <use xlink:href="#close"></use>
+                </svg>
+            </button>
+
+            <h3 class="calendar-board__popover-title js-calendar-popover-title"></h3>
+            <div class="calendar-board__popover-content">
+                <div class="calendar-board__popover-group">
+                    <p class="calendar-board__popover-label">Что сделал</p>
+                    <p class="calendar-board__popover-value js-calendar-popover-action"></p>
+                </div>
+                <div class="calendar-board__popover-group">
+                    <p class="calendar-board__popover-label">Описание прогресса</p>
+                    <p class="calendar-board__popover-value js-calendar-popover-note"></p>
+                </div>
             </div>
         </div>
     </div>

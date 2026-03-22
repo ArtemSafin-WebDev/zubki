@@ -284,12 +284,86 @@
     top: 0;
     left: 0;
     width: 24rem;
+    z-index: 20;
+    pointer-events: none;
+
+    @include breakpoints.mobile {
+      width: auto;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      pointer-events: none;
+      z-index: 30;
+      background-color: rgba(#00143d, 0.64);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      &.is-open,
+      &.is-closing {
+        pointer-events: auto;
+      }
+
+      &.is-open {
+        opacity: 1;
+      }
+
+      &[hidden] {
+        display: none;
+      }
+
+      &:not([hidden]) {
+        display: flex;
+      }
+    }
+  }
+
+  .calendar-board__popover-sheet {
     padding: 1.6rem;
     border-radius: 1.6rem;
     background-color: var(--white);
     box-shadow: 0 0.4rem 1.6rem rgba(143, 203, 255, 0.4);
-    z-index: 20;
-    pointer-events: none;
+    width: 100%;
+
+    @include breakpoints.mobile {
+      position: relative;
+      border-radius: 1.6rem 1.6rem 0 0;
+      box-shadow: none;
+      transform: translateY(2rem);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .calendar-board__popover.is-open .calendar-board__popover-sheet {
+    @include breakpoints.mobile {
+      transform: translateY(0);
+    }
+  }
+
+  .calendar-board__popover-close {
+    display: none;
+
+    @include breakpoints.mobile {
+      position: absolute;
+      right: 1.6rem;
+      bottom: calc(100% + 1.2rem);
+      width: 4rem;
+      height: 4rem;
+      margin: 0;
+      border: 1px solid var(--background-dark-sky);
+      border-radius: 50%;
+      background-color: var(--white);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--text-light-blue);
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+    }
   }
 
   .calendar-board__popover-title {
@@ -302,6 +376,14 @@
     letter-spacing: var(--desktop-h3-letter-spacing);
     -webkit-text-stroke-width: 0.02rem;
     -webkit-text-stroke-color: currentColor;
+
+    @include breakpoints.mobile {
+      font-family: var(--mobile-h3-font-family);
+      font-size: var(--mobile-h3-font-size);
+      font-weight: var(--mobile-h3-font-weight);
+      line-height: var(--mobile-h3-line-height);
+      letter-spacing: var(--mobile-h3-letter-spacing);
+    }
   }
 
   .calendar-board__popover-content {
