@@ -2,6 +2,7 @@ import accordions from "./accordions";
 import cookieBanner from "./cookieBanner";
 import calendarBoards from "./calendarBoards";
 import dashboard from "./dashboard";
+import educationSection from "./educationSection";
 import factCards from "./factCards";
 import headerMenu from "./headerMenu";
 import modals from "./modals";
@@ -16,6 +17,7 @@ export default function ui() {
   calendarBoards();
   cookieBanner();
   dashboard();
+  educationSection();
   factCards();
   headerMenu();
   modals();
