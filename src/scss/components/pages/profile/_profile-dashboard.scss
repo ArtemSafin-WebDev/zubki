@@ -323,6 +323,26 @@
     width: 100%;
   }
 
+  .profile-dashboard__edit-btn[hidden] {
+    display: none;
+  }
+
+  .profile-dashboard__edit-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .profile-dashboard__edit-actions[hidden] {
+    display: none;
+  }
+
+  .profile-dashboard__cancel-btn,
+  .profile-dashboard__save-btn {
+    width: 100%;
+  }
+
   .profile-dashboard__subscription-card {
     width: 100%;
     border-radius: 1.6rem;
@@ -471,6 +491,11 @@
       width: 100%;
       align-self: stretch;
       text-align: center;
+    }
+
+    .profile-dashboard__edit-actions {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.2rem;
     }
 
     .profile-dashboard__main-card-scroll {

@@ -214,6 +214,10 @@
       font-weight: var(--mobile-h2-font-weight);
       line-height: var(--mobile-h2-line-height);
       letter-spacing: var(--mobile-h2-letter-spacing);
+
+      &--hidden-on-mobile {
+        display: none;
+      }
     }
   }
 

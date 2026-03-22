@@ -48,7 +48,7 @@
             <div class="profile-dashboard__slide dashboard-slider__slide">
                 <article class="profile-dashboard__main-card">
                     <div class="profile-dashboard__main-card-scroll">
-                        <div class="profile-dashboard__main-card-scroll-content">
+                        <form class="profile-dashboard__main-card-scroll-content profile-dashboard__form js-profile-edit-form">
                             <section class="profile-dashboard__section">
                                 <h2 class="profile-dashboard__section-title">О родителе</h2>
                                 <div class="profile-dashboard__fields-grid">
@@ -62,6 +62,7 @@
                                                 label=this.label
                                                 value=this.value
                                                 autocomplete=this.autocomplete
+                                                readonly=true
                                                 }}
                                             {{/each}}
                                         </div>
@@ -81,6 +82,7 @@
                                                 name=this.name
                                                 label=this.label
                                                 value=this.value
+                                                readonly=true
                                                 }}
                                             {{/each}}
                                         </div>
@@ -92,6 +94,7 @@
                                         name=profileChildAge.name
                                         label=profileChildAge.label
                                         value=profileChildAge.value
+                                        readonly=true
                                         }}
                                         {{> components/shared/select
                                         class="profile-dashboard__input"
@@ -101,6 +104,7 @@
                                         options=profileChildGender.options
                                         selected=profileChildGender.selected
                                         selectedText=profileChildGender.selectedText
+                                        disabled=true
                                         }}
                                     </div>
                                     <div class="profile-dashboard__fields-row">
@@ -112,6 +116,7 @@
                                         options=profileChildTeethCondition.options
                                         selected=profileChildTeethCondition.selected
                                         selectedText=profileChildTeethCondition.selectedText
+                                        disabled=true
                                         }}
                                         {{> components/shared/text-input
                                         class="profile-dashboard__input"
@@ -119,6 +124,7 @@
                                         name=profileChildClinic.name
                                         label=profileChildClinic.label
                                         value=profileChildClinic.value
+                                        readonly=true
                                         }}
                                     </div>
                                 </div>
@@ -135,6 +141,7 @@
                                         label=profilePassword.label
                                         value=profilePassword.value
                                         autocomplete="current-password"
+                                        readonly=true
                                         }}
                                     </div>
                                 </div>
@@ -143,10 +150,18 @@
                                 </button>
                             </section>
 
-                            <button class="outline-btn profile-dashboard__edit-btn" type="button">
+                            <button class="outline-btn profile-dashboard__edit-btn js-profile-edit-btn" type="button">
                                 Редактировать профиль
                             </button>
-                        </div>
+                            <div class="profile-dashboard__edit-actions js-profile-edit-actions" hidden>
+                                <button class="outline-btn profile-dashboard__cancel-btn js-profile-cancel-btn" type="button">
+                                    Отмена
+                                </button>
+                                <button class="btn btn--blue btn--centered profile-dashboard__save-btn" type="submit">
+                                    <span class="btn__text">Сохранить</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </article>
             </div>

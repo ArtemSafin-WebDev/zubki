@@ -1,20 +1,37 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .calendar-board {
     position: relative;
     margin-top: 2.4rem;
+
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+    }
   }
 
   .calendar-board__grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 3.2rem;
+
+    @include breakpoints.mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
   }
 
   .calendar-board__character-column {
     grid-column: 1 / span 3;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: visible;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .calendar-board__main-column {
@@ -24,6 +41,12 @@
 
   .calendar-board__aside {
     grid-column: 10 / span 3;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints.mobile {
+      order: -10;
+    }
   }
 
   .calendar-board__card {
@@ -36,6 +59,11 @@
     display: flex;
     flex-direction: column;
     gap: 2.1rem;
+
+    @include breakpoints.mobile {
+      padding: 2rem;
+      gap: 1.6rem;
+    }
   }
 
   .calendar-board__title {
@@ -49,18 +77,33 @@
     letter-spacing: var(--desktop-h2-letter-spacing);
     -webkit-text-stroke-width: 0.02rem;
     -webkit-text-stroke-color: currentColor;
+
+    @include breakpoints.mobile {
+      font-family: var(--mobile-h3-font-family);
+      font-size: var(--mobile-h3-font-size);
+      font-weight: var(--mobile-h3-font-weight);
+      line-height: var(--mobile-h3-line-height);
+      letter-spacing: var(--mobile-h3-letter-spacing);
+    }
   }
 
   .calendar-board__days {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    @include breakpoints.mobile {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   .calendar-board__week {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 0.4rem;
+    @include breakpoints.mobile {
+      display: contents;
+    }
   }
 
   .calendar-day {
@@ -95,6 +138,14 @@
     letter-spacing: var(--desktop-h2-letter-spacing);
     -webkit-text-stroke-width: 0.02rem;
     -webkit-text-stroke-color: currentColor;
+
+    @include breakpoints.mobile {
+      font-size: 2.5287rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+      -webkit-text-stroke-width: 0.016rem;
+    }
   }
 
   .calendar-day__icon,
@@ -167,11 +218,6 @@
     cursor: default;
   }
 
-  .calendar-day:focus-visible {
-    outline: 0.2rem solid var(--text-light-blue);
-    outline-offset: 0.2rem;
-  }
-
   .calendar-board__legend {
     display: flex;
     flex-direction: column;
@@ -196,6 +242,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1.6rem;
+
+    @include breakpoints.mobile {
+      flex-direction: column;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      gap: 0.6rem;
+    }
   }
 
   .calendar-board__legend-item {
@@ -328,6 +381,10 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+
+    @include breakpoints.mobile {
+      gap: 1.2rem;
+    }
   }
 
   .challenge-complete__header {
@@ -348,6 +405,9 @@
 
   .challenge-complete__btn {
     align-self: flex-start;
+    @include breakpoints.mobile {
+      align-self: stretch;
+    }
   }
 
   .calendar-modal__submit {

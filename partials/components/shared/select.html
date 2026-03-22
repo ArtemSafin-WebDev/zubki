@@ -1,7 +1,7 @@
 <div class="select js-select{{#if class}} {{ class }}{{/if}}{{#if selected}} choice-selected{{/if}}"
     data-placeholder="{{ placeholder }}" {{#if required}}data-required-select{{/if}}>
     <div class="select__control">
-        <button class="select__button" type="button">
+        <button class="select__button" type="button" {{#if disabled}}disabled{{/if}}>
             <span class="select__button-text js-btn-text">
                 {{#if selectedText}}
                     {{ selectedText }}
@@ -21,7 +21,7 @@
     <div class="select__dropdown">
         {{#each options}}
             <label class="select__option">
-                <input class="select__input" type="radio" name="{{ ../name }}" value="{{ value }}" {{#if checked}}checked{{/if}}>
+                <input class="select__input" type="radio" name="{{ ../name }}" value="{{ value }}" {{#if checked}}checked{{/if}} {{#if ../disabled}}disabled{{/if}}>
                 <span class="select__option-marker" aria-hidden="true"></span>
                 <span class="select__option-text">{{ label }}</span>
             </label>
