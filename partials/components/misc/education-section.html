@@ -1,27 +1,7 @@
 <section class="education-section js-education-section" aria-label="Обучающий раздел">
     <div class="education-section__grid">
         <aside class="education-section__aside">
-            <article class="education-section__rating">
-                <div class="education-section__rating-head">
-                    <span class="education-section__rating-tag">{{ educationRatingTag }}</span>
-                    <div class="education-section__rating-stats" aria-label="Изучено тем">
-                        <span class="education-section__rating-stats-current">{{ educationSectionsDone }}</span>
-                        <span class="education-section__rating-stats-total">из {{ educationSectionsTotal }}</span>
-                        <span class="education-section__rating-stats-caption">тем<br>изучено</span>
-                    </div>
-                </div>
-                <div class="education-section__rating-body">
-                    <h2 class="education-section__rating-title">{{ educationRatingTitle }}</h2>
-                    <p class="education-section__rating-description">{{ educationRatingDescription }}</p>
-                </div>
-                <div class="education-section__rating-range js-education-rating-range">
-                    <input class="education-section__rating-input js-education-rating-input" type="range"
-                        id="education-section-rating" min="0" max="10" step="1" value="{{ educationRatingInitial }}"
-                        aria-label="Оценка раздела от 0 до 10">
-                    <output class="education-section__rating-value js-education-rating-value"
-                        for="education-section-rating">{{ educationRatingInitial }}</output>
-                </div>
-            </article>
+            {{> components/misc/education-rating class="education-section__rating" }}
 
             {{> components/misc/toothguy class="education-section__toothguy" hideBubble=true }}
         </aside>

@@ -1,0 +1,19 @@
+<article class="education-rating js-education-rating{{#if class}} {{ class }}{{/if}}">
+    <div class="education-rating__head">
+        <span class="education-rating__tag">{{ educationRatingTag }}</span>
+        <div class="education-rating__stats" aria-label="Изучено тем">
+            <span class="education-rating__stats-current">{{ educationSectionsDone }}</span>
+            <span class="education-rating__stats-total">из {{ educationSectionsTotal }}</span>
+            <span class="education-rating__stats-caption">тем<br>изучено</span>
+        </div>
+    </div>
+    <div class="education-rating__body">
+        <h2 class="education-rating__title">{{ educationRatingTitle }}</h2>
+        <p class="education-rating__description">{{ educationRatingDescription }}</p>
+    </div>
+    <div class="education-rating__range js-education-rating-range">
+        <input class="education-rating__input js-education-rating-input" type="range" min="0" max="10" step="1"
+            value="{{ educationRatingInitial }}" aria-label="Оценка раздела от 0 до 10">
+        <output class="education-rating__value js-education-rating-value">{{ educationRatingInitial }}</output>
+    </div>
+</article>
