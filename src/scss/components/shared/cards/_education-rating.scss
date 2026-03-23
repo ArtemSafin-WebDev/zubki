@@ -124,7 +124,9 @@
   .education-rating__range {
     --education-rating-color: var(--accent-green);
     --education-rating-thumb: #207336;
-    --education-rating-percent: 100%;
+    --education-rating-thumb-size: 2.8rem;
+    --education-rating-edge-offset: 0.2rem;
+    --education-rating-progress: 1;
     position: relative;
     min-height: 3.2rem;
     border-radius: 10rem;
@@ -138,7 +140,12 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: var(--education-rating-percent);
+      width: calc(
+        (100% - (var(--education-rating-edge-offset) * 2) -
+            var(--education-rating-thumb-size)) *
+          var(--education-rating-progress) + var(--education-rating-thumb-size)
+      );
+      transform: translateX(var(--education-rating-edge-offset));
       border-radius: inherit;
       background-color: var(--education-rating-color);
       transition: background-color 220ms ease;
@@ -195,10 +202,16 @@
   .education-rating__value {
     position: absolute;
     top: 50%;
-    left: 1.4rem;
+    left: calc(
+      var(--education-rating-edge-offset) +
+        (100% - (var(--education-rating-edge-offset) * 2) -
+            var(--education-rating-thumb-size)) *
+          var(--education-rating-progress) +
+        (var(--education-rating-thumb-size) / 2)
+    );
     transform: translate(-50%, -50%);
-    min-width: 2.8rem;
-    min-height: 2.8rem;
+    min-width: var(--education-rating-thumb-size);
+    min-height: var(--education-rating-thumb-size);
     padding: 0.1rem;
     border-radius: 12rem;
     display: inline-flex;

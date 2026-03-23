@@ -35,6 +35,9 @@ class EducationRating extends Component {
     const syncRating = () => {
       this.updateRatingState();
     };
+    const stopSwipePropagation = (event: Event) => {
+      event.stopPropagation();
+    };
 
     this.ratingInput.addEventListener("input", syncRating, {
       signal: this.abortController.signal,
@@ -42,9 +45,16 @@ class EducationRating extends Component {
     this.ratingInput.addEventListener("change", syncRating, {
       signal: this.abortController.signal,
     });
-    window.addEventListener("resize", syncRating, {
-      signal: this.abortController.signal,
-    });
+    ["touchstart", "touchmove", "pointerdown", "pointermove", "mousedown"].forEach(
+      (eventName) => {
+        this.ratingRange?.addEventListener(eventName, stopSwipePropagation, {
+          signal: this.abortController.signal,
+        });
+        this.ratingInput?.addEventListener(eventName, stopSwipePropagation, {
+          signal: this.abortController.signal,
+        });
+      }
+    );
 
     syncRating();
   }
@@ -60,28 +70,11 @@ class EducationRating extends Component {
     const safeValue = Number.isFinite(rawValue)
       ? Math.min(max, Math.max(min, rawValue))
       : min;
-    const percent = max === min ? 0 : ((safeValue - min) / (max - min)) * 100;
+    const progress = max === min ? 0 : (safeValue - min) / (max - min);
     const palette = this.getPalette(safeValue);
 
     this.ratingInput.value = String(safeValue);
     this.ratingValue.textContent = String(safeValue);
-
-    const thumbSize = 28;
-    const trackWidth = this.ratingInput.clientWidth;
-    const thumbCenter =
-      ((trackWidth - thumbSize) * percent) / 100 + thumbSize / 2;
-    const markerWidth = this.ratingValue.offsetWidth || thumbSize;
-    const markerHalo = 2;
-    const minCenter = markerWidth / 2 + markerHalo;
-    const maxCenter = trackWidth - markerWidth / 2 - markerHalo;
-    const markerCenter = Math.min(maxCenter, Math.max(minCenter, thumbCenter));
-    const fillPercent =
-      trackWidth > 0
-        ? Math.min(
-            100,
-            ((markerCenter + markerWidth / 2 + markerHalo) / trackWidth) * 100
-          )
-        : percent;
 
     this.ratingRange.style.setProperty(
       "--education-rating-color",
@@ -92,11 +85,9 @@ class EducationRating extends Component {
       palette.thumb
     );
     this.ratingRange.style.setProperty(
-      "--education-rating-percent",
-      `${fillPercent}%`
+      "--education-rating-progress",
+      String(progress)
     );
-
-    this.ratingValue.style.left = `${markerCenter}px`;
   }
 
   private getPalette(score: number): RatingPalette {

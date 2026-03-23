@@ -64,8 +64,15 @@
   }
 
   .education-section__slide {
+    box-sizing: border-box;
     width: 100%;
     margin-right: 0;
+  }
+
+  .education-section__slide--aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
 
   .education-section__slide-group {
@@ -178,16 +185,98 @@
   }
 
   @include breakpoints.mobile {
-    .education-section__slider > .swiper-wrapper {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.6rem;
-      transform: none !important;
+    .education-page {
+      min-height: 100svh;
     }
 
-    .education-section__nav,
-    .education-section__pagination-wrapper {
+    .education-section {
+      margin-top: 2rem;
+    }
+
+    .education-section__grid {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .education-section__main {
+      grid-column: auto;
+      flex: 1;
+      min-height: 0;
+      gap: 2rem;
+    }
+
+    .education-section__slider-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .education-section__slider.swiper {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .education-section__slider > .swiper-wrapper {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      align-items: stretch;
+    }
+
+    .education-section__slide {
+      min-width: 0;
+    }
+
+    .education-section__slider > .swiper-wrapper > .swiper-slide {
+      height: auto;
+      align-self: stretch;
+    }
+
+    .education-section__slide--aside > .education-section__rating {
+      max-width: none;
+    }
+
+    .education-section__slide--aside {
+      min-height: 0;
+    }
+
+    .education-section__slide--aside > .education-section__toothguy {
+      display: block;
+      margin-top: auto;
+      margin-left: 0;
+    }
+
+    .education-section__slide--aside
+      > .education-section__toothguy
+      > .toothguy__character {
+      width: 13.6rem;
+    }
+
+    .education-section__slide--aside
+      > .education-section__toothguy
+      > .toothguy__bubble {
+      display: inline-block;
+      top: 0;
+      left: 100%;
+      margin-top: -0.8rem;
+      margin-left: 0.8rem;
+    }
+
+    .education-section__nav {
       display: none;
+    }
+
+    .education-section__pagination-wrapper {
+      display: flex;
+      justify-content: center;
+      grid-template-columns: none;
+      gap: 0;
+      margin-top: auto;
     }
   }
 }

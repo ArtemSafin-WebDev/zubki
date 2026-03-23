@@ -16,7 +16,7 @@ export default {
     educationRatingTitle: "Спасибо за вашу оценку!",
     educationRatingDescription:
       "Это поможет нам стать лучше и сделать онлайн-платформу полезнее",
-    educationRatingInitial: 10,
+    educationRatingInitial: 0,
     educationCards: [
       {
         typeLabel: "Видеолекция",
