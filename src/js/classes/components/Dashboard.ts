@@ -6,7 +6,50 @@ const MOBILE_BREAKPOINT_QUERY = `(max-width: ${MOBILE_BREAKPOINT}px)`;
 const DRAG_START_THRESHOLD_PX = 6;
 const MOBILE_SLIDE_GAP_PX = 20;
 
+export type DashboardOptions = {
+  rootSelector?: string;
+  trackSelector?: string;
+  slideSelector?: string;
+  paginationSelector?: string;
+  paginationBulletClass?: string;
+  paginationBulletActiveClass?: string;
+  paginationBulletAriaLabel?: (index: number) => string;
+  mobileSlideGapPx?: number;
+  nestedSliderSelector?: string;
+  onBeforeMobileInit?: () => void;
+  onAfterMobileDestroy?: () => void;
+};
+
+type ResolvedDashboardOptions = {
+  rootSelector: string;
+  trackSelector: string;
+  slideSelector: string;
+  paginationSelector: string;
+  paginationBulletClass: string;
+  paginationBulletActiveClass: string;
+  paginationBulletAriaLabel: (index: number) => string;
+  mobileSlideGapPx: number;
+  nestedSliderSelector: string;
+  onBeforeMobileInit: () => void;
+  onAfterMobileDestroy: () => void;
+};
+
+const DEFAULT_OPTIONS: ResolvedDashboardOptions = {
+  rootSelector: ".dashboard-slider",
+  trackSelector: ".dashboard-slider__track",
+  slideSelector: ".dashboard-slider__slide",
+  paginationSelector: ".dashboard-pagination",
+  paginationBulletClass: "dashboard-pagination__bullet",
+  paginationBulletActiveClass: "dashboard-pagination__bullet--active",
+  paginationBulletAriaLabel: (index) => `Перейти к слайду ${index + 1}`,
+  mobileSlideGapPx: MOBILE_SLIDE_GAP_PX,
+  nestedSliderSelector: ".swiper",
+  onBeforeMobileInit: () => {},
+  onAfterMobileDestroy: () => {},
+};
+
 class Dashboard extends Component {
+  private options: ResolvedDashboardOptions;
   private sliderRoot: HTMLElement;
   private sliderWrapper: HTMLElement;
   private pagination: HTMLElement | null;
@@ -27,14 +70,25 @@ class Dashboard extends Component {
   private shouldHandleTouch = false;
   private paginationBullets: HTMLButtonElement[] = [];
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, options: DashboardOptions = {}) {
     super(element);
+    this.options = {
+      ...DEFAULT_OPTIONS,
+      ...options,
+      paginationBulletAriaLabel:
+        options.paginationBulletAriaLabel ??
+        DEFAULT_OPTIONS.paginationBulletAriaLabel,
+      onBeforeMobileInit:
+        options.onBeforeMobileInit ?? DEFAULT_OPTIONS.onBeforeMobileInit,
+      onAfterMobileDestroy:
+        options.onAfterMobileDestroy ?? DEFAULT_OPTIONS.onAfterMobileDestroy,
+    };
 
     const root = this.element.querySelector<HTMLElement>(
-      ".dashboard-slider"
+      this.options.rootSelector
     );
     const wrapper = root?.querySelector<HTMLElement>(
-      ".dashboard-slider__track"
+      this.options.trackSelector
     );
 
     if (!root || !wrapper) {
@@ -44,11 +98,9 @@ class Dashboard extends Component {
     this.sliderRoot = root;
     this.sliderWrapper = wrapper;
     this.pagination = this.element.querySelector<HTMLElement>(
-      ".dashboard-pagination"
+      this.options.paginationSelector
     );
-    this.slides = Array.from(this.sliderWrapper.children).filter((child) =>
-      child.classList.contains("dashboard-slider__slide")
-    ) as HTMLElement[];
+    this.slides = this.collectSlides();
 
     if (!this.slides.length) {
       throw new Error("Dashboard slider has no slides");
@@ -71,6 +123,13 @@ class Dashboard extends Component {
   }
 
   private initMobileSlider() {
+    this.options.onBeforeMobileInit();
+    this.slides = this.collectSlides();
+
+    if (!this.slides.length) {
+      return;
+    }
+
     this.abortController?.abort();
     this.abortController = new AbortController();
     const signal = this.abortController.signal;
@@ -79,13 +138,14 @@ class Dashboard extends Component {
     this.sliderRoot.style.touchAction = "pan-y";
 
     this.sliderWrapper.style.display = "flex";
-    this.sliderWrapper.style.gap = `${MOBILE_SLIDE_GAP_PX}px`;
+    this.sliderWrapper.style.gap = `${this.options.mobileSlideGapPx}px`;
     this.sliderWrapper.style.willChange = "transform";
 
     this.slides.forEach((slide) => {
       slide.style.flex = "0 0 100%";
       slide.style.width = "100%";
       slide.style.minWidth = "0";
+      slide.style.marginRight = "0";
     });
 
     this.updateMetrics();
@@ -144,7 +204,11 @@ class Dashboard extends Component {
       slide.style.flex = "";
       slide.style.width = "";
       slide.style.minWidth = "";
+      slide.style.marginRight = "";
     });
+
+    this.options.onAfterMobileDestroy();
+    this.slides = this.collectSlides();
   }
 
   private handleTouchStart = (event: TouchEvent) => {
@@ -152,7 +216,7 @@ class Dashboard extends Component {
 
     const touch = event.touches[0];
     const target = event.target as Element | null;
-    const startedOnPagination = target?.closest(".dashboard-pagination");
+    const startedOnPagination = target?.closest(this.options.paginationSelector);
 
     if (startedOnPagination) {
       this.shouldHandleTouch = false;
@@ -160,7 +224,7 @@ class Dashboard extends Component {
       return;
     }
 
-    const nestedSwiper = target?.closest(".swiper");
+    const nestedSwiper = target?.closest(this.options.nestedSliderSelector);
 
     if (nestedSwiper && nestedSwiper !== this.sliderRoot) {
       this.shouldHandleTouch = false;
@@ -251,7 +315,7 @@ class Dashboard extends Component {
     );
     this.slideGap = Number.isFinite(computedGap)
       ? computedGap
-      : MOBILE_SLIDE_GAP_PX;
+      : this.options.mobileSlideGapPx;
   }
 
   private initResizeObserver() {
@@ -262,6 +326,14 @@ class Dashboard extends Component {
       this.handleResize();
     });
     this.resizeObserver.observe(this.sliderRoot);
+  }
+
+  private collectSlides() {
+    return Array.from(this.sliderWrapper.children).filter(
+      (child): child is HTMLElement =>
+        child instanceof HTMLElement &&
+        child.matches(this.options.slideSelector)
+    );
   }
 
   private goToSlide(index: number, animate: boolean) {
@@ -281,8 +353,11 @@ class Dashboard extends Component {
       const bullet = document.createElement("button");
 
       bullet.type = "button";
-      bullet.className = "dashboard-pagination__bullet";
-      bullet.setAttribute("aria-label", `Перейти к слайду ${index + 1}`);
+      bullet.className = this.options.paginationBulletClass;
+      bullet.setAttribute(
+        "aria-label",
+        this.options.paginationBulletAriaLabel(index)
+      );
       bullet.addEventListener(
         "click",
         () => {
@@ -301,7 +376,7 @@ class Dashboard extends Component {
   private updatePagination() {
     this.paginationBullets.forEach((bullet, index) => {
       bullet.classList.toggle(
-        "dashboard-pagination__bullet--active",
+        this.options.paginationBulletActiveClass,
         index === this.currentIndex
       );
     });
