@@ -1,22 +1,24 @@
 <a class="education-card" href="{{ href }}" {{#if ctaLabel}}aria-label="{{ ctaLabel }}" {{/if}}>
-    <div class="education-card__top">
-        <span class="education-card__tag education-card__tag--type">{{ typeLabel }}</span>
-        <span class="education-card__tag education-card__tag--duration">{{ durationLabel }}</span>
-    </div>
+    <div class="education-card__content">
+        <div class="education-card__top">
+            <span class="education-card__tag education-card__tag--type">{{ typeLabel }}</span>
+            <span class="education-card__tag education-card__tag--duration">{{ durationLabel }}</span>
+        </div>
 
-    <div class="education-card__title-wrap">
-        <h3 class="education-card__title">{{ title }}</h3>
-        {{#if subtitle}}
-            <p class="education-card__subtitle">{{{ subtitle }}}</p>
-        {{/if}}
-    </div>
+        <div class="education-card__title-wrap">
+            <h3 class="education-card__title">{{ title }}</h3>
+            {{#if subtitle}}
+                <p class="education-card__subtitle">{{{ subtitle }}}</p>
+            {{/if}}
+        </div>
 
-    <div class="education-card__media">
-        <img class="education-card__image" src="{{ image }}" alt="" loading="lazy">
-        <span class="education-card__cta" aria-hidden="true">
-            <svg width="24" height="24" aria-hidden="true">
-                <use href="#arrow-right"></use>
-            </svg>
-        </span>
+        <div class="education-card__media">
+            <img class="education-card__image" src="{{ image }}" alt="" loading="lazy">
+            <span class="education-card__cta" aria-hidden="true">
+                <svg width="24" height="24" aria-hidden="true">
+                    <use href="#arrow-right"></use>
+                </svg>
+            </span>
+        </div>
     </div>
 </a>

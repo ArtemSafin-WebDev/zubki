@@ -1,5 +1,24 @@
+@use "tokens/breakpoints";
+
 @layer components {
   .education-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    flex-grow: 1;
+    grid-template-areas: "stack";
+    &::before {
+      content: "";
+      display: block;
+      grid-area: stack;
+      padding-bottom: 109%;
+
+      @include breakpoints.mobile {
+        padding-bottom: 127%;
+      }
+    }
+  }
+
+  .education-card__content {
     padding: 2rem;
     border-radius: 1.6rem;
     border: 1.5px solid rgba(235, 245, 255, 0);
@@ -11,7 +30,8 @@
     gap: 2.4rem;
     text-decoration: none;
     color: inherit;
-    aspect-ratio: 438 / 480;
+    grid-area: stack;
+    z-index: 10;
   }
 
   .education-card__top {
@@ -69,6 +89,14 @@
     -webkit-text-stroke-width: 0.02rem;
     -webkit-text-stroke-color: currentColor;
     text-wrap: balance;
+
+    @include breakpoints.mobile {
+      font-family: var(--mobile-h2-font-family);
+      font-size: var(--mobile-h2-font-size);
+      font-weight: var(--mobile-h2-font-weight);
+      line-height: var(--mobile-h2-line-height);
+      letter-spacing: var(--mobile-h2-letter-spacing);
+    }
   }
 
   .education-card__subtitle {
@@ -92,6 +120,10 @@
     grid-column: 1 / -1;
     grid-row: 3 / 4;
     align-self: flex-end;
+
+    @include breakpoints.mobile {
+      aspect-ratio: 295 / 180;
+    }
   }
 
   .education-card__image {
