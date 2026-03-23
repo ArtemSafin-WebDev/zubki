@@ -3,6 +3,10 @@
 @layer components {
   .education-page {
     min-height: 100vh;
+
+    @include breakpoints.mobile {
+      min-height: 100svh;
+    }
   }
 
   .education-section {
@@ -10,6 +14,10 @@
     display: flex;
     flex-direction: column;
     margin-top: 2.4rem;
+
+    @include breakpoints.mobile {
+      margin-top: 2rem;
+    }
   }
 
   .education-section__grid {
@@ -19,6 +27,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3.2rem;
     align-items: stretch;
+
+    @include breakpoints.mobile {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
   }
 
   .education-section__aside {
@@ -26,6 +40,10 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .education-section__main {
@@ -36,6 +54,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.4rem;
+
+    @include breakpoints.mobile {
+      grid-column: auto;
+      flex: 1;
+      min-height: 0;
+      gap: 2rem;
+    }
   }
 
   .education-section__rating {
@@ -52,31 +77,94 @@
     position: relative;
     width: 100%;
     min-height: 0;
+
+    @include breakpoints.mobile {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .education-section__slider.swiper {
     width: 100%;
     overflow: visible;
+
+    @include breakpoints.mobile {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
   }
 
   .education-section__slider > .swiper-wrapper {
     align-items: stretch;
+
+    @include breakpoints.mobile {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      align-items: stretch;
+    }
   }
 
   .education-section__slide {
     box-sizing: border-box;
     width: 100%;
     margin-right: 0;
+
+    @include breakpoints.mobile {
+      min-width: 0;
+    }
   }
 
   .education-section__slide--aside {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+
+    @include breakpoints.mobile {
+      min-height: 0;
+    }
   }
 
   .education-section__slide--aside-mobile {
     display: none;
+
+    @include breakpoints.mobile {
+      display: flex;
+    }
+  }
+
+  .education-section__slider > .swiper-wrapper > .swiper-slide {
+    @include breakpoints.mobile {
+      height: auto;
+      align-self: stretch;
+    }
+  }
+
+  .education-section__slide--aside > .education-section__rating {
+    @include breakpoints.mobile {
+      max-width: none;
+    }
+  }
+
+  .education-section__slide--aside > .education-section__toothguy {
+    @include breakpoints.mobile {
+      display: block;
+      margin-top: auto;
+      margin-left: 0;
+    }
+  }
+
+  .education-section__slide--aside
+    > .education-section__toothguy
+    > .toothguy__character {
+    @include breakpoints.mobile {
+      width: 13.6rem;
+    }
   }
 
   .education-section__slide-group {
@@ -137,6 +225,10 @@
       --education-section-nav-bg: var(--background-light-sky);
       --education-section-nav-border-color: var(--text-light-blue);
     }
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .education-section__nav--prev {
@@ -159,6 +251,14 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3.2rem;
+
+    @include breakpoints.mobile {
+      display: flex;
+      justify-content: center;
+      grid-template-columns: none;
+      gap: 0;
+      margin-top: auto;
+    }
   }
 
   .education-section__pagination.swiper-pagination {
@@ -186,99 +286,5 @@
 
   .education-section__pagination .swiper-pagination-bullet-active {
     background: var(--text-light-blue);
-  }
-
-  @include breakpoints.mobile {
-    .education-page {
-      min-height: 100svh;
-    }
-
-    .education-section {
-      margin-top: 2rem;
-    }
-
-    .education-section__grid {
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-
-    .education-section__main {
-      grid-column: auto;
-      flex: 1;
-      min-height: 0;
-      gap: 2rem;
-    }
-
-    .education-section__aside {
-      display: none;
-    }
-
-    .education-section__slider-wrap {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .education-section__slider.swiper {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .education-section__slider > .swiper-wrapper {
-      display: flex;
-      flex: 1;
-      min-height: 0;
-      align-items: stretch;
-    }
-
-    .education-section__slide {
-      min-width: 0;
-    }
-
-    .education-section__slider > .swiper-wrapper > .swiper-slide {
-      height: auto;
-      align-self: stretch;
-    }
-
-    .education-section__slide--aside > .education-section__rating {
-      max-width: none;
-    }
-
-    .education-section__slide--aside {
-      min-height: 0;
-    }
-
-    .education-section__slide--aside-mobile {
-      display: flex;
-    }
-
-    .education-section__slide--aside > .education-section__toothguy {
-      display: block;
-      margin-top: auto;
-      margin-left: 0;
-    }
-
-    .education-section__slide--aside
-      > .education-section__toothguy
-      > .toothguy__character {
-      width: 13.6rem;
-    }
-
-    .education-section__nav {
-      display: none;
-    }
-
-    .education-section__pagination-wrapper {
-      display: flex;
-      justify-content: center;
-      grid-template-columns: none;
-      gap: 0;
-      margin-top: auto;
-    }
   }
 }
