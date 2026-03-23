@@ -6,6 +6,9 @@ import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
 const MOBILE_BREAKPOINT_QUERY = `(max-width: ${MOBILE_BREAKPOINT}px)`;
 const MOBILE_ASIDE_SELECTOR = ".education-section__slide--aside-mobile";
 const SLIDE_GROUP_SELECTOR = ".education-section__slide-group";
+const DESKTOP_ASIDE_SELECTOR = ".education-section__aside";
+const ASIDE_RATING_SELECTOR = ".education-section__rating";
+const ASIDE_TOOTHGUY_SELECTOR = ".education-section__toothguy";
 
 class EducationSection extends Component {
   private swiperInstance: Swiper | null = null;
@@ -27,15 +30,28 @@ class EducationSection extends Component {
     const container = this.element.querySelector<HTMLElement>(
       ".education-section__slider"
     );
+    const desktopAside = this.element.querySelector<HTMLElement>(
+      DESKTOP_ASIDE_SELECTOR
+    );
+    const mobileAside = this.element.querySelector<HTMLElement>(
+      MOBILE_ASIDE_SELECTOR
+    );
 
     if (!container) {
       return;
     }
 
     if (this.mediaQuery.matches) {
-      this.destroySlider(false);
+      this.destroySlider();
       this.ungroupSlides(container);
+      if (mobileAside) {
+        this.moveAsideContent(mobileAside);
+      }
       return;
+    }
+
+    if (desktopAside) {
+      this.moveAsideContent(desktopAside);
     }
 
     const pagination = this.element.querySelector<HTMLElement>(
@@ -79,6 +95,26 @@ class EducationSection extends Component {
       },
     });
   };
+
+  private moveAsideContent(target: HTMLElement) {
+    const rating = this.element.querySelector<HTMLElement>(ASIDE_RATING_SELECTOR);
+    const toothguy = this.element.querySelector<HTMLElement>(
+      ASIDE_TOOTHGUY_SELECTOR
+    );
+
+    if (!rating || !toothguy) {
+      return;
+    }
+
+    if (
+      rating.parentElement === target &&
+      toothguy.parentElement === target
+    ) {
+      return;
+    }
+
+    target.append(rating, toothguy);
+  }
 
   private groupSlidesForFade(container: HTMLElement) {
     const wrapper = container.querySelector<HTMLElement>(".swiper-wrapper");

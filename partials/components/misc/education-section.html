@@ -1,13 +1,7 @@
 <section class="education-section js-education-section" aria-label="Обучающий раздел">
     <div class="education-section__grid">
         <aside class="education-section__aside">
-            {{> components/misc/education-rating class="education-section__rating" }}
-
-            {{> components/misc/toothguy
-                class="education-section__toothguy"
-                bubbleClass="speech-bubble--white"
-                bubbleText="Я рад, что вы снова<br>заглянули ко мне!"
-            }}
+            {{> components/misc/education-section-aside-content }}
         </aside>
 
         <div class="education-section__main">
@@ -15,13 +9,6 @@
                 <div class="education-section__slider swiper">
                     <div class="swiper-wrapper">
                         <div class="education-section__slide education-section__slide--aside education-section__slide--aside-mobile">
-                            {{> components/misc/education-rating class="education-section__rating" }}
-
-                            {{> components/misc/toothguy
-                                class="education-section__toothguy"
-                                bubbleClass="speech-bubble--white"
-                                bubbleText="Я рад, что вы снова<br>заглянули ко мне!"
-                            }}
                         </div>
                         {{#each educationCards}}
                             <div class="education-section__slide swiper-slide">

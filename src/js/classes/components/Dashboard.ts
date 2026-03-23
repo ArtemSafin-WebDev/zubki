@@ -51,6 +51,7 @@ class Dashboard extends Component {
   private matchMedia: ReturnType<typeof gsap.matchMedia>;
   private abortController: AbortController | null = null;
   private resizeObserver: ResizeObserver | null = null;
+  private mobileSyncFrameId: number | null = null;
 
   private currentIndex = 0;
   private slideWidth = 0;
@@ -123,23 +124,13 @@ class Dashboard extends Component {
     this.abortController = new AbortController();
     const signal = this.abortController.signal;
 
-    this.sliderRoot.style.overflow = "visible";
-    this.sliderRoot.style.touchAction = "pan-y";
-
-    this.sliderWrapper.style.display = "flex";
-    this.sliderWrapper.style.gap = `${this.options.mobileSlideGapPx}px`;
-    this.sliderWrapper.style.willChange = "transform";
-
-    this.slides.forEach((slide) => {
-      slide.style.flex = "0 0 100%";
-      slide.style.width = "100%";
-      slide.style.minWidth = "0";
-      slide.style.marginRight = "0";
-    });
+    this.applyMobileLayoutStyles();
+    this.applyMobileSlideStyles();
 
     this.updateMetrics();
     this.initPagination(signal);
     this.goToSlide(this.currentIndex, false);
+    this.syncSlidesOnNextFrame(signal);
 
     this.sliderRoot.addEventListener("touchstart", this.handleTouchStart, {
       signal,
@@ -168,6 +159,10 @@ class Dashboard extends Component {
   private destroyMobileSlider() {
     this.abortController?.abort();
     this.abortController = null;
+    if (this.mobileSyncFrameId !== null) {
+      window.cancelAnimationFrame(this.mobileSyncFrameId);
+      this.mobileSyncFrameId = null;
+    }
     this.resizeObserver?.disconnect();
     this.resizeObserver = null;
 
@@ -196,6 +191,59 @@ class Dashboard extends Component {
       slide.style.marginRight = "";
     });
     this.slides = this.collectSlides();
+  }
+
+  private syncSlidesOnNextFrame(signal: AbortSignal) {
+    if (this.mobileSyncFrameId !== null) {
+      window.cancelAnimationFrame(this.mobileSyncFrameId);
+    }
+
+    this.mobileSyncFrameId = window.requestAnimationFrame(() => {
+      this.mobileSyncFrameId = null;
+
+      if (signal.aborted) {
+        return;
+      }
+
+      const nextSlides = this.collectSlides();
+      if (!nextSlides.length) {
+        return;
+      }
+
+      const hasSlidesChanged =
+        nextSlides.length !== this.slides.length ||
+        nextSlides.some((slide, index) => slide !== this.slides[index]);
+
+      if (!hasSlidesChanged) {
+        return;
+      }
+
+      this.slides = nextSlides;
+      this.applyMobileLayoutStyles();
+      this.applyMobileSlideStyles();
+      this.currentIndex = this.clamp(this.currentIndex, 0, this.slides.length - 1);
+      this.updateMetrics();
+      this.initPagination(signal);
+      this.goToSlide(this.currentIndex, false);
+    });
+  }
+
+  private applyMobileSlideStyles() {
+    this.slides.forEach((slide) => {
+      slide.style.flex = "0 0 100%";
+      slide.style.width = "100%";
+      slide.style.minWidth = "0";
+      slide.style.marginRight = "0";
+    });
+  }
+
+  private applyMobileLayoutStyles() {
+    this.sliderRoot.style.overflow = "visible";
+    this.sliderRoot.style.touchAction = "pan-y";
+
+    this.sliderWrapper.style.display = "flex";
+    this.sliderWrapper.style.gap = `${this.options.mobileSlideGapPx}px`;
+    this.sliderWrapper.style.willChange = "transform";
   }
 
   private handleTouchStart = (event: TouchEvent) => {
