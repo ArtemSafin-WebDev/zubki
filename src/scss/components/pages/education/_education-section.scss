@@ -75,6 +75,10 @@
     gap: 1.6rem;
   }
 
+  .education-section__slide--aside-mobile {
+    display: none;
+  }
+
   .education-section__slide-group {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -206,6 +210,10 @@
       gap: 2rem;
     }
 
+    .education-section__aside {
+      display: none;
+    }
+
     .education-section__slider-wrap {
       flex: 1;
       min-height: 0;
@@ -243,6 +251,10 @@
 
     .education-section__slide--aside {
       min-height: 0;
+    }
+
+    .education-section__slide--aside-mobile {
+      display: flex;
     }
 
     .education-section__slide--aside > .education-section__toothguy {

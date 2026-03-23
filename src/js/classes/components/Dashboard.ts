@@ -16,8 +16,6 @@ export type DashboardOptions = {
   paginationBulletAriaLabel?: (index: number) => string;
   mobileSlideGapPx?: number;
   nestedSliderSelector?: string;
-  onBeforeMobileInit?: () => void;
-  onAfterMobileDestroy?: () => void;
 };
 
 type ResolvedDashboardOptions = {
@@ -30,8 +28,6 @@ type ResolvedDashboardOptions = {
   paginationBulletAriaLabel: (index: number) => string;
   mobileSlideGapPx: number;
   nestedSliderSelector: string;
-  onBeforeMobileInit: () => void;
-  onAfterMobileDestroy: () => void;
 };
 
 const DEFAULT_OPTIONS: ResolvedDashboardOptions = {
@@ -44,8 +40,6 @@ const DEFAULT_OPTIONS: ResolvedDashboardOptions = {
   paginationBulletAriaLabel: (index) => `Перейти к слайду ${index + 1}`,
   mobileSlideGapPx: MOBILE_SLIDE_GAP_PX,
   nestedSliderSelector: ".swiper",
-  onBeforeMobileInit: () => {},
-  onAfterMobileDestroy: () => {},
 };
 
 class Dashboard extends Component {
@@ -78,10 +72,6 @@ class Dashboard extends Component {
       paginationBulletAriaLabel:
         options.paginationBulletAriaLabel ??
         DEFAULT_OPTIONS.paginationBulletAriaLabel,
-      onBeforeMobileInit:
-        options.onBeforeMobileInit ?? DEFAULT_OPTIONS.onBeforeMobileInit,
-      onAfterMobileDestroy:
-        options.onAfterMobileDestroy ?? DEFAULT_OPTIONS.onAfterMobileDestroy,
     };
 
     const root = this.element.querySelector<HTMLElement>(
@@ -123,7 +113,6 @@ class Dashboard extends Component {
   }
 
   private initMobileSlider() {
-    this.options.onBeforeMobileInit();
     this.slides = this.collectSlides();
 
     if (!this.slides.length) {
@@ -206,8 +195,6 @@ class Dashboard extends Component {
       slide.style.minWidth = "";
       slide.style.marginRight = "";
     });
-
-    this.options.onAfterMobileDestroy();
     this.slides = this.collectSlides();
   }
 

@@ -13,6 +13,14 @@
             <div class="education-section__slider-wrap">
                 <div class="education-section__slider swiper">
                     <div class="swiper-wrapper">
+                        <div class="education-section__slide education-section__slide--aside education-section__slide--aside-mobile">
+                            {{> components/misc/education-rating class="education-section__rating" }}
+
+                            {{> components/misc/toothguy
+                                class="education-section__toothguy"
+                                bubbleText="Я рад, что вы снова<br>заглянули ко мне!"
+                            }}
+                        </div>
                         {{#each educationCards}}
                             <div class="education-section__slide swiper-slide">
                                 {{> components/cards/education-card this }}
