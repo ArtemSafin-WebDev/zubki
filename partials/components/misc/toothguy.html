@@ -4,16 +4,18 @@
     </div>
 
     {{#unless hideBubble}}
-        <div class="speech-bubble toothguy__bubble{{#if bubbleClass}} {{ bubbleClass }}{{/if}}">
-            <p class="speech-bubble__text toothguy__text{{#if bubbleTextClass}} {{ bubbleTextClass }}{{/if}}">
-                {{#if bubbleText}}
-                    {{{ bubbleText }}}
-                {{else}}
-                    Ты точно чистишь
-                    <br>
-                    зубки каждый день?
-                {{/if}}
-            </p>
+        <div class="speech-bubble-shadow toothguy__bubble-wrap">
+            <div class="speech-bubble toothguy__bubble{{#if bubbleClass}} {{ bubbleClass }}{{/if}}">
+                <p class="speech-bubble__text toothguy__text{{#if bubbleTextClass}} {{ bubbleTextClass }}{{/if}}">
+                    {{#if bubbleText}}
+                        {{{ bubbleText }}}
+                    {{else}}
+                        Ты точно чистишь
+                        <br>
+                        зубки каждый день?
+                    {{/if}}
+                </p>
+            </div>
         </div>
     {{/unless}}
 </section>

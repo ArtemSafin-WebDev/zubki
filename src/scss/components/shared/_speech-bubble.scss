@@ -1,4 +1,9 @@
 @layer components {
+  .speech-bubble-shadow {
+    display: inline-block;
+    filter: drop-shadow(0 0.4rem 1.6rem rgba(143, 203, 255, 0.4));
+  }
+
   .speech-bubble {
     --speech-bubble-tail-width: 1.7rem;
     --speech-bubble-tail-height: 1.5rem;
@@ -7,7 +12,6 @@
     display: inline-block;
     padding: 0.8rem 1.2rem calc(0.8rem + var(--speech-bubble-tail-height));
     background-color: rgba(244, 247, 249, 0.7);
-    filter: drop-shadow(0 0.4rem 1.6rem rgba(143, 203, 255, 0.4));
 
     mask-image:
       radial-gradient(farthest-side at 100% 100%, #000 99%, transparent 100%),
