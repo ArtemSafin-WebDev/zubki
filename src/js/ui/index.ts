@@ -1,4 +1,5 @@
 import accordions from "./accordions";
+import categoryVideoCards from "./categoryVideoCards";
 import cookieBanner from "./cookieBanner";
 import calendarBoards from "./calendarBoards";
 import dashboard from "./dashboard";
@@ -16,6 +17,7 @@ import selects from "./selects";
 export default function ui() {
   accordions();
   calendarBoards();
+  categoryVideoCards();
   cookieBanner();
   dashboard();
   educationRatings();

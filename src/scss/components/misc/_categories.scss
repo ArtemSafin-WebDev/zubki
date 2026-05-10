@@ -41,4 +41,18 @@
       z-index: 20;
     }
   }
+
+  .categories__card-image,
+  .categories__card-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .categories__card-video {
+    background: var(--background-sky);
+  }
 }
