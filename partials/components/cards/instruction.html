@@ -1,4 +1,4 @@
-<a href="{{#if href}}{{ href }}{{else}}#{{/if}}" class="instruction {{ class }}">
+<a href="{{#if href}}{{ href }}{{else}}#{{/if}}" class="instruction {{ class }}" {{#if fancyboxGroup}}data-fancybox="{{ fancyboxGroup }}" {{/if}}{{#if fancyboxType}}data-type="{{ fancyboxType }}" {{/if}}{{#if fancyboxWidth}}data-width="{{ fancyboxWidth }}" {{/if}}{{#if fancyboxHeight}}data-height="{{ fancyboxHeight }}" {{/if}}>
     <div class="instruction__preview">
         <img src="{{ imageSrc }}" alt="{{ imageAlt }}" class="instruction__preview-image" width="160" height="90"
             loading="lazy">

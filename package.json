@@ -21,6 +21,7 @@
     "vite-plugin-svg-icons": "^2.0.1"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.1.14",
     "gsap": "^3.14.2",
     "inputmask": "^5.0.9",
     "swiper": "^12.1.0",

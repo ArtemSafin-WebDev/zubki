@@ -6,6 +6,7 @@ import dashboard from "./dashboard";
 import educationSection from "./educationSection";
 import educationRatings from "./educationRatings";
 import factCards from "./factCards";
+import fancybox from "./fancybox";
 import headerMenu from "./headerMenu";
 import modals from "./modals";
 import passwordToggles from "./passwordToggles";
@@ -23,6 +24,7 @@ export default function ui() {
   educationRatings();
   educationSection();
   factCards();
+  fancybox();
   headerMenu();
   modals();
   passwordToggles();
