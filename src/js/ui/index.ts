@@ -12,6 +12,7 @@ import modals from "./modals";
 import passwordToggles from "./passwordToggles";
 import profileEditForms from "./profileEditForms";
 import profileStatsCards from "./profileStatsCards";
+import protectedVideos from "./protectedVideos";
 import quizOptionsSliders from "./quizOptionsSliders";
 import selects from "./selects";
 
@@ -30,6 +31,7 @@ export default function ui() {
   passwordToggles();
   profileEditForms();
   profileStatsCards();
+  protectedVideos();
   quizOptionsSliders();
   selects();
 }
