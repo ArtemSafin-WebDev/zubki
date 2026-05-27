@@ -34,6 +34,17 @@
     bottom: 100%;
     margin-bottom: -2rem;
     margin-left: -3rem;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s ease,
+      visibility 0s linear 0.4s;
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
 
     @include breakpoints.mobile {
       margin-left: 0.8rem;

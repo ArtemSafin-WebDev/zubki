@@ -1,5 +1,7 @@
 var TOOTHGUY_VIDEO_SELECTOR = ".js-toothguy-video";
+var TOOTHGUY_BUBBLE_SELECTOR = ".js-toothguy-bubble";
 var DEFAULT_PLAY_DELAY = 3000;
+var DEFAULT_BUBBLE_DELAY = 1200;
 var scheduledVideos = new WeakSet();
 
 function getPlayDelay(video) {
@@ -8,9 +10,31 @@ function getPlayDelay(video) {
   return Number.isFinite(delay) && delay >= 0 ? delay : DEFAULT_PLAY_DELAY;
 }
 
+function getBubbleDelay(bubble) {
+  var delay = Number(bubble.dataset.toothguyBubbleDelay);
+
+  return Number.isFinite(delay) && delay >= 0 ? delay : DEFAULT_BUBBLE_DELAY;
+}
+
+function showToothguyBubble(toothguy) {
+  if (!toothguy) return;
+
+  var bubble = toothguy.querySelector(TOOTHGUY_BUBBLE_SELECTOR);
+
+  if (!bubble) return;
+
+  window.setTimeout(function () {
+    if (!bubble.isConnected) return;
+
+    bubble.classList.add("is-visible");
+  }, getBubbleDelay(bubble));
+}
+
 function playVideo(video) {
   video.currentTime = 0;
-  video.play().catch(function () {});
+  video.play().then(function () {
+    showToothguyBubble(video.closest(".toothguy"));
+  }).catch(function () {});
 }
 
 function initToothguyVideos(root) {

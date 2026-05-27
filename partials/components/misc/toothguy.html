@@ -8,7 +8,7 @@
     </div>
 
     {{#unless hideBubble}}
-        <div class="speech-bubble-shadow toothguy__bubble-wrap">
+        <div class="speech-bubble-shadow toothguy__bubble-wrap js-toothguy-bubble" data-toothguy-bubble-delay="1200">
             <div class="speech-bubble toothguy__bubble{{#if bubbleClass}} {{ bubbleClass }}{{/if}}">
                 <p class="speech-bubble__text toothguy__text{{#if bubbleTextClass}} {{ bubbleTextClass }}{{/if}}">
                     {{#if bubbleText}}
