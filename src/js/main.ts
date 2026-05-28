@@ -1,4 +1,5 @@
 import "virtual:svg-icons-register";
+import "plyr/dist/plyr.css";
 import "../scss/style.scss";
 import ui from "./ui";
 import sections from "./sections";

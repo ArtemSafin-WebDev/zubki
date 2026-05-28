@@ -1,4 +1,5 @@
 import accordions from "./accordions";
+import articleVideoPlayers from "./articleVideoPlayers";
 import categoryVideoCards from "./categoryVideoCards";
 import cookieBanner from "./cookieBanner";
 import calendarBoards from "./calendarBoards";
@@ -18,6 +19,7 @@ import selects from "./selects";
 
 export default function ui() {
   accordions();
+  articleVideoPlayers();
   calendarBoards();
   categoryVideoCards();
   cookieBanner();
