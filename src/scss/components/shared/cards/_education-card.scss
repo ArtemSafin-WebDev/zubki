@@ -61,10 +61,16 @@
     background-color: var(--white);
   }
 
-  .education-card__tag--type {
+  .education-card__tag--article {
     color: var(--white);
     background-color: var(--accent-orange);
     border-color: var(--accent-orange);
+  }
+
+  .education-card__tag--video {
+    color: var(--white);
+    background-color: var(--text-light-blue);
+    border-color: var(--text-light-blue);
   }
 
   .education-card__title-wrap {
