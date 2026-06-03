@@ -4,6 +4,7 @@ import categoryVideoCards from "./categoryVideoCards";
 import cookieBanner from "./cookieBanner";
 import calendarBoards from "./calendarBoards";
 import dashboard from "./dashboard";
+import educationAudioCards from "./educationAudioCards";
 import educationSection from "./educationSection";
 import educationRatings from "./educationRatings";
 import factCards from "./factCards";
@@ -24,6 +25,7 @@ export default function ui() {
   categoryVideoCards();
   cookieBanner();
   dashboard();
+  educationAudioCards();
   educationRatings();
   educationSection();
   factCards();

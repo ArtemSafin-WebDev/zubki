@@ -19,6 +19,20 @@ export default {
     educationRatingInitial: 0,
     educationCards: [
       {
+        typeLabel: "Аудио",
+        typeModifier: "audio",
+        durationLabel: "9 минут",
+        title:
+          "Сказка про королевство здоровых зубов и необходимости правильной гигиены",
+        image: "/images/education-card/audio-kingdom.webp",
+        audioSrc: "/audio/education-card/healthy-teeth-kingdom.mp3",
+        audioDuration: "01:13",
+        ctaLabel:
+          "Слушать сказку про королевство здоровых зубов и необходимость правильной гигиены",
+        pauseLabel:
+          "Поставить на паузу сказку про королевство здоровых зубов и необходимость правильной гигиены",
+      },
+      {
         typeLabel: "Видеолекция",
         durationLabel: "3 минуты",
         title: "Правила индивидуальной гигиены",

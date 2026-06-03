@@ -6,6 +6,15 @@
     grid-template-columns: minmax(0, 1fr);
     flex-grow: 1;
     grid-template-areas: "stack";
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
     &::before {
       content: "";
       display: block;
@@ -15,6 +24,15 @@
       @include breakpoints.mobile {
         padding-bottom: 127%;
       }
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:focus-visible .education-card__content {
+      outline: 0.2rem solid var(--text-light-blue);
+      outline-offset: 0.3rem;
     }
   }
 
@@ -71,6 +89,12 @@
     color: var(--white);
     background-color: var(--text-light-blue);
     border-color: var(--text-light-blue);
+  }
+
+  .education-card__tag--audio {
+    color: var(--white);
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
   }
 
   .education-card__title-wrap {
@@ -159,6 +183,62 @@
       width: 1.2rem;
       height: 1.2rem;
       fill: currentColor;
+    }
+  }
+
+  .education-card__audio {
+    display: none;
+  }
+
+  .education-card--audio .education-card__cta {
+    width: auto;
+    min-height: 4rem;
+    gap: 1.2rem;
+    padding: 0.4rem 0.4rem 0.4rem 2rem;
+    border-radius: 10rem;
+    font-family: var(--desktop-body-font-family);
+    font-size: var(--desktop-body-font-size);
+    font-weight: var(--desktop-body-font-weight);
+    line-height: var(--desktop-body-line-height);
+    letter-spacing: var(--desktop-body-letter-spacing);
+    font-variant-numeric: lining-nums tabular-nums;
+    color: var(--white);
+    transition: background-color 0.2s ease;
+  }
+
+  .education-card__cta-label {
+    white-space: nowrap;
+  }
+
+  .education-card__cta-icon {
+    width: 3.2rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--white);
+    color: var(--text-light-blue);
+  }
+
+  .education-card__icon--pause {
+    display: none;
+  }
+
+  .education-card--audio.is-playing {
+    .education-card__icon--play {
+      display: none;
+    }
+
+    .education-card__icon--pause {
+      display: block;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .education-card--audio:hover .education-card__cta {
+      background-color: var(--text-light-blue-hover);
     }
   }
 }

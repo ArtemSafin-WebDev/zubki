@@ -1,7 +1,49 @@
+{{#if audioSrc}}
+<button
+    class="education-card education-card--audio js-education-audio-card"
+    type="button"
+    data-audio-duration="{{ audioDuration }}"
+    data-play-label="{{ ctaLabel }}"
+    data-pause-label="{{ pauseLabel }}"
+    {{#if ctaLabel}}aria-label="{{ ctaLabel }}"{{/if}}
+    aria-pressed="false"
+>
+    <div class="education-card__content">
+        <div class="education-card__top">
+            <span class="education-card__tag education-card__tag--type{{#if typeModifier}} education-card__tag--{{ typeModifier }}{{/if}}">{{ typeLabel }}</span>
+            <span class="education-card__tag education-card__tag--duration">{{ durationLabel }}</span>
+        </div>
+
+        <div class="education-card__title-wrap">
+            <h3 class="education-card__title">{{ title }}</h3>
+            {{#if subtitle}}
+                <p class="education-card__subtitle">{{{ subtitle }}}</p>
+            {{/if}}
+        </div>
+
+        <div class="education-card__media">
+            <img class="education-card__image" src="{{ image }}" alt="" loading="lazy">
+            <span class="education-card__cta education-card__audio-control" aria-hidden="true">
+                <span class="education-card__cta-label js-education-audio-card-label">Слушать</span>
+                <span class="education-card__cta-icon">
+                    <svg class="education-card__icon education-card__icon--play" width="12" height="12" aria-hidden="true">
+                        <use href="#play"></use>
+                    </svg>
+                    <svg class="education-card__icon education-card__icon--pause" width="12" height="12" aria-hidden="true">
+                        <use href="#pause"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+
+        <audio class="education-card__audio" src="{{ audioSrc }}" preload="metadata"></audio>
+    </div>
+</button>
+{{else}}
 <a class="education-card" href="{{ href }}" {{#if ctaLabel}}aria-label="{{ ctaLabel }}" {{/if}}>
     <div class="education-card__content">
         <div class="education-card__top">
-            <span class="education-card__tag education-card__tag--type">{{ typeLabel }}</span>
+            <span class="education-card__tag education-card__tag--type{{#if typeModifier}} education-card__tag--{{ typeModifier }}{{/if}}">{{ typeLabel }}</span>
             <span class="education-card__tag education-card__tag--duration">{{ durationLabel }}</span>
         </div>
 
@@ -22,3 +64,4 @@
         </div>
     </div>
 </a>
+{{/if}}
