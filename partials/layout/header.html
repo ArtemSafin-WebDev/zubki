@@ -1,31 +1,31 @@
 <header class="page-header">
     <div class="page-header__row">
+        <div class="page-header__left">
+            <ul class="page-header__organizations-list">
+                <li class="page-header__organizations-list-item">
+                    <div class="page-header__organization-card">
+                        <img src="/images/page-header/organizations/1.webp" alt=""
+                            class="page-header__organization-card-logo-image">
+                    </div>
+                </li>
+                <li class="page-header__organizations-list-item">
+                    <div class="page-header__organization-card">
+                        <img src="/images/page-header/organizations/2.webp" alt=""
+                            class="page-header__organization-card-logo-image">
+                    </div>
+                </li>
+                <li class="page-header__organizations-list-item">
+                    <div class="page-header__organization-card">
+                        <img src="/images/page-header/organizations/3.webp" alt=""
+                            class="page-header__organization-card-logo-image">
+                        <span class="page-header__organization-card-text">
+                            Казанский<br> Государственный<br> Медицинский Университет
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <div class="page-header__menu" id="page-header-menu" aria-hidden="false">
-            <div class="page-header__left">
-                <ul class="page-header__organizations-list">
-                    <li class="page-header__organizations-list-item">
-                        <div class="page-header__organization-card">
-                            <img src="/images/page-header/organizations/1.webp" alt=""
-                                class="page-header__organization-card-logo-image">
-                        </div>
-                    </li>
-                    <li class="page-header__organizations-list-item">
-                        <div class="page-header__organization-card">
-                            <img src="/images/page-header/organizations/2.webp" alt=""
-                                class="page-header__organization-card-logo-image">
-                        </div>
-                    </li>
-                    <li class="page-header__organizations-list-item">
-                        <div class="page-header__organization-card">
-                            <img src="/images/page-header/organizations/3.webp" alt=""
-                                class="page-header__organization-card-logo-image">
-                            <span class="page-header__organization-card-text">
-                                Казанский<br> Государственный<br> Медицинский Университет
-                            </span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
             <div class="page-header__right">
                 <a href="/instruction.html" class="outline-btn">
                     Инструкция
@@ -39,7 +39,7 @@
                     </span>
                 </a>
                 <a href="#" class="page-header__profile">
-                    <img src="/images/page-header/profile.webp" alt="" class="page-header__profile-image">
+                    <img src="/images/page-header/profile-m.webp" alt="" class="page-header__profile-image">
                     <span class="page-header__profile-label">Профиль</span>
                 </a>
             </div>
@@ -48,8 +48,11 @@
             <img src="/images/shared/logo.png" alt="" class="page-header__logo-image">
         </a>
         <button class="outline-btn page-header__menu-toggle" type="button" aria-expanded="false"
-            aria-controls="page-header-menu">
-            Меню
+            aria-controls="page-header-menu" aria-label="Открыть меню">
+            <span class="page-header__menu-toggle-text">Меню</span>
+            <svg width="13" height="12" aria-hidden="true">
+                <use xlink:href="#menu"></use>
+            </svg>
         </button>
     </div>
     <div class="page-header__menu-overlay" aria-hidden="true"></div>
