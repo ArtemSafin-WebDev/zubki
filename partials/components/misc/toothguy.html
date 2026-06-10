@@ -1,13 +1,16 @@
 <section class="toothguy{{#if class}} {{ class }}{{/if}}" aria-hidden="true">
     <div class="toothguy__character">
-        <video class="toothguy__image js-toothguy-video" muted playsinline preload="auto" poster="/images/toothguy/toothguy-poster.webp" width="182" height="182" data-toothguy-video-delay="3000">
-            <source src="/videos/toothguy/toothguy.mov" type='video/quicktime; codecs="hvc1"'>
-            <source src="/videos/toothguy/toothguy.webm" type='video/webm; codecs="vp9"'>
-            <img src="/images/toothguy/toothguy-poster.webp" alt="" loading="lazy" width="182" height="182">
+        <video class="toothguy__image js-toothguy-video" muted playsinline preload="auto" poster="{{#if posterSrc}}{{posterSrc}}{{else}}/images/toothguy/toothguy-poster.webp{{/if}}" width="182" height="182" data-toothguy-video-delay="3000">
+            <source src="{{#if movSrc}}{{movSrc}}{{else}}/videos/toothguy/toothguy.mov{{/if}}" type='video/quicktime; codecs="hvc1"'>
+            <source src="{{#if webmSrc}}{{webmSrc}}{{else}}/videos/toothguy/toothguy.webm{{/if}}" type='video/webm; codecs="vp9"'>
+            <img src="{{#if posterSrc}}{{posterSrc}}{{else}}/images/toothguy/toothguy-poster.webp{{/if}}" alt="" loading="lazy" width="182" height="182">
             <!-- Temporary alternate toothguy video:
             <source src="/videos/toothguy/toothguy-alt.mov" type='video/quicktime; codecs="hvc1"'>
             <source src="/videos/toothguy/toothguy-alt.webm" type='video/webm; codecs="vp9"'>
             <img src="/images/toothguy/toothguy-alt-poster.webp" alt="" loading="lazy" width="182" height="182">
+            <source src="/videos/toothguy/toothguy-v3.mov" type='video/quicktime; codecs="hvc1"'>
+            <source src="/videos/toothguy/toothguy-v3.webm" type='video/webm; codecs="vp9"'>
+            <img src="/images/toothguy/toothguy-v3-poster.webp" alt="" loading="lazy" width="182" height="182">
             -->
         </video>
     </div>
