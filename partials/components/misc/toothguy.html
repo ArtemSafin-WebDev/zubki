@@ -1,6 +1,6 @@
 <section class="toothguy{{#if class}} {{ class }}{{/if}}" aria-hidden="true">
     <div class="toothguy__character">
-        <video class="toothguy__image js-toothguy-video" muted playsinline preload="auto" poster="{{#if posterSrc}}{{posterSrc}}{{else}}/images/toothguy/toothguy-poster.webp{{/if}}" width="182" height="182" data-toothguy-video-delay="3000">
+        <video class="toothguy__image js-toothguy-video" muted playsinline preload="auto" poster="{{#if posterSrc}}{{posterSrc}}{{else}}/images/toothguy/toothguy-poster.webp{{/if}}" width="182" height="182" data-toothguy-video-delay="3000" data-toothguy-safari-src="{{#if animatedSrc}}{{animatedSrc}}{{else}}/images/toothguy/animated-apng/toothguy.png?v=2{{/if}}">
             <source src="{{#if movSrc}}{{movSrc}}{{else}}/videos/toothguy/toothguy.mov{{/if}}" type='video/quicktime; codecs="hvc1"'>
             <source src="{{#if webmSrc}}{{webmSrc}}{{else}}/videos/toothguy/toothguy.webm{{/if}}" type='video/webm; codecs="vp9"'>
             <img src="{{#if posterSrc}}{{posterSrc}}{{else}}/images/toothguy/toothguy-poster.webp{{/if}}" alt="" loading="lazy" width="182" height="182">
