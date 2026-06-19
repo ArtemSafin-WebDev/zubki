@@ -1,0 +1,111 @@
+@use "tokens/breakpoints";
+
+@layer layout {
+  .pages-list-page {
+    flex-grow: 1;
+    display: flex;
+    padding: var(--content-padding);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0)),
+      var(--background-sky);
+  }
+
+  .pages-list {
+    width: min(100%, 96rem);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .pages-list__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .pages-list__title {
+    margin: 0;
+    font-family: var(--desktop-h1-font-family);
+    font-size: var(--desktop-h1-font-size);
+    font-weight: var(--desktop-h1-font-weight);
+    line-height: var(--desktop-h1-line-height);
+    letter-spacing: var(--desktop-h1-letter-spacing);
+    color: var(--primary-text-active);
+  }
+
+  .pages-list__lead {
+    margin: 0;
+    max-width: 48rem;
+    color: var(--text-light-blue);
+  }
+
+  .pages-list__items {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    list-style: none;
+  }
+
+  .pages-list__link {
+    min-height: 9.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding: 1.8rem;
+    border: 0.1rem solid var(--component-stroke);
+    border-radius: 0.8rem;
+    color: var(--text-light-blue);
+    text-decoration: none;
+    background-color: var(--component-fill);
+  }
+
+  .pages-list__link:hover {
+    color: var(--primary-text-white);
+    border-color: var(--primary-shape-default);
+    background-color: var(--primary-shape-default);
+  }
+
+  .pages-list__link-title {
+    font-family: var(--desktop-h3-font-family);
+    font-size: var(--desktop-h3-font-size);
+    font-weight: var(--desktop-h3-font-weight);
+    line-height: var(--desktop-h3-line-height);
+    letter-spacing: var(--desktop-h3-letter-spacing);
+    color: inherit;
+  }
+
+  .pages-list__link-url {
+    font-size: var(--desktop-caption-regular-font-size);
+    line-height: var(--desktop-caption-regular-line-height);
+    color: inherit;
+    overflow-wrap: anywhere;
+    opacity: 0.72;
+  }
+
+  @include breakpoints.mobile {
+    .pages-list-page {
+      min-height: 100dvh;
+    }
+
+    .pages-list {
+      margin: 0;
+      gap: 2.4rem;
+    }
+
+    .pages-list__title {
+      font-family: var(--mobile-h1-font-family);
+      font-size: var(--mobile-h1-font-size);
+      font-weight: var(--mobile-h1-font-weight);
+      line-height: var(--mobile-h1-line-height);
+      letter-spacing: var(--mobile-h1-letter-spacing);
+    }
+
+    .pages-list__items {
+      grid-template-columns: 1fr;
+    }
+  }
+}
