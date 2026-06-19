@@ -19,7 +19,8 @@
     margin-top: 2.4rem;
 
     @include breakpoints.mobile {
-      display: block;
+      display: flex;
+      flex-direction: column;
       margin-top: 2rem;
     }
   }
@@ -30,10 +31,26 @@
     min-width: 0;
     display: flex;
     align-items: flex-end;
+
+    @include breakpoints.mobile {
+      order: 2;
+      align-items: flex-start;
+      margin-top: 1.2rem;
+    }
+  }
+
+  .article-video-page__aside > .toothguy {
+    @include breakpoints.mobile {
+      margin-top: 0;
+    }
   }
 
   .article-video-page__aside--ghost {
     opacity: 0;
+
+    @include breakpoints.mobile {
+      display: none;
+    }
   }
 
   .article-video-page__card {
@@ -48,6 +65,7 @@
     box-shadow: 0 0.4rem 1.6rem 0 rgba(143, 203, 255, 0.4);
 
     @include breakpoints.mobile {
+      order: 1;
       width: 100%;
       padding: 1.2rem;
     }

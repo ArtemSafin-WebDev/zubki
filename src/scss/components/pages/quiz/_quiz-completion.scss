@@ -32,7 +32,15 @@
     display: flex;
 
     @include breakpoints.mobile {
-      display: none;
+      order: 2;
+      align-self: flex-start;
+      margin-top: 1.2rem;
+    }
+  }
+
+  .quiz-completion__toothguy-wrap > .toothguy {
+    @include breakpoints.mobile {
+      margin-top: 0;
     }
   }
 
@@ -43,6 +51,7 @@
     flex-direction: column;
 
     @include breakpoints.mobile {
+      order: 1;
       grid-column: 1 / -1;
       flex-grow: 1;
     }

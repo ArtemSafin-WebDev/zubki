@@ -35,7 +35,14 @@
     min-height: 0;
 
     @include breakpoints.mobile {
-      display: none;
+      order: 2;
+      margin-top: 1.2rem;
+    }
+  }
+
+  .instruction-page__aside > .toothguy {
+    @include breakpoints.mobile {
+      margin-top: 0;
     }
   }
 
@@ -50,6 +57,7 @@
     overflow: hidden;
 
     @include breakpoints.mobile {
+      order: 1;
       grid-column: 1 / -1;
       min-height: auto;
       border-radius: 1.6rem;

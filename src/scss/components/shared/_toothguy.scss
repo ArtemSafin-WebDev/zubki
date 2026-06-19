@@ -7,7 +7,12 @@
     margin-right: auto;
 
     @include breakpoints.mobile {
-      display: none;
+      --toothguy-character-size: 16rem;
+      --toothguy-bubble-overlap: 2.4rem;
+      --toothguy-bubble-mobile-max-width: calc(
+        100vw - var(--content-padding) - var(--content-padding) -
+          var(--toothguy-character-size) + var(--toothguy-bubble-overlap)
+      );
     }
   }
 
@@ -16,6 +21,10 @@
     /*width: 18.2rem;*/
     width: 28.2rem;
     position: relative;
+
+    @include breakpoints.mobile {
+      width: var(--toothguy-character-size);
+    }
   }
 
   .toothguy__image {
@@ -52,13 +61,18 @@
     }
 
     @include breakpoints.mobile {
-      margin-left: 0.8rem;
-      margin-bottom: -2rem;
+      max-width: var(--toothguy-bubble-mobile-max-width);
+      margin-left: calc(0rem - var(--toothguy-bubble-overlap));
+      margin-bottom: -3.2rem;
     }
   }
 
   .toothguy__bubble {
     width: max-content;
     max-width: 25rem;
+
+    @include breakpoints.mobile {
+      max-width: min(22rem, var(--toothguy-bubble-mobile-max-width));
+    }
   }
 }

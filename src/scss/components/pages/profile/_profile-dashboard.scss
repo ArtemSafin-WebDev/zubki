@@ -446,7 +446,9 @@
     }
 
     .profile-dashboard__toothguy {
-      display: none;
+      display: block;
+      align-self: flex-start;
+      margin-top: 1.2rem;
     }
 
     .profile-dashboard__stats-head {
